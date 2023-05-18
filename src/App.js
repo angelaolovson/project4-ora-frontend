@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Routes, Navigate, Route} from 'react-router-dom';
 import Index from './pages/Index';
 import Show from './pages/Show';
 import Profile from './pages/Profile';
@@ -14,8 +14,7 @@ function App() {
   let routes;
 
   routes = (
-    <Router>
-      <Switch>
+    <Routes>
         <Route exact={true} path="/" element={<Index/>} />
         <Route path="/listing/:id" element={<Show />} />
         <Route path="/user/profile" element={<Profile />} />
@@ -24,17 +23,16 @@ function App() {
         <Route path="/user/:id" element = {<Host />} />
         {/* and more, not sure, will see */}
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Switch>  
-    </Router>
+    </Routes>
   );
 
   return (
     <div className="App">
-      App.js
+
       <header>
         <MainNav />
       </header>
-      <main>{routes}</main>
+      <main>{Routes}</main>
     </div>
   );
 }
