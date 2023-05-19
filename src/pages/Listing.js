@@ -1,0 +1,56 @@
+import { useEffect, useState } from 'react'
+import PropertyItem from '../components/Listing/PropertyItem';
+import { Row, Col } from 'react-bootstrap';
+import './Listing.css'
+import SecNav from '../components/Nav/SecNav';
+
+
+const Listing = () => {
+  const [propertiesState, setPropertiesState] = useState(null);
+
+  const URL = "https://airbnb-main.onrender.com";
+
+  useEffect(() => {
+    console.log("UseEffect ran")
+    const fetchProperties = async () => {
+      try {
+        let responseData = await fetch(URL);
+        let allProperties = await responseData.json()
+        console.log(allProperties);
+        setPropertiesState(allProperties)
+      } catch (error) {
+        console.log(error)
+      };
+    };
+
+    fetchProperties();
+  },[]);
+
+  let propertiesList
+
+  if (propertiesState) {
+    propertiesList = propertiesState.map((property, index) => (
+        <Col key={index}>
+          <PropertyItem  property={property} />
+        </Col>
+    ))
+  }
+
+
+  return (
+    <>
+      <SecNav />
+      <div className='allProperties'>
+        {propertiesState ? (
+          <Row xs={1} md={4} className="g-4">
+            {propertiesList}
+          </Row>
+        ) : (
+          <h2>LOADING</h2>
+        )}
+      </div>
+    </>
+  )
+}
+
+export default Listing;
