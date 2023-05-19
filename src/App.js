@@ -10,8 +10,11 @@ import Profile from './pages/Profile'
 import EachProperty from './pages/EachProperty';
 
 
+
+
 function App() {
   let routes;
+
 
   routes = (
     <Routes>
@@ -25,6 +28,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
+
 
   return (
     <div className="App">
