@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import PropertyItem from '../components/Listing/PropertyItem';
+import { Row, Col } from 'react-bootstrap';
+import './Listing.css'
 
-const Index = () => {
+
+const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
 
   const URL = "https://airbnb-main.onrender.com";
@@ -25,14 +28,20 @@ const Index = () => {
   let propertiesList
 
   if (propertiesState) {
-    propertiesList = propertiesState.map((property, index) => {
-      return<PropertyItem key={index} property={property} />
-    })
+    propertiesList = propertiesState.map((property, index) => (
+        <Col key={index}>
+          <PropertyItem  property={property} />
+        </Col>
+    ))
   }
+
+
   return (
     <div className='allProperties'>
       {propertiesState ? (
-        <ul>{propertiesList}</ul>
+        <Row xs={1} md={4} className="g-4">
+          {propertiesList}
+        </Row>
       ) : (
         <h2>LOADING</h2>
       )}
@@ -40,4 +49,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Listing;

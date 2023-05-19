@@ -1,1 +1,8 @@
- 
+.propertyItem{
+    margin: 5px;
+}
+
+.cardTitle{
+    font-size: 15px;
+    padding: 0;
+ }
