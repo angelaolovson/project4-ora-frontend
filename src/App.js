@@ -31,7 +31,7 @@ function App() {
       <header>
         <MainNav />
       </header>
-      <main>{Routes}</main>
+      <main>{routes}</main>
     </div>
   );
 }
