@@ -6,11 +6,11 @@ import { Card } from 'react-bootstrap'
 	  
 function PropertyItem(props) {
 	const {property} = props
-	console.log(property._id)
+	console.log("prpperty.id",property,property._id)
 
     return (
 		
-		<NavLink to={`/${property._id}`}>
+		<NavLink to={`/listing/${property._id}`}>
 			<Card className="propertyitem">
 				<Card.Img variant="top" src={property.images[0]} />
 				<Card.Body className='cardBody'>
