@@ -6,30 +6,41 @@ import Modal from 'react-bootstrap/Modal';
 function LogInModal({show, handleClose}) {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event) => {
+    
     event.preventDefault();
     const logIn = {
       email: email,
       password: password,
     };
 
-    console.log("New Person, yo: ", logIn);
-
+try{
     const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(logIn),
-    };
-    const responseData = await fetch(
-      "https://airbnb-jade.onrender.com/user/login",
-      options
-    );
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(logIn),
+      };
+      const responseData = await fetch(
+        "https://airbnb-jade.onrender.com/user/login",
+        options
+      );
+      const newPersonObj = await responseData.json();
+    console.log(newPersonObj)
+      if(responseData.ok){
+          console.log("Login sucessful");
+          handleClose();
+      }else {
+          setErrorMessage("Email or password do not match");
+          console.log("Login failed:")
+      }
 
-    const newPersonObj = await responseData.json();
-    console.log(newPersonObj);
+}catch(error){
+    console.error('Login error:',error)
+}   
   };
   return (
     <>
@@ -59,12 +70,13 @@ function LogInModal({show, handleClose}) {
                 onChange ={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            </Form>
-        </Modal.Body>
-        <Modal.Footer>
-        <Button variant="warning" size="lg" onClick={handleClose}>
+            <Button variant="warning" size="lg" type='submit'>
             Log In
           </Button> 
+            </Form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </Modal.Body>
+        <Modal.Footer>
         </Modal.Footer>
       </Modal>
     </>
