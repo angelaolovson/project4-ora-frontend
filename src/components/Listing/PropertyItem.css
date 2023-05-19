@@ -1,8 +1,21 @@
 .propertyItem{
     margin: 5px;
+    
+}
+
+.cardBody{
+    padding: 5px 0 5px 0;
 }
 
 .cardTitle{
-    font-size: 15px;
+    font-size: 12px;
     padding: 0;
- }
+    text-align: left;
+    font-weight: 700;
+}
+
+.cardText{
+    font-size: 12px;
+    padding: 0;
+    text-align: left;
+}

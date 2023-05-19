@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import PropertyItem from '../components/Listing/PropertyItem';
 import { Row, Col } from 'react-bootstrap';
 import './Listing.css'
+import SecNav from '../components/Nav/SecNav';
 
 
 const Listing = () => {
@@ -37,15 +38,18 @@ const Listing = () => {
 
 
   return (
-    <div className='allProperties'>
-      {propertiesState ? (
-        <Row xs={1} md={4} className="g-4">
-          {propertiesList}
-        </Row>
-      ) : (
-        <h2>LOADING</h2>
-      )}
-    </div>
+    <>
+      <SecNav />
+      <div className='allProperties'>
+        {propertiesState ? (
+          <Row xs={1} md={4} className="g-4">
+            {propertiesList}
+          </Row>
+        ) : (
+          <h2>LOADING</h2>
+        )}
+      </div>
+    </>
   )
 }
 
