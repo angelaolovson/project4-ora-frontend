@@ -7,17 +7,27 @@ import SecNav from '../components/Nav/SecNav';
 
 const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
+  const [cityState, setCityState] = useState(null);
+  const [countryState, setCountryState] = useState(null);
 
   const URL = "https://airbnb-main.onrender.com";
 
   useEffect(() => {
-    console.log("UseEffect ran")
     const fetchProperties = async () => {
       try {
         let responseData = await fetch(URL);
+        
         let allProperties = await responseData.json()
-        console.log(allProperties);
+        console.log(allProperties)
+        //Retrieve the city and country from the response
+        const {city, country} = allProperties;
+
+
         setPropertiesState(allProperties)
+        setCityState(city);
+        setCountryState(country);
+        
+        console.log(city,country,"city and country")
       } catch (error) {
         console.log(error)
       };
@@ -39,7 +49,7 @@ const Listing = () => {
 
   return (
     <>
-      <SecNav />
+      <SecNav setPropertiesState={setPropertiesState} />
       <div className='allProperties'>
         {propertiesState ? (
           <Row xs={1} md={4} className="g-4">
