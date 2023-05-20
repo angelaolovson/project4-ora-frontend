@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 import "./MainNav.css";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -60,7 +60,7 @@ useEffect(() => {
       <Container >
         <Navbar.Brand href="/">Airbnb Name?</Navbar.Brand>
           <SearchBar/>
-          <NavDropdown title={currentUser ? currentUser: "User"} id="navbarScrollingDropdown" >
+          <NavDropdown title={currentUser ? currentUser.username: "User"} id="navbarScrollingDropdown" >
             {isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>

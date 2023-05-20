@@ -40,7 +40,7 @@ try{
         
         //change Nav status
           handleLoginStatus(true);
-          handleCurrentUser(currentUser.username)
+          handleCurrentUser(currentUser)
           console.log("Login sucessful");
           handleClose();
       } else {

@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Autocomplete from 'react-google-autocomplete';
 
 
-const NewProperty = () => {
+const NewProperty = ({currentUser}) => {
   const [titleState, setTitleState] = useState("");
   const [priceState, setPriceState] = useState("");
   const [propertyState, setPropertyState] = useState("");
@@ -15,14 +15,29 @@ const NewProperty = () => {
   const [roomState, setRoomState] = useState("");
   const [bedState, setBedState] = useState("");
   const [bathroomState, setBathroomState] = useState("");
+  const [addressState, setAddressState] = useState("");
   const [imgState, setImgState] = useState(['','','','','']);
 
   const onChangeHandler = (e,setValue) => {
     setValue(e.target.value);
   }
-  //console.log(roomState)
+  const newListingtest = {
+    host: '6466f95f2039514714551fdd',
+    title: titleState,
+    images: imgState.filter((url)=>url.trim()!==""),
+    types: propertyState,
+    price: priceState,
+    share: privacyState,
+    amenities: amenitiesState,
+    address: addressState,
+    guestNumber: guestState,
+    bedroomNumber: roomState,
+    bedNumber: bedState,
+    bathroomNumber: bathroomState,
+  }
+  console.log(newListingtest)
   const handleAmenitiesChange = (e) => {
-    const {value, checked} = e.target.value;
+    const {value, checked} = e.target;
     if(checked) {
       setAmenitiesState((prevAmenities) => [...prevAmenities, value]);
     } else {
@@ -34,14 +49,58 @@ const NewProperty = () => {
     newImgUrls[index] = e.target.value;
     setImgState(newImgUrls);
   }
+ 
+  const handleSubmit = async (event) => {
+    console.log('submit')
+    event.preventDefault();
+      const newListing = {
+        host: '6466f95f2039514714551fdd',
+        title: titleState,
+        images: imgState.filter((url)=>url.trim()!==""),
+        types: propertyState,
+        price: priceState,
+        share: privacyState,
+        amenities: amenitiesState,
+        address: addressState,
+        guestNumber: guestState,
+        bedroomNumber: roomState,
+        bedNumber: bedState,
+        bathroomNumber: bathroomState,
+      }
+     console.log('new listing',newListing);
+    try{   
+     const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newListing),
+     };
+     try{
+      const responseData = await fetch(
+        "https://airbnb-jade.onrender.com/listing", options
+       )
+       const newListingObj = await responseData.json();
+       console.log(newListingObj)
+     } catch (error) {
+      console.log(error)
+     }
+    
+
+    } catch (error){
+      console.log(error)
+     }
+ 
+  };
+
   //console.log(amenitiesState)
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label> Title</Form.Label>
           <Form.Control 
-            type="email" 
+            type="text" 
             value ={titleState} 
             placeholder="Amazing Tower View Apartment" 
             onChange={(e) => onChangeHandler(e, setTitleState)}/>
@@ -52,9 +111,9 @@ const NewProperty = () => {
             apiKey = 'AIzaSyAMeybeGnYDIWY5PJgYJwQLzuqwCuSbQbg'
             type = {["address","geocode","establishment"]}
             placeholder="Enter address"
-            onPlaceSelected={(place) => {
-              console.log(place);
-            }} />
+            onPlaceSelected={(place) => {console.log(place)}} 
+            value = {addressState}
+            onChange={(e) => onChangeHandler(e, setAddressState)}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Price Per Night</Form.Label>
