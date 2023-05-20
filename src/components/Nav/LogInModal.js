@@ -7,7 +7,7 @@ function LogInModal(props) {
   const {show, handleClose,handleLoginStatus,handleCurrentUser} = props;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('hi');
 
   const handleSubmit = async (event) => {
     
@@ -26,16 +26,21 @@ try{
         body: JSON.stringify(logIn),
       };
       const responseData = await fetch(
-        "https://airbnb-main.onrender.com/user/login",
-        options
+        "https://airbnb-jade.onrender.com/user/login", options
       );
+
       const LoginObj = await responseData.json();
-    console.log(LoginObj)
+      
       if(responseData.ok) {
-         const {token, user} = LoginObj;
+        //extract token and user
+         const {token, currentUser} = LoginObj;
+
+        // storage token in localStorage
          localStorage.setItem('token', token);
+        
+        //change Nav status
           handleLoginStatus(true);
-          handleCurrentUser(user.username)
+          handleCurrentUser(currentUser.username)
           console.log("Login sucessful");
           handleClose();
       } else {

@@ -13,7 +13,7 @@ function MainNav() {
 
 const [showSignUpModal, setShowSignUpModal] = useState(false);
 const [showLogInModal, setShowLogInModal] = useState(false);
-const [currentUser, setCurrentUser] = useState(null);
+const [currentUser, setCurrentUser] = useState(" ");
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 const handleSignUpModalOpen = () => setShowSignUpModal(true);
@@ -30,24 +30,30 @@ const handleCurrentUser = (data) => {
 }
 
 useEffect(() => {
+  //get token from local storage
   const token = localStorage.getItem('token');
+  const validateToken = async () => {
   if(token){
-    fetch('https://airbnb-main.onrender.com/user/validateToken', {
-      headers: {
-        Authorization: 'Bearer ${token}',
-      },
-    })
-    .then((response)=>response.json())
-    .then((data)=>{
+    try{
+      const response = await fetch('https://airbnb-jade.onrender.com/user/validation',{
+        headers:{
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
       if(data.valid){
         handleLoginStatus(true);
         handleCurrentUser(data.user.username);
       } else {
         localStorage.removeItem('token');
       }
-      })
+    } catch (error){
+      console.log('Token validation error', error);
+    }
+  };
+  validateToken();
 }
-}, [])
+},[]);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -77,6 +83,9 @@ useEffect(() => {
               </>
             )}      
               <NavDropdown.Divider />
+              <NavDropdown.Item href="/listing/new">
+                Airbnb Your Home
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action5">
                 <a href="https://www.airbnb.com/help?audience=guest" target="_blank" rel="noopener noreferrer">
                         Help
