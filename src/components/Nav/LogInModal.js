@@ -9,7 +9,7 @@ function LogInModal(props) {
   const {show, handleClose} = props;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('hi');
+  const [errorMessage, setErrorMessage] = useState('');
   const auth = useContext(AuthContext)
   console.log(auth)
 
@@ -32,7 +32,7 @@ try{
       const responseData = await fetch(
         "http://localhost:4000/user/login", options
       );
-      
+
       const LoginObj = await responseData.json();
       console.log(LoginObj)
       

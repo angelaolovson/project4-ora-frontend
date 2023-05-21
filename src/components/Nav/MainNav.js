@@ -22,7 +22,7 @@ const handleSignUpModalClose = () => setShowSignUpModal(false);
 const handleLogInModalOpen = () => setShowLogInModal(true);
 const handleLogInModalClose = () => setShowLogInModal(false);
 const auth = useContext(AuthContext)
-console.log("context state🥲😍🥲",auth)
+//console.log("context state🥲😍🥲",auth)
 // const handleLoginStatus = (isLoggedIn) => {
 //   setIsLoggedIn(isLoggedIn);
 // };
@@ -38,7 +38,7 @@ const handleCurrentUser = (data) => {
       <Container >
         <Navbar.Brand href="/">Airbnb Name?</Navbar.Brand>
           <SearchBar/>
-          <NavDropdown title={currentUser ? currentUser.username: "User"} id="navbarScrollingDropdown" >
+          <NavDropdown title={auth.isLoggedIn ? "Welcome" : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
@@ -52,7 +52,7 @@ const handleCurrentUser = (data) => {
                     <LogInModal 
                       show={showLogInModal}
                       handleClose ={handleLogInModalClose}
-                      handleCurrentUser ={handleCurrentUser}/>
+                    />
                 <NavDropdown.Item onClick = {handleSignUpModalOpen}>Sign Up</NavDropdown.Item>
                     <SignUpModal 
                     show={showSignUpModal} 

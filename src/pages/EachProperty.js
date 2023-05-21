@@ -6,11 +6,11 @@ import Map from '../components/Listing/Map'
 
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
-  console.log(eachPropertyState,"each property state")
+  //console.log(eachPropertyState,"each property state")
   
   const {id} = useParams();
-  console.log(id)
-  console.log(useParams())
+  // console.log(id)
+  // console.log(useParams())
   const url = `https://airbnb-main.onrender.com/listing/${id}`;
   
   useEffect(() => {
@@ -18,11 +18,11 @@ const EachProperty = (property) => {
       console.log("going to fetch property with id of: ", id);
       try {
         const responseData = await fetch(url);
-        console.log("fetching checking start")
-        console.log(responseData)
-        console.log("fetching checking end")
+        // console.log("fetching checking start")
+        // console.log(responseData)
+        // console.log("fetching checking end")
         const eachPropertyData = await responseData.json();
-        console.log(eachPropertyData);
+        //console.log(eachPropertyData);
         setEachPropertyState(eachPropertyData);
       } catch (error) {
         console.log(error)
