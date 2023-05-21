@@ -36,7 +36,7 @@ const handleCurrentUser = (data) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container >
-        <Navbar.Brand href="/">Airbnb Name?</Navbar.Brand>
+        <Navbar.Brand href="/">CasaAmor</Navbar.Brand>
           <SearchBar/>
           <NavDropdown title={auth.isLoggedIn ? "Welcome" : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (
