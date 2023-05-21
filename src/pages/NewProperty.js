@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Autocomplete from 'react-google-autocomplete';
+import Autocomplete from '../components/NewListing/Autocomplete';
+import { AuthContext } from '../context/auth-context';
 
 
-const NewProperty = ({currentUser}) => {
+const NewProperty = () => {
   const [titleState, setTitleState] = useState("");
   const [priceState, setPriceState] = useState("");
   const [propertyState, setPropertyState] = useState("");
@@ -17,25 +18,14 @@ const NewProperty = ({currentUser}) => {
   const [bathroomState, setBathroomState] = useState("");
   const [addressState, setAddressState] = useState("");
   const [imgState, setImgState] = useState(['','','','','']);
+  //authentication
+  const auth = useContext(AuthContext);
 
+  //states handler
   const onChangeHandler = (e,setValue) => {
     setValue(e.target.value);
   }
-  const newListingtest = {
-    host: '6466f95f2039514714551fdd',
-    title: titleState,
-    images: imgState.filter((url)=>url.trim()!==""),
-    types: propertyState,
-    price: priceState,
-    share: privacyState,
-    amenities: amenitiesState,
-    address: addressState,
-    guestNumber: guestState,
-    bedroomNumber: roomState,
-    bedNumber: bedState,
-    bathroomNumber: bathroomState,
-  }
-  console.log(newListingtest)
+
   const handleAmenitiesChange = (e) => {
     const {value, checked} = e.target;
     if(checked) {
@@ -51,10 +41,9 @@ const NewProperty = ({currentUser}) => {
   }
  
   const handleSubmit = async (event) => {
-    console.log('submit')
-    event.preventDefault();
+      event.preventDefault();
       const newListing = {
-        host: '6466f95f2039514714551fdd',
+        host: auth.userId,
         title: titleState,
         images: imgState.filter((url)=>url.trim()!==""),
         types: propertyState,
@@ -68,6 +57,7 @@ const NewProperty = ({currentUser}) => {
         bathroomNumber: bathroomState,
       }
      console.log('new listing',newListing);
+     
     try{   
      const options = {
       method: "POST",
@@ -76,16 +66,12 @@ const NewProperty = ({currentUser}) => {
       },
       body: JSON.stringify(newListing),
      };
-     try{
-      const responseData = await fetch(
-        "https://airbnb-jade.onrender.com/listing", options
-       )
-       const newListingObj = await responseData.json();
-       console.log(newListingObj)
-     } catch (error) {
-      console.log(error)
-     }
-    
+
+     const responseData = await fetch(
+      "https://airbnb-jade.onrender.com/listing", options
+      )
+      const newListingObj = await responseData.json();
+      console.log(newListingObj)
 
     } catch (error){
       console.log(error)
@@ -93,7 +79,6 @@ const NewProperty = ({currentUser}) => {
  
   };
 
-  //console.log(amenitiesState)
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
@@ -103,17 +88,12 @@ const NewProperty = ({currentUser}) => {
             type="text" 
             value ={titleState} 
             placeholder="Amazing Tower View Apartment" 
-            onChange={(e) => onChangeHandler(e, setTitleState)}/>
+            onChange={(e) => onChangeHandler(e, setTitleState)}
+            required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Address</Form.Label>
-          <Autocomplete
-            apiKey = 'AIzaSyAMeybeGnYDIWY5PJgYJwQLzuqwCuSbQbg'
-            type = {["address","geocode","establishment"]}
-            placeholder="Enter address"
-            onPlaceSelected={(place) => {console.log(place)}} 
-            value = {addressState}
-            onChange={(e) => onChangeHandler(e, setAddressState)}/>
+          <Autocomplete setAddress={setAddressState} address={addressState} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Price Per Night</Form.Label>
@@ -122,7 +102,7 @@ const NewProperty = ({currentUser}) => {
             placeholder="$" 
             value ={priceState} 
             onChange={(e) => onChangeHandler(e, setPriceState)}
-            />
+            required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Property Type</Form.Label>
@@ -131,7 +111,7 @@ const NewProperty = ({currentUser}) => {
             defaultValue="Apartment"
             value ={propertyState}
             onChange={(e) => onChangeHandler(e, setPropertyState)}
-            >
+            required>
             <option value="House">House</option>
             <option value="Apartment">Apartment</option>
             <option value="Camper">Camper</option>
@@ -163,6 +143,7 @@ const NewProperty = ({currentUser}) => {
             defaultValue="single-room"
             value ={privacyState}
             onChange={(e) => onChangeHandler(e, setPrivacyState)}
+            required
             >
             <option value="entire-house">Entire Place</option>
             <option value="single-room">Single Room</option>
@@ -175,7 +156,8 @@ const NewProperty = ({currentUser}) => {
           type="number"
           placeholder="2" 
           value ={guestState}
-          onChange={(e) => onChangeHandler(e, setGuestState)}/>
+          onChange={(e) => onChangeHandler(e, setGuestState)}
+          required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Room Number</Form.Label>
@@ -183,7 +165,8 @@ const NewProperty = ({currentUser}) => {
           type="number" 
           placeholder="2" 
           value ={roomState}
-          onChange={(e) => onChangeHandler(e, setRoomState)}/>
+          onChange={(e) => onChangeHandler(e, setRoomState)}
+          required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Bed Number</Form.Label>
@@ -191,7 +174,8 @@ const NewProperty = ({currentUser}) => {
           type="number" 
           placeholder="2"
           value ={bedState}
-          onChange={(e) => onChangeHandler(e, setBedState)} />
+          onChange={(e) => onChangeHandler(e, setBedState)} 
+          required/>
         </Form.Group>
         <Form.Group className="mb-2" controlId="formBasicCheckbox">
           <Form.Label>Bathroom Number</Form.Label>
@@ -199,7 +183,8 @@ const NewProperty = ({currentUser}) => {
           type="number" 
           placeholder="2"
           value ={bathroomState}
-          onChange={(e) => onChangeHandler(e, setBathroomState)} />
+          onChange={(e) => onChangeHandler(e, setBathroomState)} 
+          required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Images</Form.Label>
@@ -210,7 +195,7 @@ const NewProperty = ({currentUser}) => {
           <Form.Control type="text" placeholder="url" value ={imgState[4]} onChange={(e) => handleImgChange(e, 4)} />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Submit
+          Create A Property
         </Button>
       </Form>
     </Container>

@@ -16,7 +16,7 @@ const Listing = () => {
       try {
         let responseData = await fetch(URL);
         let allProperties = await responseData.json()
-        //console.log(allProperties);
+        
         setPropertiesState(allProperties)
       } catch (error) {
         console.log(error)
