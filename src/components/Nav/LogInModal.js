@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { AuthContext } from '../../context/auth-context';
+
 
 function LogInModal(props) {
-  const {show, handleClose,handleLoginStatus,handleCurrentUser} = props;
+  const {show, handleClose} = props;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const auth = useContext(AuthContext)
+  console.log(auth)
 
   const handleSubmit = async (event) => {
     
@@ -26,18 +30,20 @@ try{
         body: JSON.stringify(logIn),
       };
       const responseData = await fetch(
-        "https://airbnb-main.onrender.com/user/login",
-        options
+        "http://localhost:4000/user/login", options
       );
+
       const LoginObj = await responseData.json();
-    console.log(LoginObj)
+      console.log(LoginObj)
+      
       if(responseData.ok) {
-         const {token, user} = LoginObj;
-         localStorage.setItem('token', token);
-          handleLoginStatus(true);
-          handleCurrentUser(user.username)
-          console.log("Login sucessful");
-          handleClose();
+        // set the auth with successfully login info
+        auth.login(LoginObj.currentUser.id,LoginObj.token,LoginObj.currentUser)
+   
+        console.log(LoginObj)
+        console.log("Login sucessful");
+        //close modal
+         handleClose();
       } else {
           setErrorMessage("Email or password do not match");
           console.log("Login failed:")
