@@ -7,8 +7,6 @@ import SecNav from '../components/Nav/SecNav';
 
 const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
-  const [cityState, setCityState] = useState(null);
-  const [countryState, setCountryState] = useState(null);
 
   const URL = "https://airbnb-main.onrender.com";
 
@@ -20,14 +18,9 @@ const Listing = () => {
         let allProperties = await responseData.json()
         console.log(allProperties)
         //Retrieve the city and country from the response
-        const {city, country} = allProperties;
-
-
-        setPropertiesState(allProperties)
-        setCityState(city);
-        setCountryState(country);
         
-        console.log(city,country,"city and country")
+        setPropertiesState(allProperties)
+                
       } catch (error) {
         console.log(error)
       };
