@@ -1,3 +1,68 @@
-.eachProperty{
+.propertyMain{
+    display: flex;
+    justify-content:center;
+    align-items: center;
     text-align: left;
+    border: 3px red solid;
+}
+.eachProperty{
+    border: 3px grey solid;
+    width: 700px;
+    margin-top: 10px;
+}
+
+h2{
+    border: green 2px solid;
+    margin: 0;
+}
+
+.secRow{
+    display: flex;
+    justify-content: space-between;
+    border: blue 2px solid;
+    font-size: 12px;
+}
+spam{
+    border: lightblue 2px solid;
+    margin-right: 15px;
+}
+.secRowLike{
+    border: lightblue 2px solid;
+}
+
+.proertyImg{
+    border: orange 3px solid;
+}
+.eachProperty-pic{
+    width: 200px;
+}
+
+.propertyInfoAndBooking{
+    display: flex;
+    border: purple 3px solid;
+}
+.propertyInfo{
+    border: lightcoral 2px solid;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.propertyHostAndRooms{
+    border: rgb(226, 177, 153) 2px solid;
+}
+.propertyOffers{
+    border: rgb(138, 87, 61) 2px solid;
+}
+
+.calendar{
+    border: green 3px solid;
+}
+
+.bookingComponent{
+    border: lightcoral 2px solid;
+    width: 30%;
+}
+
+.map{
+    border: yellow 3px solid;
 }
