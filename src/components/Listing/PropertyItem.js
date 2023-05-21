@@ -6,7 +6,6 @@ import { Card } from 'react-bootstrap'
 	  
 function PropertyItem(props) {
 	const {property} = props
-	console.log("prpperty.id",property,property._id)
 
     return (
 		
@@ -14,7 +13,8 @@ function PropertyItem(props) {
 			<Card className="propertyitem">
 				<Card.Img variant="top" src={property.images[0]} />
 				<Card.Body className='cardBody'>
-					<Card.Title className='cardTitle'>{property.title}</Card.Title>
+					<Card.Title className='cardTitle'>{property.city}, {property.country}</Card.Title>
+					<Card.Text className='cardText'>{property.title}</Card.Text>
 					<Card.Text className='cardText'>${property.price} night</Card.Text>
 				</Card.Body>
 			</Card>
