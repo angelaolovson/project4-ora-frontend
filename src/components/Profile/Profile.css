@@ -22,6 +22,58 @@
 }
 
 .booking {
+    border-radius: 1em;
     width: 60%;
     margin: 20px;
+    display: flex;
+    align-content: baseline;
+}
+
+.booking-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.progress {
+    width: 150px;
+    height: 2px;
+    color: black;
+   
+}
+
+.rating-bar {
+    height: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+}
+
+.review {
+    border-radius: 1em;
+    width: 70%;
+    margin: 20px;
+    display: flex;
+    align-content: baseline;
+}
+
+.bar-num {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    text-align: center;
 }

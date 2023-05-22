@@ -2,6 +2,8 @@ import React from 'react'
 import './Profile.css'
 import Figure from 'react-bootstrap/Figure';
 import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
+
 
 const SideBar = ({profile}) => {
  const {username, description, occupation, image} = profile
@@ -30,6 +32,12 @@ const SideBar = ({profile}) => {
     <Button variant="outline-secondary" size="lg">
             Edit Profile
     </Button>
+
+    <NavLink to="/listing/new">
+        <Button variant="outline-secondary" size="lg">
+                Airbnb Your Home
+        </Button>
+    </NavLink>
     </div>
   )
 }

@@ -84,7 +84,7 @@ const Profile = () => {
             Review
               </Button>
               <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('analyze')}>
-            Analyze
+            Save
               </Button>
             </div>
           </div>

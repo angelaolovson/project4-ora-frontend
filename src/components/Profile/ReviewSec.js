@@ -1,22 +1,59 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import './Profile.css';
 
 const ReviewSec = ({ review }) => {
   console.log({review})
-
+ 
   const reviewsGiven = review.map((info, index) => {
 
+    const cleanNow = 80;
+    const locationNow = (info.locationRating/5)*100;
+    const serviceNow = (info.serviceRating/5)*100;
+    const overallNow = (info.overallRating/5)*100;
     const createDate = new Date(info.createdAt).toLocaleDateString();
     return (
-      <Card key={index}>
+      <Card key={index} className='review'>
         <NavLink to={`/listing/${info.listing}`}>
-          <Card.Header as="h5">Location Details</Card.Header>
+          <Card.Title as="h5">Location Details</Card.Title>
         </NavLink>
         <Card.Body>
-          <Card.Title>{info.overallRating}</Card.Title>
-          <Card.Text>{info.comment}</Card.Text>
+          <Row>
+            <Col className='rating-bar'>
+              <Card.Text className='text-center'>Cleanliness</Card.Text>
+              <div className='bar-num'>
+              <ProgressBar variant="success" now={cleanNow} />
+              <Card.Text>{info.cleanlinessRating}</Card.Text>
+              </div>
+            </Col>
+            <Col className='rating-bar'>
+              <Card.Text>Location</Card.Text>
+              <div className='bar-num'>
+              <ProgressBar variant="success" now={locationNow} />
+              <Card.Text>{info.locationRating}</Card.Text>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='rating-bar'>
+              <Card.Text>Service</Card.Text>
+              <div className='bar-num'>
+              <ProgressBar variant="success" now={serviceNow} />
+              <Card.Text>{info.serviceRating}</Card.Text>
+              </div>
+            </Col>
+            <Col className='rating-bar'>
+            <Card.Text>Overall</Card.Text>
+            <div className='bar-num'>
+            <ProgressBar variant="success" now={overallNow} />
+            <Card.Text>{info.overallRating}</Card.Text>
+            </div>
+       
+            </Col>
+          </Row>
+          <Card.Text>Comment: {info.comment}</Card.Text>
           <p>Created at {createDate}</p>
           <Button variant="primary">Edit or Delete</Button>
         </Card.Body>

@@ -24,7 +24,7 @@ const ListingSec = ({ listing }) => {
           <Card.Text>{info.address}</Card.Text> 
           </div>
           <NavLink to={`/listing/${info.id}/edit`} >
-            <Button variant="warning">Edit or Delete</Button>
+            <Button variant="outline-secondary">Edit or Delete</Button>
           </NavLink>
         </Card.Body>
       </Card>
