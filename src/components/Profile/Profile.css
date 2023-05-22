@@ -5,3 +5,23 @@
     margin-top: 50px;
 
 }
+
+.profile-image {
+    border-radius: 2em;
+    margin: 20px;
+}
+
+.cardGrid{
+    margin: 20px;
+    width: 20%;
+}
+
+.hostListing{
+    display: flex;
+    justify-content: space-around;
+}
+
+.booking {
+    width: 60%;
+    margin: 20px;
+}
