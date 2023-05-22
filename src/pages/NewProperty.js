@@ -80,7 +80,7 @@ const NewProperty = () => {
   };
 
   return (
-    <Container>
+    <Container >
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label> Title</Form.Label>
@@ -89,7 +89,8 @@ const NewProperty = () => {
             value ={titleState} 
             placeholder="Amazing Tower View Apartment" 
             onChange={(e) => onChangeHandler(e, setTitleState)}
-            required/>
+            required
+            style ={{marginTop:'70px'}}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Address</Form.Label>

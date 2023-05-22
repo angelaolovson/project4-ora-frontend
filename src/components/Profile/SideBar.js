@@ -2,32 +2,42 @@ import React from 'react'
 import './Profile.css'
 import Figure from 'react-bootstrap/Figure';
 import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
 
-const SideBar = () => {
+
+const SideBar = ({profile}) => {
+ const {username, description, occupation, image} = profile
   return (
     <div className='InSideBar'>
         <Figure>
-      <Figure.Image
-        width={300}
-        height={300}
-        alt="171x180"
-        src="https://a0.muscache.com/im/pictures/airflow/Hosting-629652398313106706/original/0620e8a0-0b5a-4991-b5e2-5277b8cc6a13.jpg?im_w=1200"
-      />
-    </Figure>
+          <Figure.Image
+            className='profile-image'
+            width={250}
+            height={400}
+            alt="171x180"
+            src={image}
+          />
+         </Figure>
     <div className='username'>
-    <h1>
-        Jade
-    </h1>
-    <h2>
-        Software Engineer
-    </h2>
-    <p>
-      I like to travel and hangout with people
-    </p>
+        <h1>
+            {username}
+        </h1>
+        <h3>
+            {occupation}
+        </h3>
+        <p>
+          {description}
+        </p>
     </div>
     <Button variant="outline-secondary" size="lg">
             Edit Profile
     </Button>
+
+    <NavLink to="/listing/new">
+        <Button variant="outline-secondary" size="lg">
+                Airbnb Your Home
+        </Button>
+    </NavLink>
     </div>
   )
 }

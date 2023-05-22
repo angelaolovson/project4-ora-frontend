@@ -1,9 +1,39 @@
-import React from 'react'
+import React from 'react';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Link, useParams, NavLink } from "react-router-dom";
+import './Profile.css'
 
-const ListingSec = () => {
-  return (
-    <div>ListingSec</div>
-  )
-}
 
-export default ListingSec
+const ListingSec = ({ listing }) => {
+  if (!listing || listing.length === 0) {
+    return <p>No Property Available</p>;
+  }
+
+  console.log(listing.description);
+
+  const property = listing.map((info, index) => (
+    <Col xs={12} sm={6} md={4} lg={3} xl={3} key={index} className='cardGrid'>
+      <Card style ={{height: '100%',marginBottom:'10px'}} >
+        <NavLink to={`/listing/${info._id}`}>
+          <Card.Img variant="top" src={info.images[0]} style={{ height: '170px', objectFit: 'cover' }} /> 
+        </NavLink>
+        
+        <Card.Body>
+          <div style ={{height: '70%'}}>
+          <Card.Title>{info.title}</Card.Title> 
+          <Card.Text>{info.address}</Card.Text> 
+          </div>
+          <NavLink to={`/listing/${info.id}/edit`} >
+            <Button variant="outline-secondary">Edit or Delete</Button>
+          </NavLink>
+        </Card.Body>
+      </Card>
+    </Col>
+  ));
+    
+   
+
+  return <Row className='hostListing'>{property}</Row>;
+};
+
+export default ListingSec;
