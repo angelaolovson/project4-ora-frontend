@@ -7,13 +7,10 @@ const Booking = (props) => {
     console.log(props)
     
     const {property} = props.property;
-
+    const [isBooked, setIsBooked] = useState(false);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [guestCount, setGuestCount] = useState('');
-    const [serviceFeeState, setServiceFeeState] = useState("");
-    const [taxState, setTaxState] = useState("");
-    const [totalPriceState, setTotalPriceState] = useState("");
     const auth = useContext(AuthContext)
 	
 
@@ -31,11 +28,9 @@ const Booking = (props) => {
   		const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 		  
 		const serviceFee = property.price * days * 0.04;
-		setServiceFeeState(serviceFee)
 		const tax = property.price * days * 0.06;
-		setTaxState(tax);
 		const finalTotalPrice = property.price * days + serviceFee + tax;
-		setTotalPriceState(finalTotalPrice);
+		
 		  
 		console.log(`days: ${days}, Fee: ${serviceFee}, Tax: ${tax}, total: ${finalTotalPrice}`)
 
@@ -61,11 +56,30 @@ const Booking = (props) => {
       	const responseData = await fetch("https://airbnb-main.onrender.com/booking" , options)
       	const newBookingObj = await responseData.json()
       	console.log(newBookingObj)
+		setIsBooked(true);
     };
+
+	const start = new Date(startDate);
+	const end = new Date(endDate);
+	const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+	const serviceFee = parseFloat((property.price * days * 0.04).toFixed(2));
+	const tax = parseFloat((property.price * days * 0.06).toFixed(2));
+	const finalTotalPrice = property.price * days + serviceFee + tax;
+	
+
+
     return (
       <div>
         <h2>Booking</h2>
-        <form onSubmit={onSubmitHandler}>
+       {isBooked? (
+	   <>
+	   	<div>🌴Thank you for booking🌴</div>
+       	<p>Date: {start.toLocaleDateString()} ~ {end.toLocaleDateString()}</p>
+
+       	<p>{days} nights</p>
+       	<p>Total Price ${finalTotalPrice}</p>
+	   </>
+	   ) : (<form onSubmit={onSubmitHandler}>
           <div>
             <span>Start Date:</span>
             <input
@@ -93,16 +107,13 @@ const Booking = (props) => {
               onChange={(e)=>onChangeHandler(e,setGuestCount)}
             />
           </div>
-          <div>Service Fee: {serviceFeeState} </div>
-          <div>Tax: {taxState} </div>
-          <div>Total Price: {totalPriceState} </div>
-          
+          <div>Service Fee: ${serviceFee || 0} </div>
+          <div>Tax: ${tax || 0} </div>
+          <div>Total Price: ${finalTotalPrice || 0} </div>
           <button type="submit">Book Now</button>
-        </form>
+        </form>)}
       </div>
     );
 };
   
 export default Booking
-
-		  
