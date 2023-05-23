@@ -7,13 +7,15 @@ const Booking = (props) => {
     console.log(props)
     
     const {property} = props.property;
+
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [guestCount, setGuestCount] = useState('');
-    const [eachPropertyState, setEachPropertyState] = useState(null);
+    const [serviceFeeState, setServiceFeeState] = useState("");
+    const [taxState, setTaxState] = useState("");
+    const [totalPriceState, setTotalPriceState] = useState("");
     const auth = useContext(AuthContext)
-    // console.log(auth)
-	console.log(property)
+	
 
     //Here we are making a dynamic onChangeHandler that'll accept a state updater
     const onChangeHandler = (e, setValue) => {
@@ -28,18 +30,22 @@ const Booking = (props) => {
   	 	const end = new Date(endDate);
   		const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 		  
-		console.log(days)
-		const finalTotalPrice = property.price * days
-
-		console.log(finalTotalPrice)
+		const serviceFee = property.price * days * 0.04;
+		setServiceFeeState(serviceFee)
+		const tax = property.price * days * 0.06;
+		setTaxState(tax);
+		const finalTotalPrice = property.price * days + serviceFee + tax;
+		setTotalPriceState(finalTotalPrice);
+		  
+		console.log(`days: ${days}, Fee: ${serviceFee}, Tax: ${tax}, total: ${finalTotalPrice}`)
 
       	// Perform booking submission logic here
       	const newBooking = {
 			guest: auth.userId,
-			listing: e.property.id,
-			address:e.property.address,
-			city:e.property.city,
-			image:e.property.images,
+			listing: property._id,
+			address:property.address,
+			city:property.city,
+			image:property.images,
 			startDate: startDate,
 			endDate: endDate,
 			totalPrice: finalTotalPrice
@@ -61,7 +67,7 @@ const Booking = (props) => {
         <h2>Booking</h2>
         <form onSubmit={onSubmitHandler}>
           <div>
-            <spam>Start Date:</spam>
+            <span>Start Date:</span>
             <input
               type="date"
               id="startDate"
@@ -70,7 +76,7 @@ const Booking = (props) => {
               />
           </div>
           <div>
-            <spam>End Date:</spam>
+            <span>End Date:</span>
             <input
               type="date"
               id="endDate"
@@ -79,7 +85,7 @@ const Booking = (props) => {
             />
           </div>
           <div>
-            <spam>Guest Count:</spam>
+            <span>Guest Count:</span>
             <input
               type="number"
               id="guest"
@@ -87,7 +93,9 @@ const Booking = (props) => {
               onChange={(e)=>onChangeHandler(e,setGuestCount)}
             />
           </div>
-          <div>Total Price: {property.price} </div>
+          <div>Service Fee: {serviceFeeState} </div>
+          <div>Tax: {taxState} </div>
+          <div>Total Price: {totalPriceState} </div>
           
           <button type="submit">Book Now</button>
         </form>

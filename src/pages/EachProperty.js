@@ -45,8 +45,8 @@ const EachProperty = (property) => {
 
             <div className='secRow'>
               <div>
-                <spam>Reviews</spam>
-                <spam>{eachPropertyState.property.city}, {eachPropertyState.property.country}</spam>
+                <span>Reviews</span>
+                <span>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
               <div className='secRowLike'>Like</div>
             </div>
