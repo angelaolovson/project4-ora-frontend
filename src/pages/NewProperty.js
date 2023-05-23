@@ -155,7 +155,7 @@ const NewProperty = () => {
           <Form.Label>Guest Number</Form.Label>
           <Form.Control 
           type="number"
-          placeholder="2" 
+          min = "1"
           value ={guestState}
           onChange={(e) => onChangeHandler(e, setGuestState)}
           required/>
@@ -164,7 +164,7 @@ const NewProperty = () => {
           <Form.Label>Room Number</Form.Label>
           <Form.Control 
           type="number" 
-          placeholder="2" 
+          min = "0"
           value ={roomState}
           onChange={(e) => onChangeHandler(e, setRoomState)}
           required/>
@@ -173,7 +173,7 @@ const NewProperty = () => {
           <Form.Label>Bed Number</Form.Label>
           <Form.Control 
           type="number" 
-          placeholder="2"
+          min = "1"
           value ={bedState}
           onChange={(e) => onChangeHandler(e, setBedState)} 
           required/>
@@ -182,7 +182,7 @@ const NewProperty = () => {
           <Form.Label>Bathroom Number</Form.Label>
           <Form.Control 
           type="number" 
-          placeholder="2"
+          min = "0"
           value ={bathroomState}
           onChange={(e) => onChangeHandler(e, setBathroomState)} 
           required/>

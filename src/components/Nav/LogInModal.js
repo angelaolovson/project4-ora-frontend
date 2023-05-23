@@ -6,6 +6,8 @@ import { AuthContext } from '../../context/auth-context';
 
 
 function LogInModal(props) {
+
+  ////////////////////states and props////////////////////
   const {show, handleClose} = props;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -13,6 +15,7 @@ function LogInModal(props) {
   const auth = useContext(AuthContext)
   console.log(auth)
 
+//////////////////////handle submit function///////////////
   const handleSubmit = async (event) => {
     
     event.preventDefault();

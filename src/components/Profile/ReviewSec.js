@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import './Profile.css';
+import EditReview from './EditReview';
 
 const ReviewSec = ({ review }) => {
-  console.log({review})
- 
+  //console.log({review})
+  const [editModalState,setEditModal] = useState(null)
+  const handleEditModalClose = ()=>setEditModal(null);
+  const handleEditModalOpen = (index)=>setEditModal(index);
+
   const reviewsGiven = review.map((info, index) => {
 
-    const cleanNow = 80;
+    const cleanNow = (info.cleanlinessRating/5)*100;
     const locationNow = (info.locationRating/5)*100;
     const serviceNow = (info.serviceRating/5)*100;
     const overallNow = (info.overallRating/5)*100;
@@ -55,7 +59,18 @@ const ReviewSec = ({ review }) => {
           </Row>
           <Card.Text>Comment: {info.comment}</Card.Text>
           <p>Created at {createDate}</p>
-          <Button variant="primary">Edit or Delete</Button>
+          <Button 
+          variant="primary"
+          show = {editModalState === index ? 'true':'false'}
+          onClick = {() =>handleEditModalOpen(index)}
+          >Edit or Delete</Button>
+          {editModalState === index && (
+              <EditReview 
+              show = {true}
+              handleClose = {handleEditModalClose}
+              reviewData ={info}
+              />
+          )}
         </Card.Body>
       </Card>
     );

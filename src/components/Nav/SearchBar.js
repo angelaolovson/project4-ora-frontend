@@ -41,6 +41,7 @@ const SearchBar = () => {
     <Form.Label className="label-sm">Guests</Form.Label>
     <Form.Control
       type="number"
+      min = "1"
       placeholder="Guest Number"
       className="me-2"
       aria-label="Search"

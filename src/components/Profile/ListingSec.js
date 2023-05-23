@@ -9,7 +9,7 @@ const ListingSec = ({ listing }) => {
     return <p>No Property Available</p>;
   }
 
-  console.log(listing.description);
+  //console.log(listing.description);
 
   const property = listing.map((info, index) => (
     <Col xs={12} sm={6} md={4} lg={3} xl={3} key={index} className='cardGrid'>
