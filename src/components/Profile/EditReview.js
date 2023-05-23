@@ -20,7 +20,7 @@ const EditReview = ({show,handleClose,reviewData}) => {
     const handleSubmit = async(event) => {
         event.preventDefault();
         const updatedReview = {
-            guest: reviewData.guest,
+            reviewer: reviewData.guest,
             listing: reviewData.listing,
             cleanlinessRating: cleanRatingState,
             locationRating: locationRatingState,

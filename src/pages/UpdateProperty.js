@@ -1,9 +1,10 @@
-import React, {useContext, useState, useParams, useNavigate} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Autocomplete from '../components/NewListing/Autocomplete';
 import { AuthContext } from '../context/auth-context';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateProperty = () => {
   const [titleState, setTitleState] = useState("");
@@ -22,7 +23,34 @@ const UpdateProperty = () => {
 
   //authentication
   const auth = useContext(AuthContext);
+  
+  //useEffect
 
+  useEffect(()=>{
+    const fetchListing = async() => {
+      try {
+        const responseData = await fetch (`http://localhost:4000/listing/${id}`);
+        const listingData = await responseData.json();
+        console.log(listingData);
+
+        const {title,price,address,types,images,amenities,share,guestNumber,bedroomNumber,bedNumber,bathroomNumber} = listingData
+        setTitleState(title)
+        setPriceState(price);
+        setPropertyState(types);
+        setAmenitiesState(amenities);
+        setPrivacyState(share);
+        setGuestState(guestNumber);
+        setRoomState(bedroomNumber);
+        setBedState(bedNumber);
+        setBathroomState(bathroomNumber);
+        setAddressState(address);
+        setImgState(images);
+      } catch(error) {
+        console.log(error)
+      }
+    }
+    fetchListing();
+  }, [id]);
 
   //states handler
   const onChangeHandler = (e,setValue) => {
@@ -46,7 +74,6 @@ const UpdateProperty = () => {
   const handleSubmit = async (event) => {
       event.preventDefault();
       const newListing = {
-        host: auth.userId,
         title: titleState,
         images: imgState.filter((url)=>url.trim()!==""),
         types: propertyState,
@@ -74,7 +101,7 @@ const UpdateProperty = () => {
       `https://airbnb-jade.onrender.com/listing/${id}`, options
       )
       const newListingObj = await responseData.json();
-      navigate(`/${id}`);
+      navigate(`/listing/${id}`);
       console.log(newListingObj)
 
     } catch (error){

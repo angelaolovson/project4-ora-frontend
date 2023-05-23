@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col, Figure } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Profile.css';
+import AddReview from './AddReview';
 
 const PastBooking = ({booking}) => {
+  const [AddModalState,setAddModal] = useState(null)
+  const handleAddModalClose = ()=>setAddModal(null);
+  const handleAddModalOpen = (index)=>setAddModal(index);
 
     const currentDate= new Date();
     const pastBooking = booking.filter(booking => {
@@ -43,7 +47,18 @@ console.log(pastBooking)
           <Card.Text>
           Total ${info.totalPrice} USD 
           </Card.Text>
-          <Button variant="outline-secondary">Add Review</Button>
+          <Button 
+          variant="outline-secondary"
+          show = {AddModalState === index ? true : false}
+          onClick={() => handleAddModalOpen(index)}
+          >Add Review</Button>
+          {AddModalState === index && 
+          <AddReview
+          show ={true}
+          handleClose = {handleAddModalClose}
+          bookingData = {info}/>
+          }
+          
           </Col>
           </Row>
           <p>Created at {createDate}</p>

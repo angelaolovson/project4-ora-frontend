@@ -11,7 +11,10 @@ const ReviewSec = ({ review }) => {
   const handleEditModalClose = ()=>setEditModal(null);
   const handleEditModalOpen = (index)=>setEditModal(index);
 
-  const reviewsGiven = review.map((info, index) => {
+  //display review from most recent date to oldest date
+  const sortedReviews = review.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
+
+  const reviewsGiven = sortedReviews.map((info, index) => {
 
     const cleanNow = (info.cleanlinessRating/5)*100;
     const locationNow = (info.locationRating/5)*100;
@@ -60,7 +63,7 @@ const ReviewSec = ({ review }) => {
           <Card.Text>Comment: {info.comment}</Card.Text>
           <p>Created at {createDate}</p>
           <Button 
-          variant="primary"
+          variant="outline-secondary"
           show = {editModalState === index ? 'true':'false'}
           onClick = {() =>handleEditModalOpen(index)}
           >Edit or Delete</Button>

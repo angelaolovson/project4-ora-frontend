@@ -147,8 +147,8 @@ const NewProperty = () => {
             required
             >
             <option value="entire-house">Entire Place</option>
-            <option value="single-room">Single Room</option>
-            <option value="share-room">Share Room</option>
+            <option value="single-room">Private Room with Ensuite Bathroom</option>
+            <option value="share-room">Private Room and Shared Bathroom</option>
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
