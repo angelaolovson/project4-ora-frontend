@@ -6,7 +6,6 @@ const Autocomplete = (props) => {
   const inputRef = useRef();
 
   const options = {
-    componentRestrictions: { country: "us" },
     fields: [
       "address_components",
       "geometry",

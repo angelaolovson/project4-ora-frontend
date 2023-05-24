@@ -9,6 +9,7 @@ import Host from './pages/Host';
 import Profile from './pages/Profile';
 import EachProperty from './pages/EachProperty';
 import {AuthContext} from './context/auth-context';
+import Search from './pages/Search';
 
 
 
@@ -73,6 +74,7 @@ function App() {
         <Route path="/listing/new" element={<NewProperty/>} />
         <Route path="/listing/:id/edit" element={<UpdateProperty/>} />
         <Route path="/user/:id" element = {<Host />} />
+        <Route path="/listing/search" element = {<Search />} />
         {/* and more, not sure, will see */}
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

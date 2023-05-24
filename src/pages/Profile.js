@@ -9,6 +9,7 @@ import BookingSec from '../components/Profile/BookingSec';
 import ReviewSec from '../components/Profile/ReviewSec';
 import AnalyzeSec from '../components/Profile/AnalyzeSec';
 import PastBooking from '../components/Profile/PastBooking';
+import GuestBooking from '../components/Profile/GuestBooking';
 
 
 
@@ -74,6 +75,9 @@ const Profile = () => {
               <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('listing')}>
             Property
             </Button>
+            <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('guestbooking')}>
+            Guest Booking
+              </Button>
             <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('booking')}>
             Future Booking
               </Button>
@@ -90,6 +94,7 @@ const Profile = () => {
           </div>
             {profile ? (
              <div className='MainSection container-scroll'>
+              {activeState === 'guestbooking' && <GuestBooking /> }
               {activeState === 'listing' && <ListingSec listing={profile.listing} />}
               {activeState === 'booking' && <BookingSec booking={profile.bookings}/>}
               {activeState === 'pastbooking' && <PastBooking booking={profile.bookings}/>}
