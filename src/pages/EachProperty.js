@@ -16,7 +16,7 @@ const EachProperty = (property) => {
   
   useEffect(() => {
     const fetchEachProperty = async () => {
-      console.log("going to fetch property with id of: ", id);
+      // console.log("going to fetch property with id of: ", id);
       try {
         const responseData = await fetch(url);
         // console.log("fetching checking start")
@@ -31,7 +31,6 @@ const EachProperty = (property) => {
     };
     
     fetchEachProperty();
-    console.log(eachPropertyState,"each property state")
     
   }, [id, url])
 
@@ -46,8 +45,8 @@ const EachProperty = (property) => {
 
             <div className='secRow'>
               <div>
-                <spam>Reviews</spam>
-                <spam>{eachPropertyState.property.city}, {eachPropertyState.property.country}</spam>
+                <span>Reviews</span>
+                <span>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
               <div className='secRowLike'>Like</div>
             </div>
@@ -89,7 +88,7 @@ const EachProperty = (property) => {
                 
               </div>
 
-              <div className='bookingComponent'><Booking /></div>
+              <div className='bookingComponent'><Booking property={eachPropertyState} /></div>
 
             </div>
 

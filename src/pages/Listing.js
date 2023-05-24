@@ -18,9 +18,9 @@ const Listing = () => {
         let allProperties = await responseData.json()
         console.log(allProperties)
         //Retrieve the city and country from the response
-        
+    
         setPropertiesState(allProperties)
-                
+        
       } catch (error) {
         console.log(error)
       };
