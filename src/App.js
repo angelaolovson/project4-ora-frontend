@@ -55,7 +55,7 @@ function App() {
   }
 
   useEffect(() => {
-    //get login take from local storage when mount
+    //get login take from local storage when mount!(Edit from main)
     const localData = JSON.parse(localStorage.getItem('userData'))
     //if there is data in local storage, set login state.
     if(localData){
