@@ -92,6 +92,9 @@ const GuestBooking = () => {
                   <Card.Text>
                   Total {info.totalPrice} USD 
                   </Card.Text>
+                  <NavLink to={`/user/${info.guest}`} >
+                   <Button variant="outline-secondary">Contact Guest</Button>
+                  </NavLink>
                   </Col>
                   </Row>
                   <p>Created at {createDate}</p>
