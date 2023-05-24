@@ -31,9 +31,10 @@ const UpdateProperty = () => {
       try {
         const responseData = await fetch (`http://localhost:4000/listing/${id}`);
         const listingData = await responseData.json();
-        console.log(listingData);
+        console.log("🥲",listingData);
 
-        const {title,price,address,types,images,amenities,share,guestNumber,bedroomNumber,bedNumber,bathroomNumber} = listingData
+        const {title,price,address,types,images,amenities,share,guestNumber,bedroomNumber,bedNumber,bathroomNumber} = listingData.property
+        //console.log("title",title)
         setTitleState(title)
         setPriceState(price);
         setPropertyState(types);
@@ -45,6 +46,8 @@ const UpdateProperty = () => {
         setBathroomState(bathroomNumber);
         setAddressState(address);
         setImgState(images);
+
+        //console.log(setTitleState)
       } catch(error) {
         console.log(error)
       }
@@ -98,7 +101,7 @@ const UpdateProperty = () => {
      };
 
      const responseData = await fetch(
-      `https://airbnb-jade.onrender.com/listing/${id}`, options
+      `http://localhost:4000/listing/${id}`, options
       )
       const newListingObj = await responseData.json();
       navigate(`/listing/${id}`);
@@ -110,8 +113,31 @@ const UpdateProperty = () => {
  
   };
 
+  const onDeleteHandler = async (event) => {
+    event.preventDefault();
+   // console.log("Delete review with ", reviewData._id)
+
+    const options = {
+        method: "DELETE",
+    };
+
+    const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
+    const response = await responseData.json();
+    console.log(response)
+    navigate('/')
+}
+
   return (
     <Container>
+      {/* just to move form down */}
+      <br>
+      </br>
+      <br>
+      </br>
+      <br>
+      </br>
+      <br>
+      </br>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label> Title</Form.Label>
@@ -130,7 +156,7 @@ const UpdateProperty = () => {
           <Form.Label>Price Per Night</Form.Label>
           <Form.Control 
             type="number" 
-            placeholder="$" 
+            placeholder={priceState} 
             value ={priceState} 
             onChange={(e) => onChangeHandler(e, setPriceState)}
             required/>
@@ -154,18 +180,18 @@ const UpdateProperty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Amenities</Form.Label>
-          <Form.Check type="checkbox" value="Wifi" label="Wifi" onChange={handleAmenitiesChange} />
-          <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Laundry" label="Laundry" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Air-conditioning" label="Air Conditioning" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Work-space" label="Work-Space" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Patio" label="Patio" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Grill" label="Grill" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Gym" label="Gym" onChange={handleAmenitiesChange}/>
+          <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} checked={amenitiesState.includes("WiFi")}/>
+          <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Free-parking")}/>
+          <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Paid-parking")}/>
+          <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Kitchen")}/>
+          <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Pool")}/>
+          <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange} checked={amenitiesState.includes("TV")}/>
+          <Form.Check type="checkbox" value="Laundry" label="Laundry" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Laundry")}/>
+          <Form.Check type="checkbox" value="Air-conditioning" label="Air Conditioning" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Air-conditioning")}/>
+          <Form.Check type="checkbox" value="Work-space" label="Work-Space" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Work-space")}/>
+          <Form.Check type="checkbox" value="Patio" label="Patio" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Patio")}/>
+          <Form.Check type="checkbox" value="Grill" label="Grill" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Grill")}/>
+          <Form.Check type="checkbox" value="Gym" label="Gym" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Gym")}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Privacy</Form.Label>
@@ -219,15 +245,18 @@ const UpdateProperty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Images</Form.Label>
-          <Form.Control type="text" placeholder="url" value ={imgState[0]} onChange={(e) => handleImgChange(e, 0)} />
-          <Form.Control type="text" placeholder="url" value ={imgState[1]} onChange={(e) => handleImgChange(e, 1)} />
-          <Form.Control type="text" placeholder="url" value ={imgState[2]} onChange={(e) => handleImgChange(e, 2)} />
-          <Form.Control type="text" placeholder="url" value ={imgState[3]} onChange={(e) => handleImgChange(e, 3)} />
-          <Form.Control type="text" placeholder="url" value ={imgState[4]} onChange={(e) => handleImgChange(e, 4)} />
+          <Form.Control type="text" placeholder="url" value ={imgState[0]|| " "} onChange={(e) => handleImgChange(e, 0)} />
+          <Form.Control type="text" placeholder="url" value ={imgState[1]|| " "} onChange={(e) => handleImgChange(e, 1)} />
+          <Form.Control type="text" placeholder="url" value ={imgState[2]|| " "} onChange={(e) => handleImgChange(e, 2)} />
+          <Form.Control type="text" placeholder="url" value ={imgState[3]|| " "} onChange={(e) => handleImgChange(e, 3)} />
+          <Form.Control type="text" placeholder="url" value ={imgState[4]|| " "} onChange={(e) => handleImgChange(e, 4)} />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Create A Property
+          Submit Changes
         </Button>
+        <Button variant="danger"  type='submit' onClick ={onDeleteHandler}>
+        Delete
+       </Button> 
       </Form>
     </Container>
     

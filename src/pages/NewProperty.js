@@ -124,7 +124,7 @@ const NewProperty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Amenities</Form.Label>
-          <Form.Check type="checkbox" value="Wifi" label="Wifi" onChange={handleAmenitiesChange} />
+          <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} />
           <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange}/>
           <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange}/>
           <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange}/>

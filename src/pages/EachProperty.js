@@ -12,7 +12,7 @@ const EachProperty = (property) => {
   const {id} = useParams();
   // console.log(id)
   // console.log(useParams())
-  const url = `https://airbnb-main.onrender.com/listing/${id}`;
+  const url = `http://localhost:4000/listing/${id}`;
   
   useEffect(() => {
     const fetchEachProperty = async () => {
