@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Autocomplete from '../components/NewListing/Autocomplete';
@@ -180,18 +180,46 @@ const UpdateProperty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Amenities</Form.Label>
-          <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} checked={amenitiesState.includes("WiFi")}/>
-          <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Free-parking")}/>
-          <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Paid-parking")}/>
-          <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Kitchen")}/>
-          <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Pool")}/>
-          <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange} checked={amenitiesState.includes("TV")}/>
-          <Form.Check type="checkbox" value="Laundry" label="Laundry" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Laundry")}/>
-          <Form.Check type="checkbox" value="Air-conditioning" label="Air Conditioning" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Air-conditioning")}/>
-          <Form.Check type="checkbox" value="Work-space" label="Work-Space" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Work-space")}/>
-          <Form.Check type="checkbox" value="Patio" label="Patio" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Patio")}/>
-          <Form.Check type="checkbox" value="Grill" label="Grill" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Grill")}/>
-          <Form.Check type="checkbox" value="Gym" label="Gym" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Gym")}/>
+          <Row>
+              <Col>
+              <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} checked={amenitiesState.includes("WiFi")}/>
+              </Col>
+              <Col>
+              <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Free-parking")}/>
+              </Col>
+              <Col>
+              <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Paid-parking")}/>
+              </Col>
+              <Col>
+              <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Kitchen")}/>
+              </Col>
+              <Col>
+              <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Pool")}/>
+              </Col>
+              <Col>
+              <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange} checked={amenitiesState.includes("TV")}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <Form.Check type="checkbox" value="Laundry" label="Laundry" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Laundry")}/>
+            </Col>
+            <Col>
+            <Form.Check type="checkbox" value="Air-conditioning" label="Air Conditioning" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Air-conditioning")}/>
+            </Col>
+            <Col>
+            <Form.Check type="checkbox" value="Work-space" label="Work-Space" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Work-space")}/>
+            </Col>
+            <Col>
+            <Form.Check type="checkbox" value="Patio" label="Patio" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Patio")}/>
+            </Col>
+            <Col>
+            <Form.Check type="checkbox" value="Grill" label="Grill" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Grill")}/>
+            </Col>
+            <Col>
+            <Form.Check type="checkbox" value="Gym" label="Gym" onChange={handleAmenitiesChange} checked={amenitiesState.includes("Gym")}/>
+            </Col>
+          </Row>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Privacy</Form.Label>
@@ -203,8 +231,8 @@ const UpdateProperty = () => {
             required
             >
             <option value="entire-house">Entire Place</option>
-            <option value="single-room">Single Room</option>
-            <option value="share-room">Share Room</option>
+            <option value="single-room">Private Room with Ensuite Bathroom</option>
+            <option value="share-room">Private Room and Shared Bathroom</option>
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">

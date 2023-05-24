@@ -1,9 +1,11 @@
 import React, {useContext, useState} from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container , Row} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Autocomplete from '../components/NewListing/Autocomplete';
 import { AuthContext } from '../context/auth-context';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const NewProperty = () => {
@@ -18,6 +20,7 @@ const NewProperty = () => {
   const [bathroomState, setBathroomState] = useState("");
   const [addressState, setAddressState] = useState("");
   const [imgState, setImgState] = useState(['','','','','']);
+  const navigate = useNavigate();
   //authentication
   const auth = useContext(AuthContext);
 
@@ -68,11 +71,11 @@ const NewProperty = () => {
      };
 
      const responseData = await fetch(
-      "https://airbnb-jade.onrender.com/listing", options
+      "http://localhost:4000/listing", options
       )
       const newListingObj = await responseData.json();
-      console.log(newListingObj)
-
+      // console.log(newListingObj)
+      navigate('/')
     } catch (error){
       console.log(error)
      }
@@ -113,6 +116,7 @@ const NewProperty = () => {
             value ={propertyState}
             onChange={(e) => onChangeHandler(e, setPropertyState)}
             required>
+             <option value="">Choose an option</option>
             <option value="House">House</option>
             <option value="Apartment">Apartment</option>
             <option value="Camper">Camper</option>
@@ -124,18 +128,47 @@ const NewProperty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Amenities</Form.Label>
-          <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} />
-          <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange}/>
-          <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange}/>
+          <Row>
+            <Col className="checkbox" >
+            <Form.Check type="checkbox" value="WiFi" label="WiFi" onChange={handleAmenitiesChange} />
+            </Col>
+            <Col className="checkbox" >
+            <Form.Check type="checkbox" value="Free-parking" label="Free Parking" onChange={handleAmenitiesChange}/>
+            </Col>
+            <Col className="checkbox" >
+            <Form.Check type="checkbox" value="Paid-parking" label="Paid Parking" onChange={handleAmenitiesChange}/>
+            </Col>
+            <Col className="checkbox" >
+            <Form.Check type="checkbox" value="Kitchen" label="Kitchen" onChange={handleAmenitiesChange}/>
+            </Col>
+            <Col className="checkbox" >
+              <Form.Check type="checkbox" value="Pool" label="Pool" onChange={handleAmenitiesChange}/>
+            </Col>
+            <Col className="checkbox" >
+            <Form.Check type="checkbox" value="TV" label="TV" onChange={handleAmenitiesChange}/>
+            </Col>
+          </Row>
+          <Row>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Laundry" label="Laundry" onChange={handleAmenitiesChange}/>
+          </Col>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Air-conditioning" label="Air Conditioning" onChange={handleAmenitiesChange}/>
+          </Col>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Work-space" label="Work-Space" onChange={handleAmenitiesChange}/>
+          </Col>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Patio" label="Patio" onChange={handleAmenitiesChange}/>
+          </Col>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Grill" label="Grill" onChange={handleAmenitiesChange}/>
+          </Col>
+          <Col className="checkbox" >
           <Form.Check type="checkbox" value="Gym" label="Gym" onChange={handleAmenitiesChange}/>
+          </Col>
+          </Row>
+          
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>Privacy</Form.Label>
@@ -146,6 +179,7 @@ const NewProperty = () => {
             onChange={(e) => onChangeHandler(e, setPrivacyState)}
             required
             >
+            <option value="">Choose an option</option>
             <option value="entire-house">Entire Place</option>
             <option value="single-room">Private Room with Ensuite Bathroom</option>
             <option value="share-room">Private Room and Shared Bathroom</option>
