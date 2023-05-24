@@ -52,6 +52,7 @@ console.log(pastBooking)
           show = {AddModalState === index ? true : false}
           onClick={() => handleAddModalOpen(index)}
           >Add Review</Button>
+          
           {AddModalState === index && 
           <AddReview
           show ={true}

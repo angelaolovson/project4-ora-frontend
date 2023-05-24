@@ -15,7 +15,7 @@ const BookingSec = ({ booking }) => {
 
 console.log(futureBooking)
 
-  const property = futureBooking.map((info, index) => {
+  const bookingsList = futureBooking.map((info, index) => {
     const startDate = new Date(info.startDate).toLocaleDateString(undefined,{month:'short', day: 'numeric', year:'numeric'});
     const endDate = new Date(info.endDate).toLocaleDateString(undefined,{month:'short', day: 'numeric', year:'numeric'});
     const createDate = new Date(info.createdAt).toLocaleDateString()
@@ -58,7 +58,7 @@ console.log(futureBooking)
     return <p>No Future Booking Coming</p>;
   }
 
-  return <Row className="hostListing">{property}</Row>;
+  return <Row className="hostListing">{bookingsList}</Row>;
 };
 
 export default BookingSec;
