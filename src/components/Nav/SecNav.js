@@ -1,100 +1,64 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-const SecNav = ({ setPropertiesState, setFilters }) => {
-  const [filters, setLocalFilters] = useState({
-    roomNumber: '',
-    bedNumber: '',
-    bathroomNumber: '',
-    propType: '',
-    amenities: '',
-    maxPrice: '',
-  });
+const SecNav = (props) => {
+  const [price, setPrice] = useState(null);
+  const [roomNumber, setRoomNumber] = useState(null);
+  const [bedNumber, setBedNumber] = useState(null);
+  const [bathroomNumber, setBathroomNumber] = useState(null);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setLocalFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
+  const onChangeHandler = (e, setValue) => {
+      console.log(e.target.value);
+      setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Pass the filters to the parent component to trigger the filtering process
-    setFilters(filters);
-  };
+  const queryBuilder = async() => {
+    const queryObject = {
+      price,
+      roomNumber,
+      bedNumber,
+      bathroomNumber
+    };
 
-  const handleClearFilters = () => {
-    setLocalFilters({
-      roomNumber: '',
-      bedNumber: '',
-      bathroomNumber: '',
-      propType: '',
-      amenities: '',
-      maxPrice: '',
-    });
-    setPropertiesState(null);
-  };
+  let queryArr = []
+  for (let key in queryObject){
+      if(key != null) {
+          console.log(key)
+          queryArr.push(`${key}=${queryObject[key]}`)
+      }
+  }
+
+  console.log(queryArr);
+  const queryString = queryArr.join("&")
+  console.log(`http://localhost:4000/listing?${queryString}`)
+  const listings = await fetch(`http://localhost:4000/listing?${queryString}`);
+  console.log(listings);
+  const data = await listings.json();
+  console.log(data);
+  props.setPropertiesState(data)
+  // .then((response) => {
+  //     response.json().then((data)=>{
+  //         console.log(data)
+  //     })
+  // })
+  }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="roomNumber">Room Number:</label>
-        <input
-          type="text"
-          id="roomNumber"
-          name="roomNumber"
-          value={filters.roomNumber}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="bedNumber">Bed Number:</label>
-        <input
-          type="text"
-          id="bedNumber"
-          name="bedNumber"
-          value={filters.bedNumber}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="bathroomNumber">Bathroom Number:</label>
-        <input
-          type="text"
-          id="bathroomNumber"
-          name="bathroomNumber"
-          value={filters.bathroomNumber}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="propType">Property Type:</label>
-        <input
-          type="text"
-          id="propType"
-          name="propType"
-          value={filters.propType}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="amenities">Amenities:</label>
-        <input
-          type="text"
-          id="amenities"
-          name="amenities"
-          value={filters.amenities}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="maxPrice">Max Price:</label>
-        <input
-          type="text"
-          id="maxPrice"
-          name="maxPrice"
-          value={filters.maxPrice}
-          onChange={handleInputChange}
-        />
-
-        <button type="submit">Apply Filters</button>
-      </form>
-      <button onClick={handleClearFilters}>Clear Filters</button>
+      <label>Price</label>
+      <input type="number" onChange={(e) => onChangeHandler(e, setPrice)} />
+      
+      <label>RoomNumber</label>
+      <input type="number" onChange={(e) => onChangeHandler(e, setRoomNumber)} />
+      
+      <label>Bed Number</label>
+      <input type="number" onChange={(e) => onChangeHandler(e, setBedNumber)} />
+      
+      <label>Bathroom Number</label>
+      <input type="number" onChange={(e) => onChangeHandler(e, setBathroomNumber)} />
+        
+      <button onClick={() => queryBuilder()}>Apply</button>
+      
     </div>
-  );
-};
-
-export default SecNav;
+  )
+}
+export default SecNav
