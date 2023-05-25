@@ -87,7 +87,7 @@ const EachProperty = (property) => {
                   <Calendar bookings = {eachPropertyState.property.bookings}/></div>
                   <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
                   <div className='dates'>date to date</div>
-                  <div>Clear dates button</div>
+                  <div>Clear dates button </div>
                 </div>
                 
               </div>
