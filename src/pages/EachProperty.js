@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './EachProperty.css'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import Map from '../components/Listing/Map'
 import Booking from '../components/Listing/Booking'
 import Host from '../components/Listing/Host'
+import Calendar from '../components/Listing/Calendar'
+
 
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
@@ -81,6 +83,8 @@ const EachProperty = (property) => {
                 </div>
 
                 <div className='calendar'>
+                  <div><Calendar bookings = {eachPropertyState.property.bookings}/>
+                  <Calendar bookings = {eachPropertyState.property.bookings}/></div>
                   <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
                   <div className='dates'>date to date</div>
                   <div>Clear dates button</div>
