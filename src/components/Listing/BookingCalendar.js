@@ -24,7 +24,7 @@ const BookingCalendar = ({ bookings}) => {
 
         while(currentDate <= endBooking){
             events.push({
-                title: '',
+                title: 'BOOKED',
                 start: new Date(currentDate),
                 allDay: true,
                 classNames: ['booked-event'],

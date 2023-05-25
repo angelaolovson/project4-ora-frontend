@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react'
 import './Host.css'
 import { useParams } from 'react-router-dom'
 import { Col, Container, Row, Figure, Button} from 'react-bootstrap'
+import HostListing from '../components/Host/HostListing'
 
 		  
 function Host() {
+
 	 const [userState, setUserState] = useState(null)
 	
 	 const {id} = useParams();
@@ -17,7 +19,7 @@ function Host() {
 			const userData = await responseData.json();
 
 			setUserState(userData);
-			console.log(userData)
+			console.log("userData,userState",userData)
 		  } catch (error) {
 			console.log(error)
 		  }
@@ -25,6 +27,15 @@ function Host() {
 		fetchUserData();
 
 	 },[id])
+	 const solidStar = '\u2605';
+	 let averageRating = 0;
+	 let listings = []
+	 if(userState && userState.listing && userState.listing.length > 0) {
+		listings = userState.listing;
+		const totalRating = listings.reduce((sum, listing)=> sum+listing.rating, 0);
+		 averageRating = (totalRating/listings.length).toFixed(2);
+	 }
+
     return (
 	    <Container>
 			{userState? (
@@ -42,6 +53,14 @@ function Host() {
 						Nulla vitae elit libero, a pharetra augue mollis interdum.
 					</Figure.Caption>
 				</Figure>
+				{listings.length > 0 ? (
+					<Col className='border' md={{ span: 6, offset: 3 }}>
+						{solidStar}	{averageRating}
+					</Col>
+				): (
+					"Guest"
+				)}
+					
 					<Col className='border' md={{ span: 6, offset: 3 }}>
 							{userState.username}
 					</Col>
@@ -64,7 +83,9 @@ function Host() {
 					<Button variant="secondary">Send Message</Button>
 
 				</Col>
-				<Col className="border" sm={9}>2 of 2</Col>
+				<Col className="border" sm={9}>
+					<HostListing listing = {userState.listing} />
+				</Col>
 			</Row>	
 			):(
 			<p>Loading</p>

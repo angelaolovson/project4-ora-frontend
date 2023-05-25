@@ -42,7 +42,6 @@ const handleCurrentUser = (data) => {
             {auth.isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
-                <NavDropdown.Item href="/listing/new">Airbnb Your Home</NavDropdown.Item>
                 <NavDropdown.Item onClick={()=>auth.logout()}>Log Off</NavDropdown.Item>
               </>
              
