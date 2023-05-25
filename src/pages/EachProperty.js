@@ -10,12 +10,12 @@ import Review from '../components/Listing/Review';
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
   //console.log(eachPropertyState,"each property state")
-  
-  const {id} = useParams();
+
+  const { id } = useParams();
   // console.log(id)
   // console.log(useParams())
   const url = `https://airbnb-main.onrender.com/listing/${id}`;
-  
+
   useEffect(() => {
     const fetchEachProperty = async () => {
       // console.log("going to fetch property with id of: ", id);
@@ -31,12 +31,12 @@ const EachProperty = (property) => {
         console.log(error)
       }
     };
-    
+
     fetchEachProperty();
-    
+
   }, [id, url])
 
-
+  const solidStar = '\u2605';
 
   return (
     <main className='propertyMain'>
@@ -47,7 +47,7 @@ const EachProperty = (property) => {
 
             <div className='secRow'>
               <div>
-                <span>Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
+                <span>{solidStar}Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
                 <span>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
               <div className='secRowLike'>Like</div>
@@ -73,30 +73,30 @@ const EachProperty = (property) => {
                   <div>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bedrooms
                   </div>
                 </div>
-                
+
                 <div className='propertyOffers'>
                   <div>What this place offers</div>
-                  <div>{eachPropertyState.property.amenities.map((amenity, index) =>(
-                      <div key={index}>{amenity}</div>
-                    ))}
+                  <div>{eachPropertyState.property.amenities.map((amenity, index) => (
+                    <div key={index}>{amenity}</div>
+                  ))}
                   </div>
                 </div>
 
                 <div className='calendar'>
-                  <div className= 'fullcalendar'>
+                  <div className='fullcalendar'>
                     <div className='single-cal'>
-                    <BookingCalendar bookings = {eachPropertyState.property.bookings}/>
+                      <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
                     <div>
-                    <BookingCalendar bookings = {eachPropertyState.property.bookings}/>
+                      <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
                   </div>
-                
+
                   <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
                   <div className='dates'>date to date</div>
                   <div>Clear dates button </div>
                 </div>
-                
+
               </div>
 
               <div className='bookingComponent'><Booking property={eachPropertyState} /></div>
@@ -106,7 +106,7 @@ const EachProperty = (property) => {
             <div>
               <Host />
             </div>
-            <div><Review reviews={eachPropertyState.property.reviews} rating={eachPropertyState.property.rating}/></div>
+            <div><Review reviews={eachPropertyState.property.reviews} rating={eachPropertyState.property.rating} /></div>
 
             <div className='map'>
               <div>Where you'll be</div>

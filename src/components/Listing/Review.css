@@ -1,1 +1,48 @@
- 
+ .reviewCard{
+    display: flex;
+    flex-direction: column ;
+ }
+
+ .comments{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+ }
+
+ .reviewer-pro{
+    border: 1px solid lightgrey;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: 'hidden';
+    
+ }
+
+ .title {
+    display: flex;
+ }
+
+ .createdAt {
+    color: grey;
+    font-size: 10px;
+ }
+
+ .comments-box{
+    display: flex;
+    width: 40%;
+    flex-direction: row ;
+    height: 150px;
+    
+ }
+
+ .card-body{
+    padding: 10px;
+ }
+
+ .title-card-title-h5{
+    margin-bottom: 3px;
+ }
+ .container-scroll {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
