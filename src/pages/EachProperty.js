@@ -4,8 +4,8 @@ import { NavLink, useParams } from 'react-router-dom'
 import Map from '../components/Listing/Map'
 import Booking from '../components/Listing/Booking'
 import Host from '../components/Listing/Host'
-import Calendar from '../components/Listing/Calendar'
-
+import BookingCalendar from '../components/Listing/BookingCalendar'
+import Review from '../components/Listing/Review';
 
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
@@ -47,7 +47,7 @@ const EachProperty = (property) => {
 
             <div className='secRow'>
               <div>
-                <span>Reviews</span>
+                <span>Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
                 <span>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
               <div className='secRowLike'>Like</div>
@@ -83,8 +83,15 @@ const EachProperty = (property) => {
                 </div>
 
                 <div className='calendar'>
-                  <div><Calendar bookings = {eachPropertyState.property.bookings}/>
-                  <Calendar bookings = {eachPropertyState.property.bookings}/></div>
+                  <div className= 'fullcalendar'>
+                    <div className='single-cal'>
+                    <BookingCalendar bookings = {eachPropertyState.property.bookings}/>
+                    </div>
+                    <div>
+                    <BookingCalendar bookings = {eachPropertyState.property.bookings}/>
+                    </div>
+                  </div>
+                
                   <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
                   <div className='dates'>date to date</div>
                   <div>Clear dates button </div>
@@ -99,7 +106,7 @@ const EachProperty = (property) => {
             <div>
               <Host />
             </div>
-            <div>Rating and reviews</div>
+            <div><Review reviews={eachPropertyState.property.reviews} rating={eachPropertyState.property.rating}/></div>
 
             <div className='map'>
               <div>Where you'll be</div>

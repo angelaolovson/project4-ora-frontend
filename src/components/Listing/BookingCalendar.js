@@ -1,10 +1,14 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-// import '@fullcalendar/core/main.css';
-// import '@fullcalendar/daygrid/main.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Calendar } from '@fullcalendar/core';
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+import './BookingCalendar.css'
 
-const Calendar = ({ bookings}) => {
+
+const BookingCalendar = ({ bookings}) => {
     //console.log({bookings})
   const renderEvents = () => {
     // Generate or fetch calendar dates
@@ -20,10 +24,13 @@ const Calendar = ({ bookings}) => {
 
         while(currentDate <= endBooking){
             events.push({
-                title: 'Booked',
+                title: '',
                 start: new Date(currentDate),
                 allDay: true,
                 classNames: ['booked-event'],
+                display:'background',
+                backgroundColor:'grey',
+        
             })
 
             currentDate.setDate(currentDate.getDate()+1);
@@ -36,9 +43,10 @@ const Calendar = ({ bookings}) => {
       return (
         <div className='calendar'>
           <FullCalendar
-            plugins={[dayGridPlugin]}
-            initialView='dayGridMonth'
+            plugins={[dayGridPlugin, bootstrap5Plugin]}
+            initialView = 'dayGridMonth'
             events={renderEvents()}
+            themeSystem='bootstrap5'
             />
         </div>
       );
@@ -46,4 +54,4 @@ const Calendar = ({ bookings}) => {
  };
         
 
-export default Calendar;
+export default BookingCalendar;

@@ -1,0 +1,46 @@
+.fc-daygrid-day .fc-daygrid-day-top .fc-daygrid-day-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fc-prev-button, .fc-next-button {
+    background-color: white;
+    border-color: transparent;
+    color: black;
+  }
+  
+  .fc-prev-button:hover, .fc-next-button:hover {
+    background-color: white;
+    border-color: transparent;
+    color: grey
+  }
+
+  .fc-today-button {
+    background-color: white;
+    border-color: transparent;
+    color: black;
+  }
+  
+  .fc-today-button:hover {
+    border-color: transparent;
+    background-color: transparent;
+    color: grey
+  }
+
+  .fc-today-button:not(.fc-button-disabled) {
+    background-color: white;
+    border-color: transparent;
+    color: grey;
+  }
+
+  .bi-chevron-left,.bi-chevron-right {
+  border-color: transparent;
+  /* or */
+  border: 0;
+}
+
+.fc-toolbar-title {
+    color: grey;
+    border: 1px solid transparent;
+  }
