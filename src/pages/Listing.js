@@ -9,7 +9,7 @@ const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
   const [filters, setFilters] = useState(null);
 
-  const URL = 'https://airbnb-main.onrender.com';
+  const URL = 'http://localhost:4000/listing';
 
   useEffect(() => {
     const fetchProperties = async () => {
