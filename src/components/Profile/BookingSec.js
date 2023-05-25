@@ -21,7 +21,8 @@ const BookingSec = ({ booking }) => {
 
 console.log(futureBooking)
 
- const bookingsList = futureBooking.map((info, index) => {
+
+const bookingsList = futureBooking.map((info, index) => {
    const startDate = new Date(info.startDate).toLocaleDateString(undefined,{month:'short', day: 'numeric', year:'numeric'});
    const endDate = new Date(info.endDate).toLocaleDateString(undefined,{month:'short', day: 'numeric', year:'numeric'});
    const createDate = new Date(info.createdAt).toLocaleDateString()
@@ -47,6 +48,7 @@ console.log(futureBooking)
          <Card.Title> {startDate} to {endDate}</Card.Title>
           <Card.Text className='text-left'>
            {info.address}
+
           </Card.Text>
          <Card.Text>
          Total ${info.totalPrice} USD 

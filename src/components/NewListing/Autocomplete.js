@@ -1,5 +1,5 @@
 import React, { useEffect, useRef} from "react";
-//import "./Autocomplete.css";
+import "./Autocomplete.css";
 
 const Autocomplete = (props) => {
   const autoCompleteRef = useRef();
@@ -28,10 +28,10 @@ const Autocomplete = (props) => {
     });
   }, []);
   return (
-    <div className="autocomplete">
-      <label>Address :</label>
+    <div >
       <input
         defaultValue={props.address ? props.address : ""}
+        className="autocomplete"
         // onChange={(e) => props.onChangeHandler(e, props.setAddress)}
         ref={inputRef}
       />

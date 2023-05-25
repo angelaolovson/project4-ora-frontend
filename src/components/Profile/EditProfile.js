@@ -9,7 +9,6 @@ const EditProfile = ({show,handleClose,profile}) => {
     const [usernameState, setUsername] = useState(`${profile.username}`);
     const [occupationState, setOccupation] = useState(`${profile.occupation}`);
     const [descriptionState, setDescription] = useState(`${profile.description}`);
-    const [isHostState, setIsHost]=useState(`${profile.isHost}`);
     const [imageState, setImage] = useState(`${profile.image}`);
     const navigate = useNavigate();
 
@@ -25,7 +24,6 @@ const EditProfile = ({show,handleClose,profile}) => {
             username: usernameState,
             occupation: occupationState,
             description: descriptionState,
-            isHost: isHostState,
             image: imageState
         }
 
@@ -72,14 +70,6 @@ const EditProfile = ({show,handleClose,profile}) => {
                 autoFocus
                 value = {occupationState}
                 onChange ={(e) => onChangeHandler(e,setOccupation)}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Check
-                type="checkbox"
-                label="Are you a host ?"
-                checked = {isHostState}
-                onChange ={(e) => setIsHost(e.target.checked)}
               />
             </Form.Group>
             <Form.Group
