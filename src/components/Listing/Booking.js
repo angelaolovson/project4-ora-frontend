@@ -27,9 +27,9 @@ const Booking = (props) => {
   	 	const end = new Date(endDate);
   		const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 		  
-		const serviceFee = property.price * days * 0.04;
-		const tax = property.price * days * 0.06;
-		const finalTotalPrice = property.price * days + serviceFee + tax;
+		const serviceFee = parseFloat((property.price * days * 0.04).toFixed(2));
+		const tax = parseFloat((property.price * days * 0.06).toFixed(2));
+		const finalTotalPrice = parseFloat((property.price * days + serviceFee + tax).toFixed(2));
 		
 		  
 		console.log(`days: ${days}, Fee: ${serviceFee}, Tax: ${tax}, total: ${finalTotalPrice}`)
@@ -64,7 +64,7 @@ const Booking = (props) => {
 	const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 	const serviceFee = parseFloat((property.price * days * 0.04).toFixed(2));
 	const tax = parseFloat((property.price * days * 0.06).toFixed(2));
-	const finalTotalPrice = property.price * days + serviceFee + tax;
+	const finalTotalPrice = parseFloat((property.price * days + serviceFee + tax).toFixed(2));
 	
 
 
