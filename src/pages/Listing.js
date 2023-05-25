@@ -7,53 +7,54 @@ import SecNav from '../components/Nav/SecNav';
 
 const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
+  const [filters, setFilters] = useState(null);
 
-  const URL = "https://airbnb-main.onrender.com";
+  const URL = 'https://airbnb-main.onrender.com';
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        let responseData = await fetch(URL);
-        
-        let allProperties = await responseData.json()
-        console.log(allProperties)
-        //Retrieve the city and country from the response
-    
-        setPropertiesState(allProperties)
-        
+        let url = URL;
+        if (filters) {
+          // Convert filters object to query parameters
+          const params = new URLSearchParams(filters);
+          url = `${url}/filter?${params.toString()}`;
+        }
+        let responseData = await fetch(url);
+        let allProperties = await responseData.json();
+        setPropertiesState(allProperties);
       } catch (error) {
-        console.log(error)
-      };
+        console.log(error);
+      }
     };
 
     fetchProperties();
-  },[]);
+  }, [filters]);
 
-  let propertiesList
+  let propertiesList;
 
-  if (propertiesState) {
+  if (Array.isArray(propertiesState)) {
     propertiesList = propertiesState.map((property, index) => (
-        <Col key={index}>
-          <PropertyItem  property={property} />
-        </Col>
-    ))
+      <Col key={index}>
+        <PropertyItem property={property} />
+      </Col>
+    ));
   }
-
 
   return (
     <>
-      <SecNav setPropertiesState={setPropertiesState} />
+      <SecNav setFilters={setFilters} />
       <div className='allProperties'>
-        {propertiesState ? (
-          <Row xs={1} md={4} className="g-4">
+        {propertiesList && propertiesList.length > 0 ? (
+          <Row xs={1} md={4} className='g-4'>
             {propertiesList}
           </Row>
         ) : (
-          <h2>LOADING</h2>
+          <h2>No properties found</h2>
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Listing;
