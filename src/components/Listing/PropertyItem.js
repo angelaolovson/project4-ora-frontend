@@ -10,10 +10,12 @@ function PropertyItem(props) {
     return (
 		
 		<NavLink to={`/listing/${property._id}`}>
-			<Card className="propertyitem">
-				<Card.Img variant="top" src={property.images[0]} />
+			<Card className="propertyitem" style={{ border: 'none' }}>
+				<div className='imgContainer'>
+					<Card.Img className='itemImg' variant="top" src={property.images[0]} />
+				</div>
 				<Card.Body className='cardBody'>
-					<Card.Title className='cardTitle'>{property.city}, {property.country}</Card.Title>
+					<Card.Text className='cardTitle'>{property.city}, {property.country}</Card.Text>
 					<Card.Text className='cardText'>{property.title}</Card.Text>
 					<Card.Text className='cardText'>${property.price} night</Card.Text>
 				</Card.Body>
