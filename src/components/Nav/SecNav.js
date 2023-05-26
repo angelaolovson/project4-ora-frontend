@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './SecNav.css'
 
 const SecNav = (props) => {
   const [price, setPrice] = useState(null);
@@ -43,7 +44,7 @@ const SecNav = (props) => {
   }
 
   return (
-    <div>
+    <div className='secNavBar'>
       <label>Price</label>
       <input type="number" onChange={(e) => onChangeHandler(e, setPrice)} />
       
