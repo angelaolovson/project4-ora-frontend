@@ -43,7 +43,7 @@ const EachProperty = (property) => {
       {eachPropertyState ? (
         <>
           <div className='eachProperty'>
-            <h2>{eachPropertyState.property.title}</h2>
+            <h2 className='eachPropertyTitle'>{eachPropertyState.property.title}</h2>
 
             <div className='secRow'>
               <div>
@@ -70,7 +70,7 @@ const EachProperty = (property) => {
 
                 <div className='propertyHostAndRooms'>
                   <div>Entire home hosted by {eachPropertyState.property.username}</div>
-                  <div>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bedrooms
+                  <div>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bathrooms
                   </div>
                 </div>
 

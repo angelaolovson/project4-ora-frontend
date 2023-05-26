@@ -3,17 +3,15 @@
     justify-content:center;
     align-items: center;
     text-align: left;
-    border: 3px red solid;
 }
 .eachProperty{
-    border: 3px grey solid;
-    width: 700px;
-    margin-top: 80px;
+    width: 80%;
+    margin-top: 120px;
 }
 
-h2{
-    border: green 2px solid;
-    margin: 0;
+.eachPropertyTitle{
+    margin: 0 0 10px 0;
+    font-weight: 700;
 }
 
 .secRow{
