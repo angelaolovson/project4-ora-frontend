@@ -42,11 +42,9 @@
   }
   .no-outline{
     border: 1px solid transparent;
-    outline: none;
-    box-shadow: none;
   }
   .container-scroll {
-    max-height: 800px; /* Adjust the height as needed */
+    max-height: 100px; /* Adjust the height as needed */
     overflow-y: auto;
   }
 

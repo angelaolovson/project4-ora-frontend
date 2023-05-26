@@ -31,14 +31,14 @@ const handleCurrentUser = (data) => {
   setCurrentUser(data);
 }
 
-
+console.log(currentUser)
 
   return (
-    <Navbar bg="light" expand="lg" >
+    <Navbar bg="light" expand="lg" fixed="top">
       <Container >
         <Navbar.Brand href="/">CasaAmor</Navbar.Brand>
           <SearchBar/>
-          <NavDropdown title={auth.isLoggedIn ? "Welcome" : "User"} id="navbarScrollingDropdown" >
+          <NavDropdown title={auth.isLoggedIn ? `${currentUser.username}` : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
@@ -50,6 +50,7 @@ const handleCurrentUser = (data) => {
                 <NavDropdown.Item onClick = {handleLogInModalOpen}>Log In</NavDropdown.Item>
                     <LogInModal 
                       show={showLogInModal}
+                      handleCurrentUser
                       handleClose ={handleLogInModalClose}
                     />
                 <NavDropdown.Item onClick = {handleSignUpModalOpen}>Sign Up</NavDropdown.Item>
