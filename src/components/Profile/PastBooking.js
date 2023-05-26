@@ -22,13 +22,13 @@ console.log(pastBooking)
        const endDate = new Date(info.endDate).toLocaleDateString();
        const createDate = new Date(info.createdAt).toLocaleDateString()
        return (
-        <Card key={index} className='booking'>
+        <Card key={index} style={{ borderRadius: '1em', width: '60%' }} className='booking'>
         <Card.Body>
         <Row>
           <Col >
           <Figure>
               <Figure.Image
-                className='profile-image'
+                className='booking-image'
                 width={250}
                 height={400}
                 alt="171x180"
@@ -37,7 +37,7 @@ console.log(pastBooking)
             </Figure>
           </Col>
           <Col className='booking-col'>
-          <NavLink to={`/listing/${info.listing}`}>
+          <NavLink style={{ color: 'black'}} to={`/listing/${info.listing}`}>
         <Card.Title as="h5">{info.city}</Card.Title>
         </NavLink>
           <Card.Title> {startDate} to {endDate}</Card.Title>
@@ -59,11 +59,10 @@ console.log(pastBooking)
           handleClose = {handleAddModalClose}
           bookingData = {info}/>
           }
-          
           </Col>
           </Row>
-          <p>Created at {createDate}</p>
         </Card.Body>
+        <p style={{ color: 'grey', fontSize: '10px' }}>Created at {createDate}</p>
   </Card>
        )
    });

@@ -2,9 +2,13 @@ import React , {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import './MainNav.css'
 
 
 const SearchBar = () => {
+
+  const magnifier = `\u1F50D`;
+
   const [locationState, setLocation] = useState("");
   const [startDateState, setStartDate] = useState ("");
   const [endDateState, setEndDate] = useState("");
@@ -41,9 +45,10 @@ const SearchBar = () => {
 
   
   return (
-    <Form className="d-flex" onSubmit={handleSubmit}>
+    <div style={{ borderRadius:'2em', width:"65%", display:"flex", justifyContent:"end", boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)"}}>
+  <Form className="d-flex" onSubmit={handleSubmit}>
     <Form.Group controlId="Location">
-    <Form.Label className="label-sm">Location</Form.Label>
+    <Form.Label style={{ marginBottom: '0px' }} className="label-sm">Location</Form.Label>
     <Form.Control
       type="search"
       placeholder="Where"
@@ -55,7 +60,7 @@ const SearchBar = () => {
     </Form.Group>
    
     <Form.Group controlId="startDate">
-    <Form.Label className="label-sm">Check In</Form.Label>
+    <Form.Label style={{ marginBottom: '0px' }} className="label-sm">Check In</Form.Label>
     <Form.Control
       type="Date"
       placeholder="Check In Date"
@@ -68,7 +73,7 @@ const SearchBar = () => {
     </Form.Group>
     
     <Form.Group controlId="endDate">
-    <Form.Label className="label-sm">Check Out</Form.Label>
+    <Form.Label style={{ marginBottom: '0px' }} className="label-sm">Check Out</Form.Label>
     <Form.Control
       type="Date"
       placeholder="Check Out Date"
@@ -81,7 +86,7 @@ const SearchBar = () => {
     </Form.Group>
    
     <Form.Group controlId="guestNumber">
-    <Form.Label className="label-sm">Guests</Form.Label>
+    <Form.Label style={{ marginBottom: '0px' }} className="label-sm">Guests</Form.Label>
     <Form.Control
       type="number"
       min = "1"
@@ -93,8 +98,9 @@ const SearchBar = () => {
     />
      </Form.Group>
    
-    <Button variant="outline-danger" type='submit' className="nav-btn" >Search</Button>
+    <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" type='submit' className="nav-btn" >🔍</Button>
   </Form>
+    </div>
   )
 }
 

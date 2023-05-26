@@ -38,7 +38,7 @@ console.log(currentUser)
       <Container >
         <Navbar.Brand href="/">CasaAmor</Navbar.Brand>
           <SearchBar/>
-          <NavDropdown title={auth.isLoggedIn ? `${currentUser.username}` : "User"} id="navbarScrollingDropdown" >
+          <NavDropdown title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>

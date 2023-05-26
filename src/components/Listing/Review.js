@@ -26,7 +26,7 @@ function Review({reviews, rating}) {
 	const reviewList = reviews.map((info, index) => {
 		return (
 			<Card className='comments-box '>
-			<Card.Body>
+			<Card.Body className='review-comments'>
 			  <Card.Title className='title'>
 				<div className='reviewer-pro'>
 				<Card.Img variant="top" src={info.image} style={{ width: '100%' }} />
@@ -49,38 +49,38 @@ function Review({reviews, rating}) {
 			{solidStar}Rating: {rating.toFixed(2)}{outlineStar}{reviews.length} Reviews 
 			<Row>
             <Col className='rating-bar'>
-              <Card.Text className='text-center'>Cleanliness</Card.Text>
+              <Card.Text style={{ margin: '0 auto' }}>Cleanliness</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={cleanNow} />
+              <ProgressBar variant="black" style={{ height: '5px' }} now={cleanNow} />
               <Card.Text>{averageCleanRating}</Card.Text>
               </div>
             </Col>
             <Col className='rating-bar'>
-              <Card.Text>Location</Card.Text>
+              <Card.Text style={{ margin: '0 auto' }}>Location</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={locationNow} />
+              <ProgressBar variant="black" style={{ height: '5px' }} now={locationNow} />
               <Card.Text>{averageLocationRating}</Card.Text>
               </div>
             </Col>
           </Row>
           <Row>
             <Col className='rating-bar'>
-              <Card.Text>Service</Card.Text>
+              <Card.Text style={{ margin: '0 auto' }}>Service</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={serviceNow} />
+              <ProgressBar   variant="black" style={{ height: '5px' }} now={serviceNow} />
               <Card.Text>{averageServiceRating}</Card.Text>
               </div>
             </Col>
             <Col className='rating-bar'>
-            <Card.Text>Overall</Card.Text>
+            <Card.Text style={{ margin: '0 auto' }}>Overall</Card.Text>
             <div className='bar-num'>
-            <ProgressBar variant="success" now={overallNow} />
+            <ProgressBar variant="black" style={{ height: '5px' }} now={overallNow} />
             <Card.Text>{rating.toFixed(2)}</Card.Text>
             </div>
             </Col>
           </Row>
 		  </div>
-		  <div className='comments container-scroll'>
+		  <div className='comments review-container-scroll'>
 			{reviewList}
 		  </div>
 		</div>

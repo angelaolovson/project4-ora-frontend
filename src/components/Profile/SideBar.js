@@ -16,15 +16,15 @@ const SideBar = ({profile}) => {
  const {username, description, occupation, image} = profile
   return (
     <div className='InSideBar'>
-        <Figure>
+      <div >
+      <Figure>
           <Figure.Image
             className='profile-image'
-            width={250}
-            height={400}
             alt="171x180"
             src={image}
           />
          </Figure>
+      </div>
     <div className='username'>
         <h1>
             {username}
@@ -36,6 +36,7 @@ const SideBar = ({profile}) => {
           {description}
         </p>
     </div>
+    <br></br>
     <Button 
       variant="outline-secondary" 
       size="lg"
@@ -47,7 +48,8 @@ const SideBar = ({profile}) => {
         show = {editModalState}
         handleClose = {handleEditModalClose}
         profile ={profile}/>
-
+ <br>
+ </br>
     <NavLink to="/listing/new">
         <Button variant="outline-secondary" size="lg">
                 Airbnb Your Home

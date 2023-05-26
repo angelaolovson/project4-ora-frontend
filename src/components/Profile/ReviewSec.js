@@ -22,46 +22,48 @@ const ReviewSec = ({ review }) => {
     const overallNow = (info.overallRating/5)*100;
     const createDate = new Date(info.createdAt).toLocaleDateString();
     return (
-      <Card key={index} className='review'>
-        <NavLink to={`/listing/${info.listing}`}>
-          <Card.Title as="h5">Location Details</Card.Title>
+      <Card key={index} className='booking' style={{ borderRadius: '1em', width: '60%' }}>
+        <NavLink style={{ color: 'black'}} to={`/listing/${info.listing}`}>
+          <Card.Title as="h5" >Location Details</Card.Title>
         </NavLink>
         <Card.Body>
           <Row>
             <Col className='rating-bar'>
-              <Card.Text className='text-center'>Cleanliness</Card.Text>
+            <div className='rating-bar-content' >
+              <Card.Text  style={{ margin: '0 auto' }} className='text-center'>Cleanliness</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={cleanNow} />
+              <ProgressBar variant="black" style={{ height: '5px' }} now={cleanNow} />
               <Card.Text>{info.cleanlinessRating}</Card.Text>
               </div>
+            </div>
             </Col>
             <Col className='rating-bar'>
-              <Card.Text>Location</Card.Text>
+              <Card.Text style={{ margin: '0 auto' }}>Location</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={locationNow} />
+              <ProgressBar variant="black" style={{ height: '5px' }} now={locationNow} />
               <Card.Text>{info.locationRating}</Card.Text>
               </div>
             </Col>
           </Row>
           <Row>
             <Col className='rating-bar'>
-              <Card.Text>Service</Card.Text>
+              <Card.Text style={{ margin: '0 auto' }}>Service</Card.Text>
               <div className='bar-num'>
-              <ProgressBar variant="success" now={serviceNow} />
+              <ProgressBar variant="black" style={{ height: '5px' }} now={serviceNow} />
               <Card.Text>{info.serviceRating}</Card.Text>
               </div>
             </Col>
             <Col className='rating-bar'>
-            <Card.Text>Overall</Card.Text>
+            <Card.Text style={{ margin: '0 auto' }}>Overall</Card.Text>
             <div className='bar-num'>
-            <ProgressBar variant="success" now={overallNow} />
+            <ProgressBar variant="black" style={{ height: '5px' }} now={overallNow} />
             <Card.Text>{info.overallRating}</Card.Text>
             </div>
        
             </Col>
           </Row>
-          <Card.Text>Comment: {info.comment}</Card.Text>
-          <p>Created at {createDate}</p>
+          <Card.Text className='comment-section'>Comment: {info.comment}</Card.Text>
+         
           <Button 
           variant="outline-secondary"
           show = {editModalState === index ? 'true':'false'}
@@ -75,6 +77,7 @@ const ReviewSec = ({ review }) => {
               />
           )}
         </Card.Body>
+        <p style={{ color: 'grey', fontSize: '10px' }}>Created at {createDate}</p>
       </Card>
     );
   });

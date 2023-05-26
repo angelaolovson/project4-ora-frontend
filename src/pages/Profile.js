@@ -72,22 +72,22 @@ const Profile = () => {
      
           <div className='ButtonBar'>
             <div className = 'button-container'>
-              <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('listing')}>
+              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('listing')}>
             Property
             </Button>
-            <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('guestbooking')}>
+            <Button  style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('guestbooking')}>
             Guest Booking
               </Button>
-            <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('booking')}>
+            <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('booking')}>
             Future Booking
               </Button>
-              <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('pastbooking')}>
+              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('pastbooking')}>
             Past Booking
               </Button>
-              <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('review')}>
+              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('review')}>
             Review
               </Button>
-              <Button variant="outline-secondary" size="lg" className="no-outline" onClick={() => handleSectionChange('analyze')}>
+              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('analyze')}>
             Save
               </Button>
             </div>

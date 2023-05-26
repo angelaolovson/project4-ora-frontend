@@ -35,14 +35,14 @@
     
  }
 
- .card-body{
+ .review-comments{
     padding: 10px;
  }
 
  .title-card-title-h5{
     margin-bottom: 3px;
  }
- .container-scroll {
+ .review-container-scroll {
     max-height: 300px; /* Adjust the height as needed */
     overflow-y: auto;
   }
