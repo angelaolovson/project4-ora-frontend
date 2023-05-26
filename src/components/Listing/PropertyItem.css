@@ -1,21 +1,37 @@
 .propertyItem{
     margin: 5px;
-    
+    font-size: 10px;
 }
 
 .cardBody{
     padding: 5px 0 5px 0;
+    font-size: 11px;
 }
 
 .cardTitle{
-    font-size: 12px;
     padding: 0;
     text-align: left;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .cardText{
-    font-size: 12px;
     padding: 0;
     text-align: left;
+}
+
+.imgContainer{
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Maintain 1:1 aspect ratio */
+}
+
+
+.propertyitem .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
