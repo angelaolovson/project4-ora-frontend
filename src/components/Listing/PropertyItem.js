@@ -10,6 +10,7 @@ function PropertyItem(props) {
 
     return (
 		
+
 		<NavLink to={`/listing/${property._id}`} className="noUnderLine">
 			<Card className="propertyitem" style={{ border: 'none' }}>
 				<div className='imgContainer'>
@@ -39,6 +40,7 @@ function PropertyItem(props) {
 						<Card.Text className='propertyitemPriceNumber'>${property.price}</Card.Text>
 						<Card.Text className='propertyitemPriceText'>night</Card.Text>
 					</div>
+
 				</Card.Body>
 			</Card>
 		</NavLink>		  
