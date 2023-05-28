@@ -69,8 +69,10 @@ const Booking = (props) => {
 
 
     return (
-      <div>
-        <h2>Booking</h2>
+      <div className='bookingMain'>
+        <span className='booingPrice'>$ {property.price}</span>
+        <span> night</span>
+		<div className='bookingForm'>
        {isBooked? (
 	   <>
 	   	<div>🌴Thank you for booking🌴</div>
@@ -80,39 +82,63 @@ const Booking = (props) => {
        	<p>Total Price ${finalTotalPrice}</p>
 	   </>
 	   ) : (<form onSubmit={onSubmitHandler}>
-          <div>
-            <span>Start Date:</span>
-            <input
-              type="date"
-              id="startDate"
-              value={startDate}
-              onChange={(e)=> onChangeHandler(e,setStartDate)}
-              />
+          <div className='inputContainer'>
+			<div className='inputDates'>
+				<div>
+					<div>Start Date</div>
+					<div>
+						<input
+						type="date"
+						id="startDate"
+						value={startDate}
+						onChange={(e)=> onChangeHandler(e,setStartDate)}
+						/>
+					</div>
+				</div>
+				<div>
+					<div>End Date</div>
+					<div>
+						<input
+						type="date"
+						id="endDate"
+						value={endDate}
+						onChange={(e)=>onChangeHandler(e,setEndDate)}
+						/>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>Guest Count</div>
+				<div>
+					<input
+					type="number"
+					id="guest"
+					value={guestCount}
+					onChange={(e)=>onChangeHandler(e,setGuestCount)}
+					/>
+				</div>
+			</div>
           </div>
-          <div>
-            <span>End Date:</span>
-            <input
-              type="date"
-              id="endDate"
-              value={endDate}
-              onChange={(e)=>onChangeHandler(e,setEndDate)}
-            />
-          </div>
-          <div>
-            <span>Guest Count:</span>
-            <input
-              type="number"
-              id="guest"
-              value={guestCount}
-              onChange={(e)=>onChangeHandler(e,setGuestCount)}
-            />
-          </div>
-          <div>Service Fee: ${serviceFee || 0} </div>
-          <div>Tax: ${tax || 0} </div>
-          <div>Total Price: ${finalTotalPrice || 0} </div>
-          <button type="submit">Book Now</button>
+		  <div className='priceDisplay'>
+			<button className='bookingButton' type="submit">Book Now</button>
+			<div className='serviceFee'>
+				<div>Service Fee</div>
+				<div>$ {serviceFee || 0}</div>
+			</div>
+			<div className='taxes'>
+				<div>Taxes</div>
+				<div>$ {tax || 0} </div>
+			</div>
+			<hr />
+			<div className='ttlPrice'>
+				<div>Total Price</div>
+				<div>$ {finalTotalPrice || 0}</div>
+			</div>
+		  </div>
         </form>)}
       </div>
+	  
+	  </div>
     );
 };
   

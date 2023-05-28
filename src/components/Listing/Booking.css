@@ -1,1 +1,54 @@
+.bookingMain{
+    border-radius: 20px;
+    border: #ccc 1px solid;
+    padding: 20px 10px;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.booingPrice{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.bookingForm{
+    margin-top: 20px;
+}
+
+.priceDisplay{
+    display: flex;
+    flex-direction: column;
+}
+.serviceFee, .taxes, .ttlPrice {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.bookingButton{
+    margin: 10px 0;
+    background-color: #FF9400;;
+    border: none;
+    color: white;
+    font-weight:bolder;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+.inputDates{
+    display: flex;
+    flex-direction: row;
+}
+.inputDates > div {
+    width: 50%;
+}
+input{
+    /* Add your desired styles here */
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    width: 100%;
+  }
  
