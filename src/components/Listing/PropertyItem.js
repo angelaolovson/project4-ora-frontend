@@ -19,7 +19,18 @@ function PropertyItem(props) {
 					
 					<div className='inlineLocationRating'>
 						<Card.Text className='propertyitemLocation'>{property.city}, {property.country}</Card.Text>
-						<Card.Text className='propertyitemRating'>{solidStar}{parseFloat((property.rating).toFixed(2))}</Card.Text>
+
+						<Card.Text className='propertyitemRating'>
+							{property.rating?(
+								<>
+								{solidStar}{parseFloat((property.rating).toFixed(2)).toFixed(2)}
+								</>
+								):(
+								<h2></h2>
+							)}
+							
+							</Card.Text>
+
 					</div>
 					
 					<Card.Text className='propertyitemTitle'>{property.title}</Card.Text>

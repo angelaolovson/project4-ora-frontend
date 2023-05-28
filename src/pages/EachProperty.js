@@ -65,10 +65,10 @@ const EachProperty = (property) => {
               ))} */}
               <div className='propertyImgColMain'><img className="eachProperty-imgMain" src={eachPropertyState.property.images[0]} alt="property pic"/></div>
               <div className='propertyImgCol'>
-                <img className="eachProperty-imgs" src={eachPropertyState.property.images[1]} alt="property pic"/>
-                <img className="eachProperty-imgs" src={eachPropertyState.property.images[2]} alt="property pic"/>
-                <img className="eachProperty-imgs" src={eachPropertyState.property.images[3]} alt="property pic"/>
-                <img className="eachProperty-imgs" src={eachPropertyState.property.images[4]} alt="property pic"/>
+                <img className="eachProperty-imgs1" src={eachPropertyState.property.images[1]} alt="property pic"/>
+                <img className="eachProperty-imgs2" src={eachPropertyState.property.images[2]} alt="property pic"/>
+                <img className="eachProperty-imgs3" src={eachPropertyState.property.images[3]} alt="property pic"/>
+                <img className="eachProperty-imgs3" src={eachPropertyState.property.images[4]} alt="property pic"/>
               </div>
             </div>
 
@@ -90,37 +90,32 @@ const EachProperty = (property) => {
                   </div>
                 </div>
                 <hr/>
+
                 <div className='calendar'>
-                  <div className='fullcalendar'>
-                    <div className='single-cal'>
+                    <div className='calendarCheckIn'>
                       <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
-                    <div>
+                    <div className='calendarCheckOut'>
                       <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
-                  </div>
-
-                  <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
-                  <div className='dates'>date to date</div>
-                  <div>Clear dates button </div>
                 </div>
-
               </div>
 
               <div className='bookingComponent'><Booking property={eachPropertyState} /></div>
 
             </div>
-
-            <div>
-              <Host />
-            </div>
+            <hr/>
             <div><Review reviews={eachPropertyState.property.reviews} rating={eachPropertyState.property.rating} /></div>
-
+            <hr/>
             <div className='map'>
-              <div>Where you'll be</div>
-              <div><Map center={eachPropertyState.property.location} zoom={18} /></div>
+              <div className='mapTitle'>Where you'll be</div>
+              <div><Map center={eachPropertyState.property.location} zoom={14} /></div>
             </div>
-
+            <hr/>
+            <div>
+              <div className='hostTitle'>Hosted by{eachPropertyState.property.username} </div>
+              <div><Host /></div>
+            </div>
 
           </div>
         </>

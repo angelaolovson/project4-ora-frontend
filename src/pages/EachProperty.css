@@ -31,7 +31,7 @@
 
 .proertyImgRow{
     display: flex;
-    height: 400px;
+    height: 500px;
     margin-bottom: 30px;
 }
 .propertyImgColMain{
@@ -42,17 +42,38 @@
     width: 50%;
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
 }
 .eachProperty-imgMain{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.eachProperty-imgs{
-    flex-basis: calc(25% - 3px);
-    height: 50%;
-    width: calc(50% - 3px);
+.eachProperty-imgs1{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+.eachProperty-imgs2{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-bottom: 3px;
+}
+.eachProperty-imgs3{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-right: 3px;
+}
+.eachProperty-imgs4{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
     object-fit: cover;
 }
 
@@ -84,14 +105,33 @@
 }
 
 .calendar{
-    border: green 3px solid;
+    display: flex;
+    height: 450px;
+    margin: 15px 0 20px 0;
 }
-
+.calendarCheckIn,
+.calendarCheckOut {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .bookingComponent{
     width: 30%;
 }
 
 .map{
-    border: yellow 3px solid;
+    margin-bottom: 65px;
+}
+.mapTitle{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
+.hostTitle{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
