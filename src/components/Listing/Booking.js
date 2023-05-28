@@ -70,19 +70,44 @@ const Booking = (props) => {
 
     return (
       <div className='bookingMain'>
-        <span className='booingPrice'>$ {property.price}</span>
-        <span> night</span>
+        
 		<div className='bookingForm'>
        {isBooked? (
 	   <>
-	   	<div>🌴Thank you for booking🌴</div>
-       	<p>Date: {start.toLocaleDateString()} ~ {end.toLocaleDateString()}</p>
+	   	<div className='rcptGreeting'>
+			<span>🌴</span>
+			<span>Thank you for booking</span>
+			<span>🌴</span>
+		</div>
+		<hr/>
+		<div className='rcptDate'>
+			<div>Date</div>
+			<div>{start.toLocaleDateString()} ~ {end.toLocaleDateString()}</div>
+		</div>
 
-       	<p>{days} nights</p>
-       	<p>Total Price ${finalTotalPrice}</p>
+       	{days === 1?(
+			<div className='rcptNight'>
+			<div>{days}</div>
+			<div>night</div>
+		</div>
+		):(
+			<div className='rcptNight'>
+			<div>{days}</div>
+			<div>nights</div>
+		</div>
+		) }
+		
+		<div className='rcptTtlPrice'>
+			<div>Total Price</div>
+			<div>$ {finalTotalPrice}</div>
+		</div>
 	   </>
 	   ) : (<form onSubmit={onSubmitHandler}>
+		<span className='bookingPrice'>$ {property.price}</span>
+		<span> night</span>
+
           <div className='inputContainer'>
+		  	
 			<div className='inputDates'>
 				<div>
 					<div>Start Date</div>
