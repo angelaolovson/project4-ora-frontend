@@ -2,13 +2,17 @@ import React, {useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import './Profile.css'
+import './Profile.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const EditBooking = ({show,handleClose,bookingData}) => {
   // Edit Booking State
-  const [startDate, setStartDate] = useState(`${bookingData.startDate.substr(0,10)}`);
-  const [endDate, setEndDate] = useState(`${bookingData.endDate.substr(0,10)}`);
+  const [startDate, setStartDate] = useState(new Date(bookingData.startDate.substr(0, 10)));
+  const [endDate, setEndDate] = useState(new Date(bookingData.endDate.substr(0, 10)));
   const [getPrice, setGetPrice] = useState(null);
+  const [listingBookedDates, setBookedDates]= useState(null);
+
 
   //get price from the property
   const url = `https://airbnb-main.onrender.com/listing/${bookingData.listing}`;
@@ -21,6 +25,9 @@ const EditBooking = ({show,handleClose,bookingData}) => {
         const thisPropertyData = await responseData.json();
         console.log(thisPropertyData, thisPropertyData.property.price, "get priceeeee")
         setGetPrice(thisPropertyData.property.price)
+        setBookedDates(thisPropertyData.property.bookings)
+        // console.log("📍", thisPropertyData.property.bookings)
+        // console.log("📅",listingBookedDates)
       } catch (error) {
         console.log(error)
       }
@@ -29,6 +36,46 @@ const EditBooking = ({show,handleClose,bookingData}) => {
     
   }, [url])
   
+  //date picker
+
+  const BookingDatePicker = () =>{
+
+    const bookedDates = listingBookedDates?.map((info)=>(
+      {start: new Date(info.startDate), end: new Date(info.endDate)}
+      )) || [];
+
+    const excludeDates = bookedDates.reduce((dates, range) => {
+      const {start, end} = range;
+      const currentDate = new Date(start);
+      while (currentDate <= end) {
+        dates.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate()+1);
+      }
+      return dates;
+    }, []);
+  
+  //datepicker onchange
+
+  const onChange = (dates)=>{
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  }
+
+  
+  return (
+    <DatePicker
+     selected = {startDate}
+     onChange={onChange}
+     startDate = {startDate}
+     endDate = {endDate}
+     excludeDates={excludeDates}
+     selectsRange
+     selectsDisabledDaysInRange
+     inline
+     />
+  )
+}
   //onChange handler
   const onChangeHandler = (e, setValue) => {
     console.log(e.target.value);
@@ -108,17 +155,18 @@ const EditBooking = ({show,handleClose,bookingData}) => {
         <Modal.Body>
           <Form onSubmit ={onSubmitHandler}>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Start Date</Form.Label>
-              <Form.Control
+            <Form.Group style={{textAlign: "center"}}className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label >Reschedule</Form.Label>
+              <BookingDatePicker />
+              {/* <Form.Control
                 type="date"
                 autoFocus
                 value = {startDate}
                 onChange ={(e) => onChangeHandler(e,setStartDate)}
-              />
+              /> */}
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>End Date</Form.Label>
               <Form.Control
                 type="date"
@@ -126,7 +174,7 @@ const EditBooking = ({show,handleClose,bookingData}) => {
                 value = {endDate}
                 onChange ={(e) => onChangeHandler(e,setEndDate)}
               />
-            </Form.Group>
+            </Form.Group> */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <div className='display-fee-update'>
               <Form.Label>Booking Fee: $ {getPrice} x {days} nights = $ {getPrice*days}</Form.Label>
