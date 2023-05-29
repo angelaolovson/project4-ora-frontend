@@ -11,21 +11,19 @@ const HostListing = ({listing}) => {
       //console.log(listing.description);
     
       const property = listing.map((info, index) => (
-        <Col xs={12} sm={6} md={4} lg={3} xl={3} key={index} className='cardGrid'>
-          <Card style ={{height: '100%',marginBottom:'10px'}} >
-            <NavLink to={`/listing/${info._id}`}>
-              <Card.Img variant="top" src={info.images[0]} style={{ height: '170px', objectFit: 'cover' }} /> 
-            </NavLink>
-            
-            <Card.Body>
-              <div style ={{height: '70%'}}>
-              <Card.Title>{info.title}</Card.Title> 
-              <Card.Text>{info.address}</Card.Text> 
-              </div>
-               
-            </Card.Body>
-            {solidStar}{info.rating.toFixed(2)}
-          </Card>
+        <Col xs={12} sm={6} md={4} lg={3} xl={2} key={index} style={{marginBottom: 0}} className='cardGrid'>
+          		<NavLink to={`/listing/${info._id}`} style={{ textDecoration: 'none'}}>
+                <Card className="propertyitem" style={{marginBottom: 0, border: 'none' }}>
+                  <div className='imgContainer'>
+                    <Card.Img className='itemImg' variant="top" src={info.images[0]} />
+                  </div>
+                  <Card.Body style={{ marginBottom: 0, padding: 5}} className='cardBody'>
+                    <Card.Text style={{marginBottom: 5, fontWeight: 'bold' }} className='cardTitle'>{info.city}, {info.country}</Card.Text>
+                    <Card.Text  style={{marginBottom: 5}} className='cardText'>{info.types}</Card.Text>
+                    <Card.Text style={{marginBottom: 10}} className='cardText'>{solidStar} {info.rating.toFixed(2)}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </NavLink>	
         </Col>
       ));
         

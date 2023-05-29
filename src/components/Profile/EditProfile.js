@@ -18,6 +18,19 @@ const EditProfile = ({show,handleClose,profile}) => {
         setValue(e.target.value);
     }
 
+    // const handleImageChange = (e) => {
+    //   const file = e.target.files[0];
+    //   const reader = new FileReader();
+    //   // Do something with the selected image file
+    //   reader.onloadend = () => {
+    //     setImage(reader.result);
+    //   };
+  
+    //   if (file) {
+    //     reader.readAsDataURL(file);
+    //   }
+    // }
+
     const handleSubmit = async(event) => {
         event.preventDefault();
         const updatedProfile = {
@@ -94,6 +107,11 @@ const EditProfile = ({show,handleClose,profile}) => {
                 value = {imageState}
                 onChange ={(e) => onChangeHandler(e,setImage)}
               />
+               {/* <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              /> */}
             </Form.Group>
             <Button variant="warning" size="lg" type='submit'>
            Update Profile

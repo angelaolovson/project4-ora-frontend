@@ -3,10 +3,11 @@ import './Host.css'
 import { useParams } from 'react-router-dom'
 import { Col, Container, Row, Figure, Button} from 'react-bootstrap'
 import HostListing from '../components/Host/HostListing'
+import ReviewGiven from '../components/Host/ReviewGiven'
 
 		  
 function Host() {
-
+	 
 	 const [userState, setUserState] = useState(null)
 	
 	 const {id} = useParams();
@@ -27,6 +28,7 @@ function Host() {
 		fetchUserData();
 
 	 },[id])
+	 const tick = '\u2714'
 	 const solidStar = '\u2605';
 	 let averageRating = 0;
 	 let listings = []
@@ -37,54 +39,94 @@ function Host() {
 	 }
 
     return (
-	    <Container>
+	    <Container style={{marginTop:"100px"}}>
 			{userState? (
-				<Row>
-		
-				<Col className='border' sm={3}>
-				<Figure>
-					<Figure.Image
-						width={171}
-						height={180}
-						alt="171x180"
-						src= {userState.image}
-					/>
-					<Figure.Caption>
-						Nulla vitae elit libero, a pharetra augue mollis interdum.
-					</Figure.Caption>
-				</Figure>
-				{listings.length > 0 ? (
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-						{solidStar}	{averageRating}
-					</Col>
-				): (
-					"Guest"
-				)}
-					
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-							{userState.username}
-					</Col>
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-							{userState.occupation}
-					</Col>
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-							{userState.description}
-					</Col>
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-							{userState.reviewsGiven.length} Reviews Given
+				<Row >
+				<Col  sm={4}>
+				<Col  md={{ span: 10, offset: 1 }} style = {{margin: '20px', borderRadius: '2em', boxShadow: `0 0 5px rgba(0, 0, 0, 0.5)`}}>
+					<Row>
+						<Col sm={6}>
+						<Figure>
+							<Figure.Image
+								width={150}
+								height={180}
+								alt="171x180"
+								src= {userState.image}
+								className='user-image'
+							/>
+							<h1 style={{marginLeft: '50px'}}>{userState.username}</h1>
+						</Figure>
+			
+
+						</Col>
+						<Col style={{marginTop:'40px'}} sm={6}>
+					{listings.length > 0 ? (
+						<Col style = {{borderBottom:'1px lightgrey solid'}} md={{ span: 10, offset: 1 }}>
+							<h4>{solidStar}	{averageRating}</h4>
+							<h6>Rating</h6>
+						</Col>
+					): (
+						<Col style = {{borderBottom:'1px lightgrey solid'}} md={{ span: 10, offset: 1 }}>
+							<h6>Guest</h6>
+						</Col>
+					)}
 						
+						<Col style={{marginTop: '20px', marginBottom: '20px'}} md={{ span: 10, offset: 1 }}>
+								<h5>{userState.reviewsGiven.length} Reviews</h5>
+						</Col>
+						<Col style = {{borderTop:'1px lightgrey solid'}} md={{ span: 10, offset: 1 }}>
+							<h5>XX years on CasaAmore</h5>
+						</Col>
+
 					</Col>
-					<Col className='border' md={{ span: 6, offset: 3 }}>
-							{userState.username}'s Confirmed Inforamtion
-							identity
-							Email address
-							Phone Number
+					</Row>
+				</Col>
+			
+					<Col style = {{margin: '20px', borderRadius: '2em', border:'1px lightgrey solid'}}  md={{ span: 10, offset: 1 }}>
+						<div style={{display:'flex', flexDirection:'column'}} >
+						<ul style = {{listStyleType: 'none', paddingLeft: 0}}>
+							<li style={{ textAlign: 'left', margin:'15px', fontWeight: 'bold' }}>{userState.username}'s Confirmed Inforamtion</li>
+							<li style={{ textAlign: 'left', margin:'15px'  }}>{tick} Identity</li>
+							<li style={{ textAlign: 'left', margin:'15px' }}>{tick} Email address</li>
+							<li style={{ textAlign: 'left', margin:'15px'  }}>{tick} Phone Number</li>
+							</ul>
+						</div>
 					</Col>
 					<Button variant="secondary">Send Message</Button>
 
 				</Col>
-				<Col className="border" sm={9}>
-					<HostListing listing = {userState.listing} />
+				<Col sm={8}>
+					<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
+						<h3 style={{ textAlign: 'left'}}>
+							{userState.username}'s Profile
+							<Col style={{ marginTop: '20px'}}md={{ span: 12, offset: 0 }}>
+								{userState.occupation? 
+									(<h5>{userState.occupation}</h5>):("")}
+								{userState.description? 
+									(<h5>{userState.description}</h5>
+									):(
+										`${userState.username}'s interests, fun facts, and other highlights will show up here once they have added some.`)}
+							</Col>
+						</h3>
+					</div>
+					<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
+						<h3 style={{ textAlign: 'left'}}>
+							{userState.username}'s Reviews
+							<div>
+							<ReviewGiven reviews = {userState.reviewsGiven}/>
+							</div>
+						</h3>
+					</div>
+					{userState.listing.length>0 ? (
+						<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
+						<h3 style={{ textAlign: 'left'}}>
+							{userState.username}'s Listing 
+						</h3>
+							<div>
+							<HostListing listing = {userState.listing} />
+							</div>
+						</div>
+					): (" ")}
 				</Col>
 			</Row>	
 			):(

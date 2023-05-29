@@ -20,7 +20,7 @@ const Profile = () => {
   const [profile,setProfile] = useState(null);
   //  console.log("🤓",auth.userId)
   // Active State
-  const [activeState,setActiveState] = useState('listing')
+  const [activeState,setActiveState] = useState('booking')
   const handleSectionChange = (section) =>{
     setActiveState(section)
   }
@@ -69,29 +69,42 @@ const Profile = () => {
             <p>Loading</p>
           </div>
         )}
-     
+         {profile? (
+                   <div className='ButtonBar'>
+                   <div className = 'button-container'>
+                   <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('booking')}>
+                   Future Booking
+                     </Button>
+                     <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('pastbooking')}>
+                   Past Booking
+                     </Button>
+                     <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('review')}>
+                   Review
+                     </Button>
+                     {profile.listing.length > 0 ? (   
+                       <>    
+                        <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('listing')}>
+                   Property
+                   </Button>
+                   <Button  style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('guestbooking')}>
+                   Guest Booking
+                     </Button>
+                     </> 
+                     ): (
+                     ""
+                     )}
+            
+                     <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('analyze')}>
+                   Save
+                     </Button>
+                   </div>
+                 </div>
+         ):(
           <div className='ButtonBar'>
-            <div className = 'button-container'>
-              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('listing')}>
-            Property
-            </Button>
-            <Button  style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('guestbooking')}>
-            Guest Booking
-              </Button>
-            <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('booking')}>
-            Future Booking
-              </Button>
-              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('pastbooking')}>
-            Past Booking
-              </Button>
-              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('review')}>
-            Review
-              </Button>
-              <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('analyze')}>
-            Save
-              </Button>
-            </div>
+            Loading
           </div>
+         )}
+ 
             {profile ? (
              <div className='MainSection container-scroll'>
               {activeState === 'guestbooking' && <GuestBooking /> }

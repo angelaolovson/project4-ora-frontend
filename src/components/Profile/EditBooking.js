@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import './Profile.css'
 
 const EditBooking = ({show,handleClose,bookingData}) => {
   // Edit Booking State
@@ -126,11 +127,14 @@ const EditBooking = ({show,handleClose,bookingData}) => {
                 onChange ={(e) => onChangeHandler(e,setEndDate)}
               />
             </Form.Group>
-
-            <Form.Label>Service Fee $ {serviceFee} </Form.Label>
-            <Form.Label>Tax $ {tax} </Form.Label>
-            <Form.Label>New Total $ {finalTotalPrice} </Form.Label>
-
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <div className='display-fee-update'>
+              <Form.Label>Booking Fee: $ {getPrice} x {days} nights = $ {getPrice*days}</Form.Label>
+              <Form.Label>Service Fee: $ {serviceFee}</Form.Label>
+              <Form.Label>Tax: $ {tax} </Form.Label>
+              <Form.Label style={{ borderTop:'1px solid lightgrey' }}>New Total: $ {finalTotalPrice} </Form.Label>
+              </div>
+            </div>
             <Button variant="warning" size="lg" type='submit'>Update Booking</Button>
 
             <Button variant="danger" size="lg" type='submit' onClick ={onDeleteHandler}>Cancel Booking</Button>  

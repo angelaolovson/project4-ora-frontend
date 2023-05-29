@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { Rating } from 'react-simple-star-rating'
 
 const EditReview = ({show,handleClose,reviewData}) => {
+    const handleRating = (rate, setRating) => {
+      setRating(rate);
+      // Other logic
+    };
    
     const [cleanRatingState, setcleanRating] = useState(`${reviewData.cleanlinessRating}`);
     const [locationRatingState, setlocationRating] = useState(`${reviewData.locationRating}`);
@@ -66,49 +71,40 @@ const EditReview = ({show,handleClose,reviewData}) => {
      </Modal.Header>
      <Modal.Body>
        <Form onSubmit ={handleSubmit}>
-         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
            <Form.Label>Cleanliness</Form.Label>
-           <Form.Control
-             type="number"
-             min="1"
-             max="5"
-             autoFocus
-             value = {cleanRatingState}
-             onChange ={(e) => onChangeHandler(e,setcleanRating)}
-           />
+           <Rating
+              onClick={(rating)=>handleRating(rating,setcleanRating)}
+              ratingValue = {cleanRatingState}
+              initialValue={cleanRatingState}
+            />
+
          </Form.Group>
-         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
            <Form.Label>Location</Form.Label>
-           <Form.Control
-                type="number"
-                min="1"
-                max="5"
-                autoFocus
-                value={locationRatingState}
-                onChange ={(e) => onChangeHandler(e,setlocationRating)}
-                />
+           <Rating
+              onClick={(rating)=>handleRating(rating,setlocationRating)}
+              ratingValue = {locationRatingState}
+              initialValue={locationRatingState} />
+      
          </Form.Group>
-         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
          <Form.Label>Service</Form.Label>
-           <Form.Control
-             type="number"
-             min="1"
-             max="5"
-             autoFocus
-             value = {serviceRatingState}
-             onChange ={(e) => onChangeHandler(e,setserviceRating)}
-           />
+            <Rating
+                  onClick={(rating)=>handleRating(rating,setserviceRating)}
+                  ratingValue = {serviceRatingState}
+                  initialValue={serviceRatingState}
+                />
+     
          </Form.Group>
-         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
          <Form.Label>Overall</Form.Label>
-           <Form.Control
-             type="number"
-             min="1"
-             max="5"
-             autoFocus
-             value = {overallRatingState}
-             onChange ={(e) => onChangeHandler(e,setoverallRating)}
-           />
+            <Rating
+              onClick={(rating)=>handleRating(rating,setoverallRating)}
+              ratingValue = {overallRatingState}
+              initialValue={overallRatingState}
+            />
+  
          </Form.Group>
          <Form.Group
            className="mb-3"

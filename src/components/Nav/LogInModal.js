@@ -16,6 +16,16 @@ function LogInModal(props) {
   console.log(auth)
 
 //////////////////////handle submit function///////////////
+  const handleHostLogin = (event) => {
+    setEmail('host1@example.com')
+    setPassword('password123')
+  }
+
+  const handleGuestLogin = (event) => {
+    setEmail('guest1@example.com')
+    setPassword('password123')
+  }  
+
   const handleSubmit = async (event) => {
     
     event.preventDefault();
@@ -84,9 +94,17 @@ try{
                 onChange ={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button variant="warning" size="lg" type='submit'>
+            <div style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
+            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleGuestLogin()}>
+            Demo Guest
+          </Button> 
+            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleHostLogin()}>
+            Demo Host
+          </Button> 
+            <Button variant="warning" size="lg" style = {{margin:"10px"}} type='submit'>
             Log In
           </Button> 
+            </div>
             </Form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
         </Modal.Body>

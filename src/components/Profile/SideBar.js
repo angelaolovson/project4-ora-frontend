@@ -36,7 +36,7 @@ const SideBar = ({profile}) => {
           {description}
         </p>
     </div>
-    <br></br>
+    
     <Button 
       variant="outline-secondary" 
       size="lg"
