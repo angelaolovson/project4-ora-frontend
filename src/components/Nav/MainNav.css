@@ -3,8 +3,6 @@
     margin-bottom: 0;
   }
   
-
-
 .nav-btn{
     width: 60px;
     height: 60px;
@@ -12,4 +10,12 @@
 
 .searchoutline {
   border: 2px solid light black;
+}
+
+a.logoCasaAmor{
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 40px;
+  font-weight: 600;
+  color: #FF9400;
+  padding: 0;
 }

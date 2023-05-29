@@ -36,7 +36,7 @@ console.log(currentUser)
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container >
-        <Navbar.Brand href="/">CasaAmor</Navbar.Brand>
+        <Navbar.Brand className="logoCasaAmor" href="/">CasaAmor</Navbar.Brand>
           <SearchBar/>
           <NavDropdown title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (

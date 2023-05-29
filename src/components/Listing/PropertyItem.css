@@ -1,22 +1,36 @@
+.noUnderLine{
+    text-decoration: none;
+}
 .propertyItem{
     margin: 5px;
     font-size: 10px;
 }
 
-.cardBody{
-    padding: 5px 0 5px 0;
-    font-size: 11px;
+.propertyitemCardBody.card-body{
+    padding: 0;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.propertyitemLocation.card-text{
+    text-align: left;
+    margin: 0 0 2px 0;
+    font-weight: 700;
 }
 
-.cardTitle{
-    padding: 0;
+.propertyitemTitle.card-text{
     text-align: left;
-    font-weight: 500;
+    margin: 0 0 2px 0;
 }
 
-.cardText{
-    padding: 0;
+.propertyitemPriceNumber.card-text{
     text-align: left;
+    margin: 0 0 2px 0;
+    font-weight: 700;
+}
+
+.propertyitemPriceText.card-text{
+    text-align: left;
+    margin: 0 0 2px 2px;
 }
 
 .imgContainer{
@@ -34,4 +48,13 @@
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.inlineLocationRating{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inlinePrice{
+    display: flex;
 }

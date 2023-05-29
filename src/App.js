@@ -87,7 +87,10 @@ function App() {
           <header>
             <MainNav/>
           </header>
+          
           <main>{routes}</main>
+          <hr />
+          <footer>My Application copyright 2023 Jade Ye, Angela Olovson, Chris Ferrell</footer>
       </div>
     </AuthContext.Provider>
 

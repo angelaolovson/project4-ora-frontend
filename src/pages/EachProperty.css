@@ -3,67 +3,135 @@
     justify-content:center;
     align-items: center;
     text-align: left;
-    border: 3px red solid;
+    font-size: 16px;
 }
 .eachProperty{
-    border: 3px grey solid;
-    width: 700px;
-    margin-top: 10px;
+    width: 80%;
+    margin-top: 120px;
 }
 
-h2{
-    border: green 2px solid;
-    margin: 0;
+.eachPropertyTitle{
+    margin: 0 0 10px 0;
+    font-weight: 700;
 }
 
 .secRow{
     display: flex;
     justify-content: space-between;
-    border: blue 2px solid;
-    font-size: 12px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-decoration: underline;
 }
-span{
-    border: lightblue 2px solid;
+.RatingAndLocation{
     margin-right: 15px;
 }
 .secRowLike{
-    border: lightblue 2px solid;
+    margin-right: 3px;
 }
 
-.proertyImg{
-    border: orange 3px solid;
+.proertyImgRow{
+    display: flex;
+    height: 500px;
+    margin-bottom: 30px;
 }
-.eachProperty-pic{
-    width: 200px;
+.propertyImgColMain{
+    width: 50%;
+    padding-right: 3px;
+}
+.propertyImgCol{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.eachProperty-imgMain{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.eachProperty-imgs1{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+.eachProperty-imgs2{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-bottom: 3px;
+}
+.eachProperty-imgs3{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
+    margin-right: 3px;
+}
+.eachProperty-imgs4{
+    flex-basis: calc(20%);
+    height: 49.6%;
+    width: 49%;
+    object-fit: cover;
 }
 
 .propertyInfoAndBooking{
     display: flex;
-    border: purple 3px solid;
+    
 }
 .propertyInfo{
-    border: lightcoral 2px solid;
     display: flex;
     flex-direction: column;
     width: 70%;
+    padding-right: 30px;
 }
-.propertyHostAndRooms{
-    border: rgb(226, 177, 153) 2px solid;
+.propertyHost{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.propertyRooms{
+    margin-bottom: 10px;
 }
 .propertyOffers{
-    border: rgb(138, 87, 61) 2px solid;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.propertyOffersList{
+    margin: 0 0 15px 10px;
 }
 
 .calendar{
-    border: green 3px solid;
+    display: flex;
+    height: 450px;
+    margin: 15px 0 20px 0;
 }
-
+.calendarCheckIn,
+.calendarCheckOut {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .bookingComponent{
-    border: lightcoral 2px solid;
     width: 30%;
 }
 
 .map{
-    border: yellow 3px solid;
+    margin-bottom: 65px;
+}
+.mapTitle{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
+.hostTitle{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

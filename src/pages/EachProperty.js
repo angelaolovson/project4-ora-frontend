@@ -9,6 +9,7 @@ import Review from '../components/Listing/Review';
 
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
+  const likeIcon = '\u2665';
   //console.log(eachPropertyState,"each property state")
 
   const { id } = useParams();
@@ -43,76 +44,78 @@ const EachProperty = (property) => {
       {eachPropertyState ? (
         <>
           <div className='eachProperty'>
-            <h2>{eachPropertyState.property.title}</h2>
+            <h2 className='eachPropertyTitle'>{eachPropertyState.property.title}</h2>
 
             <div className='secRow'>
               <div>
-                <span>{solidStar}Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
-                <span>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
+                <span className='RatingAndLocation'>{solidStar}Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
+                <span className='RatingAndLocation'>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
-              <div className='secRowLike'>Like</div>
+              <div className='secRowLike'>{likeIcon} Save</div>
             </div>
 
-            <div className='proertyImg'>
-              {eachPropertyState.property.images.map((image, index) => (
+            <div className='proertyImgRow'>
+              {/* {eachPropertyState.property.images.map((image, index) => (
                 <img
                   key={index}
                   className="eachProperty-pic"
                   src={image}
                   alt="property pic"
                 />
-              ))}
+              ))} */}
+              <div className='propertyImgColMain'><img className="eachProperty-imgMain" src={eachPropertyState.property.images[0]} alt="property pic"/></div>
+              <div className='propertyImgCol'>
+                <img className="eachProperty-imgs1" src={eachPropertyState.property.images[1]} alt="property pic"/>
+                <img className="eachProperty-imgs2" src={eachPropertyState.property.images[2]} alt="property pic"/>
+                <img className="eachProperty-imgs3" src={eachPropertyState.property.images[3]} alt="property pic"/>
+                <img className="eachProperty-imgs3" src={eachPropertyState.property.images[4]} alt="property pic"/>
+              </div>
             </div>
 
             <div className='propertyInfoAndBooking'>
 
               <div className='propertyInfo'>
 
-                <div className='propertyHostAndRooms'>
-                  <div>Entire home hosted by {eachPropertyState.property.username}</div>
-                  <div>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bedrooms
+                <div>
+                  <div className='propertyHost'>Entire home hosted by {eachPropertyState.property.username}</div>
+                  <div className='propertyRooms'>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bathrooms
                   </div>
                 </div>
-
-                <div className='propertyOffers'>
-                  <div>What this place offers</div>
-                  <div>{eachPropertyState.property.amenities.map((amenity, index) => (
-                    <div key={index}>{amenity}</div>
+                <hr/>
+                <div>
+                  <div className='propertyOffers'>What this place offers</div>
+                  <div className='propertyOffersList'>{eachPropertyState.property.amenities.map((amenity, index) => (
+                    <li key={index}>{amenity}</li>
                   ))}
                   </div>
                 </div>
+                <hr/>
 
                 <div className='calendar'>
-                  <div className='fullcalendar'>
-                    <div className='single-cal'>
+                    <div className='calendarCheckIn'>
                       <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
-                    <div>
+                    <div className='calendarCheckOut'>
                       <BookingCalendar bookings={eachPropertyState.property.bookings} />
                     </div>
-                  </div>
-
-                  <div>Calendar: Number nights in {eachPropertyState.property.city}</div>
-                  <div className='dates'>date to date</div>
-                  <div>Clear dates button </div>
                 </div>
-
               </div>
 
               <div className='bookingComponent'><Booking property={eachPropertyState} /></div>
 
             </div>
-
-            <div>
-              <Host />
-            </div>
+            <hr/>
             <div><Review reviews={eachPropertyState.property.reviews} rating={eachPropertyState.property.rating} /></div>
-
+            <hr/>
             <div className='map'>
-              <div>Where you'll be</div>
-              <div><Map center={eachPropertyState.property.location} zoom={18} /></div>
+              <div className='mapTitle'>Where you'll be</div>
+              <div><Map center={eachPropertyState.property.location} zoom={14} /></div>
             </div>
-
+            <hr/>
+            <div>
+              <div className='hostTitle'>Hosted by{eachPropertyState.property.username} </div>
+              <div><Host /></div>
+            </div>
 
           </div>
         </>
