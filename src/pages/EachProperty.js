@@ -93,12 +93,7 @@ const EachProperty = (property) => {
                 <hr/>
 
                 <div className='calendar'>
-                    <div className='calendarCheckIn'>
                       <BookingCalendar bookings={eachPropertyState.property.bookings} />
-                    </div>
-                    <div className='calendarCheckOut'>
-                      <BookingCalendar bookings={eachPropertyState.property.bookings} />
-                    </div>
                 </div>
               </div>
 

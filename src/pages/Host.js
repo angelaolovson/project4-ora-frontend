@@ -72,10 +72,10 @@ function Host() {
 					)}
 						
 						<Col style={{marginTop: '20px', marginBottom: '20px'}} md={{ span: 10, offset: 1 }}>
-								<h5>{userState.reviewsGiven.length} Reviews</h5>
+								<h6>{userState.reviewsGiven.length} Reviews</h6>
 						</Col>
-						<Col style = {{borderTop:'1px lightgrey solid'}} md={{ span: 10, offset: 1 }}>
-							<h5>XX years on CasaAmore</h5>
+						<Col style = {{borderTop:'1px lightgrey solid', padding:"10px"}} md={{ span: 10, offset: 1 }}>
+							<h6>2 years on CasaAmor</h6>
 						</Col>
 
 					</Col>
@@ -97,7 +97,7 @@ function Host() {
 				</Col>
 				<Col sm={8}>
 					<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
-						<h3 style={{ textAlign: 'left'}}>
+						<h4 style={{ textAlign: 'left'}}>
 							{userState.username}'s Profile
 							<Col style={{ marginTop: '20px'}}md={{ span: 12, offset: 0 }}>
 								{userState.occupation? 
@@ -107,21 +107,21 @@ function Host() {
 									):(
 										`${userState.username}'s interests, fun facts, and other highlights will show up here once they have added some.`)}
 							</Col>
-						</h3>
+						</h4>
 					</div>
-					<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
-						<h3 style={{ textAlign: 'left'}}>
+					<div style={{ borderTop: '1px lightgrey solid', margin: '30px'}}>
+						<h4 style={{ textAlign: 'left', marginTop:'10px', marginBottom:'30px'}}>
 							{userState.username}'s Reviews
 							<div>
 							<ReviewGiven reviews = {userState.reviewsGiven}/>
 							</div>
-						</h3>
+						</h4>
 					</div>
 					{userState.listing.length>0 ? (
 						<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
-						<h3 style={{ textAlign: 'left'}}>
+						<h4 style={{ textAlign: 'left'}}>
 							{userState.username}'s Listing 
-						</h3>
+						</h4>
 							<div>
 							<HostListing listing = {userState.listing} />
 							</div>

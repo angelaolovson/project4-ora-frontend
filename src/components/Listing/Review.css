@@ -32,8 +32,7 @@
     display: flex;
     width: 90%;
     flex-direction: row ;
-    height: auto
-    
+    height: auto;    
  }
 
  .review-comments{

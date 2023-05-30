@@ -9,7 +9,7 @@ const ReviewGiven = ({reviews}) => {
       //console.log(reviews.description);
     
       const property = reviews.map((info, index) => (
-        <Card style={{margin:'5px', borderRadius:'1em'}}className='comments-box '>
+        <Card style={{margin:'5px', borderRadius:'1em', height:'auto'}} className='comments-box '>
         <Card.Body className='review-comments'>
             <div className='name-date'>
             <p className='createdAt'> Created At: {new Date(info.createdAt).toLocaleDateString()}</p>

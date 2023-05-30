@@ -37,7 +37,8 @@ const SideBar = ({profile}) => {
         </p>
     </div>
     
-    <Button 
+    <Button
+      style={{marginBottom:"10px"}}
       variant="outline-secondary" 
       size="lg"
       onClick = {handleEditModalOpen}
@@ -48,8 +49,7 @@ const SideBar = ({profile}) => {
         show = {editModalState}
         handleClose = {handleEditModalClose}
         profile ={profile}/>
- <br>
- </br>
+ 
     <NavLink to="/listing/new">
         <Button variant="outline-secondary" size="lg">
                 Airbnb Your Home

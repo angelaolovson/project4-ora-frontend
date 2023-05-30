@@ -45,7 +45,7 @@ const SearchBar = () => {
 
   
   return (
-    <div style={{ borderRadius:'2em', width:"65%", display:"flex", justifyContent:"end", boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)"}}>
+    <div style={{ borderRadius:'2em', width:"68%", display:"flex", justifyContent:"end", boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)"}}>
   <Form className="d-flex" onSubmit={handleSubmit}>
     <Form.Group controlId="Location">
     <Form.Label style={{ marginBottom: '0px' }} className="label-sm">Location</Form.Label>

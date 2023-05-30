@@ -1,51 +1,24 @@
-.fc-daygrid-day .fc-daygrid-day-top .fc-daygrid-day-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.bookingCalendar {
 
-  .fc-prev-button, .fc-next-button {
-    background-color: white;
-    border-color: transparent;
-    color: black;
-  }
-  
-  .fc-prev-button:hover, .fc-next-button:hover {
-    background-color: white;
-    border-color: transparent;
-    color: grey
-  }
-
-  .fc-today-button {
-    background-color: white;
-    border-color: transparent;
-    color: black;
-  }
-  
-  .fc-today-button:hover {
-    border-color: transparent;
-    background-color: transparent;
-    color: grey
-  }
-
-  .fc-today-button:not(.fc-button-disabled) {
-    background-color: white;
-    border-color: transparent;
-    color: grey;
-  }
-
-  .bi-chevron-left,.bi-chevron-right {
-  border-color: transparent;
-  /* or */
-  border: 0;
+margin-top: -10px;
+width: 100%;
+font-size: 18px;
 }
 
-.fc-toolbar-title {
-    color: grey;
-    border: 1px solid transparent;
-  }
+.bookingCalendar .react-datepicker__month-container {
+  width: 50%;
+  height: 80%; /* Adjust the width as needed */
+}
 
-.booked-event{
-    text-align: center;
-    
+.bookingCalendar .react-datepicker__day-names {
+  font-size: 27px;
+  /* Adjust the font size as needed */
+}
+
+.bookingCalendar .react-datepicker__day {
+  font-size: 27px; /* Adjust the font size as needed */
+ 
+}
+.bookingCalendar .react-datepicker__current-month {
+  font-size: 20px; /* Adjust the font size as needed */
 }
