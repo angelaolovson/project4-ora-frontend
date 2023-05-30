@@ -19,7 +19,8 @@ const Booking = (props) => {
 	const [bookingError, setBookingError] = useState('');
 	
 
-    const toggleCalendar = () => {
+    const toggleCalendar = (e) => {
+		e.preventDefault();
 		setShowCalendar(!showCalendar);
 	}
 
@@ -51,16 +52,68 @@ const Booking = (props) => {
 	
 	  
 	  return (
+		<div style={{ display: 'flex', width: '100%', justifyContent: 'flex-end' }}>
 		<DatePicker
-		selected = {startDate}
-		onChange={onChange}
-		startDate = {startDate}
-		endDate = {endDate}
-		excludeDates={excludeDates}
-		selectsRange
-		selectsDisabledDaysInRange
-		inline
-		/>
+      renderCustomHeader={({
+        monthDate,
+        customHeaderCount,
+        decreaseMonth,
+        increaseMonth,
+      }) => (
+        <div>
+          <button
+            aria-label="Previous Month"
+            className={
+              "react-datepicker__navigation react-datepicker__navigation--previous"
+            }
+            style={customHeaderCount === 1 ? { visibility: "hidden" } : null}
+            onClick={decreaseMonth}
+          >
+            <span
+              className={
+                "react-datepicker__navigation-icon react-datepicker__navigation-icon--previous"
+              }
+            >
+              {"<"}
+            </span>
+          </button>
+          <span className="react-datepicker__current-month">
+            {monthDate.toLocaleString("en-US", {
+              month: "long",
+              year: "numeric",
+            })}
+          </span>
+          <button
+            aria-label="Next Month"
+            className={
+              "react-datepicker__navigation react-datepicker__navigation--next"
+            }
+            style={customHeaderCount === 0 ? { visibility: "hidden" } : null}
+            onClick={increaseMonth}
+          >
+            <span
+              className={
+                "react-datepicker__navigation-icon react-datepicker__navigation-icon--next"
+              }
+            >
+              {">"}
+            </span>
+          </button>
+        </div>
+      )}
+	  selected = {startDate}
+	  onChange={onChange}
+	  startDate = {startDate}
+	  endDate = {endDate}
+	  excludeDates={excludeDates}
+	  selectsRange
+	  selectsDisabledDaysInRange
+	  inline
+      monthsShown={2}
+	  popperPlacement="bottom-end"
+	  style={{ width: 'auto' }}
+    />
+	</div>
 
 	  )
 	}
@@ -166,10 +219,17 @@ const Booking = (props) => {
           <div className='inputContainer'>
 		  	
 			<div className='inputDates'>
-				<div>
-					<div>Start Date</div>
-					<div>
-						<button className="bookingBtn" onClick={toggleCalendar}>Pick Start Date</button>
+				<div style={{width:'100%'}}>
+						<button className="bookingBtn" onClick={(e) =>toggleCalendar(e)} style={{width:'100%'}}>
+							<div style={{display:'flex', flexDirection:'row',justifyContent:'space-around'}}>
+								<div style={{width:'auto'}}>
+									Check in
+								</div>
+								<div style={{width:'auto'}}>
+									Check out
+								</div>
+								</div>
+						</button>
 						{/* <input
 						type="date"
 						id="startDate"
@@ -177,11 +237,10 @@ const Booking = (props) => {
 						onChange={(e)=> onChangeHandler(e,setStartDate)}
 						/> */}
 						{showCalendar && (
-							<BookingDatePicker/>
+							<BookingDatePicker />
 						)}
-					</div>
 				</div>
-				<div>
+				{/* <div>
 					<div>End Date</div>
 					<div>
 					<button className="bookingBtn">Pick End Date</button>
@@ -192,10 +251,10 @@ const Booking = (props) => {
 						onChange={(e)=>onChangeHandler(e,setEndDate)}
 						/> */}
 					
-					</div>
-				</div>
+					{/* </div> */}
+				{/* </div> */} 
 			</div>
-			<div>
+			<div style={{border:'1px solid grey',borderRadius:'10px'}}>
 				<div>Guest Count</div>
 				<div>
 					<input
@@ -203,6 +262,7 @@ const Booking = (props) => {
 					id="guest"
 					value={guestCount}
 					onChange={(e)=>onChangeHandler(e,setGuestCount)}
+					style={{border:'none',borderRadius:'1em'}}
 					/>
 				</div>
 			</div>

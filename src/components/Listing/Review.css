@@ -31,7 +31,7 @@
     display: flex;
     width: 40%;
     flex-direction: row ;
-    height: 150px;
+    height: auto;
     
  }
 

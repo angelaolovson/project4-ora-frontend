@@ -11,12 +11,12 @@ font-size: 18px;
 }
 
 .bookingCalendar .react-datepicker__day-names {
-  font-size: 25px;
+  font-size: 27px;
   /* Adjust the font size as needed */
 }
 
 .bookingCalendar .react-datepicker__day {
-  font-size: 25px; /* Adjust the font size as needed */
+  font-size: 27px; /* Adjust the font size as needed */
  
 }
 .bookingCalendar .react-datepicker__current-month {

@@ -41,11 +41,11 @@
 }
 .inputDates{
     display: flex;
-    flex-direction: row;
+    width: 100%;
 }
-.inputDates > div {
+/* .inputDates > div {
     width: 50%;
-}
+} */
 input{
     /* Add your desired styles here */
     border: 1px solid #ccc;
@@ -66,12 +66,17 @@ input{
   }
 
 .bookingBtn {
+    margin: 10px 0;
     background-color: white;
-    width: 90%;
-    border-radius: 5px;
-    height: 40px;
+    border: 1px solid grey;
+    color: grey;
+    font-weight:bolder;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 10px;
 }
 
 .bookingError {
     color: red
 }
+
