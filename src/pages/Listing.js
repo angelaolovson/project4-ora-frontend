@@ -45,7 +45,7 @@ const Listing = () => {
       <SecNav setPropertiesState={setPropertiesState} />
       <div className='allProperties'>
         {propertiesState ? (
-          <Row xs={1} md={4} className="g-4">
+          <Row xs={1} md={6} className="g-4">
             {propertiesList}
           </Row>
         ) : (

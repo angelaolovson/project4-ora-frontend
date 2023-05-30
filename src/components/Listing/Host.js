@@ -1,11 +1,10 @@
 import React from 'react'
 import './Host.css'
-		  
-function Host() {
+import '../../pages/Host'
+function Host(host) {
     return (
 		<div className="host">
-			<h3>🧚🏻Host Profile🧚🏻</h3>
-			<h4>Name: </h4>
+			<h2>host</h2>
 		</div>
 	)
 }

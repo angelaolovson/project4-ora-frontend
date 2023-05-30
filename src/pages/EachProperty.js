@@ -3,9 +3,10 @@ import './EachProperty.css'
 import { NavLink, useParams } from 'react-router-dom'
 import Map from '../components/Listing/Map'
 import Booking from '../components/Listing/Booking'
-import Host from '../components/Listing/Host'
 import BookingCalendar from '../components/Listing/BookingCalendar'
 import Review from '../components/Listing/Review';
+import Host from '../components/Listing/Host'
+
 
 const EachProperty = (property) => {
   const [eachPropertyState, setEachPropertyState] = useState(null);
@@ -113,8 +114,8 @@ const EachProperty = (property) => {
             </div>
             <hr/>
             <div>
-              <div className='hostTitle'>Hosted by{eachPropertyState.property.username} </div>
-              <div><Host /></div>
+              <div className='hostTitle'>Hosted by {eachPropertyState.property.host.username} </div>
+              <div><Host host={eachPropertyState.property.host._id} /></div>
             </div>
 
           </div>
