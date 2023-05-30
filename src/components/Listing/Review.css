@@ -48,14 +48,11 @@
     overflow-y: auto;
   }
 
-  .rating-bar.col{
-  }
-
-  .reviewNumber{
+.reviewNumber{
    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
+   font-weight: 600;
+   margin-bottom: 10px;
+}
 
   p.card-text{
    margin-left: 5px;
