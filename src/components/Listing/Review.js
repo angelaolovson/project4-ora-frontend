@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import './Review.css'
 import { Col, ProgressBar, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
 
 		  
 function Review({reviews, rating}) {
@@ -32,7 +34,10 @@ function Review({reviews, rating}) {
 				<Card.Img variant="top" src={info.image} style={{ width: '100%' }} />
 				</div>
 				<div className='name-date'>
+				<NavLink to = {`/user/${info.reviewer}`} >
 				{info.username}
+				</NavLink>
+				
 				<p className='createdAt'> Created At: {new Date(info.createdAt).toLocaleDateString()}</p>
 				</div>
 			  </Card.Title>

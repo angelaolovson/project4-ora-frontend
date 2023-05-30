@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react'
 import './Booking.css'
 import { AuthContext } from '../../context/auth-context'
+import BookingCalendar from './BookingCalendar';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 	  
 const Booking = (props) => {
@@ -8,11 +11,59 @@ const Booking = (props) => {
     
     const {property} = props.property;
     const [isBooked, setIsBooked] = useState(false);
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [guestCount, setGuestCount] = useState('');
     const auth = useContext(AuthContext)
+	const [showCalendar, setShowCalendar] = useState(false);
+	const [bookingError, setBookingError] = useState('');
 	
+
+    const toggleCalendar = () => {
+		setShowCalendar(!showCalendar);
+	}
+
+	//date picker
+
+	const BookingDatePicker = () =>{
+		const {bookings} = property
+		const bookedDates = bookings?.map((info)=>(
+		  {start: new Date(info.startDate), end: new Date(info.endDate)}
+		  )) || [];
+	
+		const excludeDates = bookedDates.reduce((dates, range) => {
+		  const {start, end} = range;
+		  const currentDate = new Date(start);
+		  while (currentDate <= end) {
+			dates.push(new Date(currentDate));
+			currentDate.setDate(currentDate.getDate()+1);
+		  }
+		  return dates;
+		}, []);
+	  
+	  //datepicker onchange
+	
+	  const onChange = (dates)=>{
+		const [start, end] = dates;
+		setStartDate(start);
+		setEndDate(end);
+	  }
+	
+	  
+	  return (
+		<DatePicker
+		selected = {startDate}
+		onChange={onChange}
+		startDate = {startDate}
+		endDate = {endDate}
+		excludeDates={excludeDates}
+		selectsRange
+		selectsDisabledDaysInRange
+		inline
+		/>
+
+	  )
+	}
 
     //Here we are making a dynamic onChangeHandler that'll accept a state updater
     const onChangeHandler = (e, setValue) => {
@@ -56,7 +107,13 @@ const Booking = (props) => {
       	const responseData = await fetch("https://airbnb-main.onrender.com/booking" , options)
       	const newBookingObj = await responseData.json()
       	console.log(newBookingObj)
-		setIsBooked(true);
+		
+		if(newBookingObj.error){
+			setBookingError(newBookingObj.error);
+		} else {
+			setIsBooked(true);
+		}
+		
     };
 
 	const start = new Date(startDate);
@@ -112,23 +169,29 @@ const Booking = (props) => {
 				<div>
 					<div>Start Date</div>
 					<div>
-						<input
+						<button className="bookingBtn" onClick={toggleCalendar}>Pick Start Date</button>
+						{/* <input
 						type="date"
 						id="startDate"
 						value={startDate}
 						onChange={(e)=> onChangeHandler(e,setStartDate)}
-						/>
+						/> */}
+						{showCalendar && (
+							<BookingDatePicker/>
+						)}
 					</div>
 				</div>
 				<div>
 					<div>End Date</div>
 					<div>
-						<input
+					<button className="bookingBtn">Pick End Date</button>
+						{/* <input
 						type="date"
 						id="endDate"
 						value={endDate}
 						onChange={(e)=>onChangeHandler(e,setEndDate)}
-						/>
+						/> */}
+					
 					</div>
 				</div>
 			</div>
@@ -160,6 +223,7 @@ const Booking = (props) => {
 				<div>$ {finalTotalPrice || 0}</div>
 			</div>
 		  </div>
+		  {bookingError && <div className='bookingError'>{bookingError}</div>}
         </form>)}
       </div>
 	  

@@ -106,17 +106,10 @@
 
 .calendar{
     display: flex;
-    height: 450px;
+    height: 380px;
     margin: 15px 0 20px 0;
 }
-.calendarCheckIn,
-.calendarCheckOut {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .bookingComponent{
     width: 30%;
 }
