@@ -5,7 +5,7 @@ import Map from '../components/Listing/Map'
 import Booking from '../components/Listing/Booking'
 import BookingCalendar from '../components/Listing/BookingCalendar'
 import Review from '../components/Listing/Review';
-import Host from '../components/Listing/Host'
+import HostInfo from '../components/Listing/HostInfo'
 
 
 const EachProperty = (property) => {
@@ -115,7 +115,7 @@ const EachProperty = (property) => {
             <hr/>
             <div>
               <div className='hostTitle'>Hosted by {eachPropertyState.property.host.username} </div>
-              <div><Host host={eachPropertyState.property.host._id} /></div>
+              <HostInfo host={eachPropertyState.property.host} />
             </div>
 
           </div>
