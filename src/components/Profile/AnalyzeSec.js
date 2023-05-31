@@ -77,8 +77,8 @@ const AnalyzeSec = () => {
   useEffect(()=>{
     const fetchBooking = async () => {
         try {
-            let responseData = await fetch(`http://localhost:4000/booking/income/${auth.userId}`)
-            //let responseData = await fetch(`https://airbnb-main.onrender.com/booking/host/${auth.userId}`)
+            //let responseData = await fetch(`http://localhost:4000/booking/income/${auth.userId}`)
+            let responseData = await fetch(`https://airbnb-main.onrender.com/booking/income/${auth.userId}`)
             
             if(responseData.ok){
               let allBookings = await responseData.json()
