@@ -9,6 +9,7 @@ function SignUpModal({show,handleClose}) {
   const [username, setUsername] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword]= useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const auth = useContext(AuthContext)
   console.log(auth)
@@ -16,7 +17,14 @@ function SignUpModal({show,handleClose}) {
   ///////////////handle submit function///////////////////
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const signUp = {
+
+    // check password
+    if(password != confirmPassword){
+      setErrorMessage('Passwords do not match');
+      return;
+    }
+
+    const signUpData = {
       username: username,
       email: email,
       password: password,
@@ -28,7 +36,7 @@ function SignUpModal({show,handleClose}) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signUp),
+        body: JSON.stringify(signUpData),
       };
       const responseData = await fetch(
         "http://localhost:4000/user/signup", options
@@ -37,23 +45,53 @@ function SignUpModal({show,handleClose}) {
       const signUpObj = await responseData.json();
       console.log(signUpObj)
       
-      // if(responseData.ok) {
-      //   // set the auth with successfully login info
-      //   auth.login(LoginObj.currentUser.id,LoginObj.token,LoginObj.currentUser)
-   
-      //   console.log(LoginObj)
-      //   console.log("Login sucessful");
-      //   //close modal
-      //    handleClose();
-      // } else {
-      //     setErrorMessage("Email or password do not match");
-      //     console.log("Login failed:")
-      // }
+      if(responseData.ok) {
+        // set the auth with successfully login info
+        console.log(signUpObj)
+        console.log("Login sucessful");
+        logIn();
+        //close modal
+         handleClose();
+      } else {
+          setErrorMessage(signUpObj.error);
+          console.log("Login failed:")
+      }
 
 } catch(error){
     console.error('Login error:',error)
 }   
   }
+
+//login 
+const logIn = async () => {
+  const loginData = {
+    email: email,
+    password: password,
+  };
+
+  try {
+    const loginOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    };
+    const responseData = await fetch('http://localhost:4000/user/login', loginOptions);
+    const loginObj = await responseData.json();
+
+    if (responseData.status === 200) {
+      auth.login(loginObj.currentUser.id, loginObj.token, loginObj.currentUser);
+      console.log('Login successful');
+      handleClose();
+    } else {
+      setErrorMessage('Email or password do not match');
+      console.log('Login failed');
+    }
+  } catch (error) {
+    console.error('Login error:', error);
+  }
+};
 
   return (
     <>
@@ -62,7 +100,7 @@ function SignUpModal({show,handleClose}) {
           <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit = {handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>User Name</Form.Label>
               <Form.Control
@@ -99,16 +137,17 @@ function SignUpModal({show,handleClose}) {
                 type="password"
                 placeholder="password"
                 autoFocus
+                value = {confirmPassword}
+                onChange = {(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Group>
-          </Form>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="warning" size="lg" onClick={handleClose}>
+            <Button variant="warning" size="lg" type='submit'>
             Create an account
           </Button>
-        </Modal.Footer>
+          </Form>
+          {errorMessage && <p style={{color:'red'}}>{errorMessage}</p>}
+        </Modal.Body>
+
       </Modal>
     </>
   );
