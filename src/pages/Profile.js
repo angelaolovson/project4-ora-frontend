@@ -93,14 +93,17 @@ const Profile = () => {
                    <Button  style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('guestbooking')}>
                    Guest Booking
                      </Button>
+                     <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('analyze')}>
+                   Income
+                     </Button>
                      </> 
                      ): (
                      ""
                      )}
-            
-                     <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('analyze')}>
+                        <Button style={{ border: '1px solid transparent' }} variant="outline-secondary" size="lg" onClick={() => handleSectionChange('save')}>
                    Save
                      </Button>
+
                    </div>
                  </div>
          ):(
