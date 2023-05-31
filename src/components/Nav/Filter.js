@@ -53,7 +53,7 @@ function Filter({show,handleClose,filterData}) {
     filterData(data);
 };
     const clearFilter = () => {
-        let queryArr = []
+      window.location.reload();
     };
   
     return (
