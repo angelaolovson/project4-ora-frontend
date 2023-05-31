@@ -30,7 +30,7 @@
 
  .comments-box{
     display: flex;
-    width: 90%;
+    width: 80%;
     flex-direction: row ;
     height: auto;    
  }
