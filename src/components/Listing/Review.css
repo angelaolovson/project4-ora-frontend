@@ -1,6 +1,7 @@
  .reviewCard{
     display: flex;
-    flex-direction: column ;
+    flex-direction: row ;
+    justify-content: space-between;
  }
 
  .comments{
@@ -29,10 +30,9 @@
 
  .comments-box{
     display: flex;
-    width: 40%;
+    width: 90%;
     flex-direction: row ;
-    height: auto;
-    
+    height: auto;    
  }
 
  .review-comments{
@@ -45,4 +45,14 @@
  .review-container-scroll {
     max-height: 300px; /* Adjust the height as needed */
     overflow-y: auto;
+  }
+
+.reviewNumber{
+   font-size: 22px;
+   font-weight: 600;
+   margin-bottom: 10px;
+}
+
+  p.card-text{
+   margin-left: 5px;
   }
