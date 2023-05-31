@@ -48,7 +48,9 @@ const EditProfile = ({show,handleClose,profile}) => {
             body: JSON.stringify(updatedProfile),
         };
 
-        const responseData = await fetch(`http://localhost:4000/user/${profile._id}`, options);
+        //https://airbnb-main.onrender.com
+        //const responseData = await fetch(`http://localhost:4000/user/${profile._id}`, options);
+        const responseData = await fetch(`https://airbnb-main.onrender.com/user/${profile._id}`, options);
 
         const updatedProfileData = await responseData.json();
         console.log(updatedProfileData);

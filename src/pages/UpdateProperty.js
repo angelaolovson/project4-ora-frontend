@@ -29,7 +29,8 @@ const UpdateProperty = () => {
   useEffect(()=>{
     const fetchListing = async() => {
       try {
-        const responseData = await fetch (`http://localhost:4000/listing/${id}`);
+        const responseData = await fetch (`https://airbnb-main.onrender.com/listing/${id}`);
+        //const responseData = await fetch (`http://localhost:4000/listing/${id}`);
         const listingData = await responseData.json();
         console.log("🥲",listingData);
 
@@ -121,7 +122,8 @@ const UpdateProperty = () => {
         method: "DELETE",
     };
 
-    const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
+    const responseData = await fetch(`https://airbnb-main.onrender.com/listing/${id}`, options);
+    //const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
     const response = await responseData.json();
     console.log(response)
     navigate('/')

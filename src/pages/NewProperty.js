@@ -73,6 +73,9 @@ const NewProperty = () => {
      const responseData = await fetch(
       "http://localhost:4000/listing", options
       )
+      // const responseData = await fetch(
+      //   "https://airbnb-main.onrender.com/listing", options
+      //   )
       const newListingObj = await responseData.json();
       // console.log(newListingObj)
       navigate('/')

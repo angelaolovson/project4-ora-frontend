@@ -15,7 +15,9 @@ function Host() {
 		const fetchUserData = async () => {
 	
 		  try {
-			const responseData = await fetch(`http://localhost:4000/user/${id}`);
+
+			//const responseData = await fetch(`http://localhost:4000/user/${id}`);
+			const responseData = await fetch(`https://airbnb-main.onrender.com/user/${id}`);
 	
 			const userData = await responseData.json();
 

@@ -10,8 +10,8 @@
 .profile-image {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    height: auto;
     object-fit: cover;
 }
 

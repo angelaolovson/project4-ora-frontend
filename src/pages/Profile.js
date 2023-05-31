@@ -37,10 +37,14 @@ const Profile = () => {
                   "Content-Type": "application/json",
                 },
               };
-              
+
               const responseData = await fetch(
-                `http://localhost:4000/user/${auth.userId}`, options
+                `https://airbnb-main.onrender.com/user/${auth.userId}`, options
               );
+              
+              // const responseData = await fetch(
+              //   `http://localhost:4000/user/${auth.userId}`, options
+              // );
             
               const profileData = await responseData.json();
               setProfile(profileData);

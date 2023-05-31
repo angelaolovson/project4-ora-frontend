@@ -43,7 +43,8 @@ const AddReview = ({show,handleClose,bookingData}) => {
             body: JSON.stringify(updatedReview),
         };
 
-        const responseData = await fetch(`http://localhost:4000/review`, options);
+        const responseData = await fetch(`https://airbnb-main.onrender.com/review`, options);
+        //const responseData = await fetch(`http://localhost:4000/review`, options);
 
         const AddReviewData = await responseData.json();
         console.log(AddReviewData);

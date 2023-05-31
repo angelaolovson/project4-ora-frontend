@@ -32,7 +32,8 @@ const SearchBar = () => {
       guestNumber: guestNumberState
     }
     try{
-      let response = await fetch(`http://localhost:4000/listing/search?location=${searchQuery.location}&startDate=${searchQuery.startDate}&endDate=${searchQuery.endDate}&guestNumber=${guestNumberState}`)
+      let response = await fetch(`https://airbnb-main.onrender.com/listing/search?location=${searchQuery.location}&startDate=${searchQuery.startDate}&endDate=${searchQuery.endDate}&guestNumber=${guestNumberState}`)
+      //let response = await fetch(`http://localhost:4000/listing/search?location=${searchQuery.location}&startDate=${searchQuery.startDate}&endDate=${searchQuery.endDate}&guestNumber=${guestNumberState}`)
 
       let searchData = await response.json();
       setResult(searchData)

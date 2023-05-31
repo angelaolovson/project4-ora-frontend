@@ -41,8 +41,9 @@ const EditReview = ({show,handleClose,reviewData}) => {
             },
             body: JSON.stringify(updatedReview),
         };
-
-        const responseData = await fetch(`http://localhost:4000/review/${reviewData._id}`, options);
+        
+        const responseData = await fetch(`https://airbnb-main.onrender.com/review/${reviewData._id}`, options);
+       // const responseData = await fetch(`http://localhost:4000/review/${reviewData._id}`, options);
 
         const updatedReviewData = await responseData.json();
         console.log(updatedReviewData);
@@ -58,7 +59,8 @@ const EditReview = ({show,handleClose,reviewData}) => {
             method: "DELETE",
         };
 
-        const responseData = await fetch(`http://localhost:4000/review/${reviewData._id}`, options);
+        const responseData = await fetch(`https://airbnb-main.onrender.com/review/${reviewData._id}`, options);
+       // const responseData = await fetch(`http://localhost:4000/review/${reviewData._id}`, options);
         const response = await responseData.json();
         console.log(response)
         window.location.reload();
