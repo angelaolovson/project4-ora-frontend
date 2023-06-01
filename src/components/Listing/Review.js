@@ -57,38 +57,37 @@ function Review({reviews, rating}) {
 			<div className='reviewNumber'>{outlineStar}{reviews.length} Reviews</div> 
 			) }  
 			 
-			<Row>
-            <Col className='rating-bar'>
+			<div>
+            <Col style={{display:'flex', justifyContent:'space-between'}}>
               <Card.Text style={{ margin: '0' }}>Cleanliness</Card.Text>
               <div className='bar-num'>
               <ProgressBar variant="black" style={{ height: '5px' }} now={cleanNow} />
               <Card.Text>{averageCleanRating}</Card.Text>
               </div>
             </Col>
-            <Col className='rating-bar'>
+            <Col style={{display:'flex', justifyContent:'space-between'}}>
               <Card.Text style={{ margin: '0' }}>Location</Card.Text>
               <div className='bar-num'>
               <ProgressBar variant="black" style={{ height: '5px' }} now={locationNow} />
               <Card.Text>{averageLocationRating}</Card.Text>
               </div>
             </Col>
-          </Row>
-          <Row>
-            <Col className='rating-bar'>
+            <Col style={{display:'flex', justifyContent:'space-between'}}>
               <Card.Text style={{ margin: '0' }}>Service</Card.Text>
               <div className='bar-num'>
               <ProgressBar   variant="black" style={{ height: '5px' }} now={serviceNow} />
               <Card.Text>{averageServiceRating}</Card.Text>
               </div>
             </Col>
-            <Col className='rating-bar'>
-            <Card.Text style={{ margin: '0' }}>Overall</Card.Text>
-            <div className='bar-num'>
-            <ProgressBar variant="black" style={{ height: '5px' }} now={overallNow} />
-            <Card.Text>{rating.toFixed(2)}</Card.Text>
-            </div>
+            <Col style={{display:'flex', justifyContent:'space-between'}}>
+				<Card.Text style={{ margin: '0' }}>Overall</Card.Text>
+				<div className='bar-num'>
+				<ProgressBar variant="black" style={{ height: '5px' }} now={overallNow} />
+				<Card.Text>{rating.toFixed(2)}</Card.Text>
+				</div>
             </Col>
-          </Row>
+			</div>
+         
 		  </div>
 		  <div className='comments review-container-scroll'>
 			{reviewList}

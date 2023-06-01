@@ -126,7 +126,7 @@ const UpdateProperty = () => {
     };
 
     const responseData = await fetch(`https://airbnb-main.onrender.com/listing/${id}`, options);
-    //const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
+   // const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
     const response = await responseData.json();
     console.log(response)
     navigate('/')
