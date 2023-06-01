@@ -55,7 +55,7 @@ const EditProfile = ({show,handleClose,profile}) => {
         const updatedProfileData = await responseData.json();
         console.log(updatedProfileData);
         handleClose();
-        navigate('/user/profile');
+        window.location.reload();
     }
 
 

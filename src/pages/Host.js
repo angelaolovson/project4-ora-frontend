@@ -111,13 +111,16 @@ function Host() {
 							</Col>
 						</h4>
 					</div>
-					<div style={{ borderTop: '1px lightgrey solid', margin: '30px'}}>
-						<h4 style={{ textAlign: 'left', marginTop:'10px', marginBottom:'30px'}}>
+					<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>
+						<div>
+						<h4 style={{ textAlign: 'left', marginTop:'10px', marginBottom:'20px'}}>
 							{userState.username}'s Reviews
+							</h4>
+							</div>
 							<div>
 							<ReviewGiven reviews = {userState.reviewsGiven}/>
 							</div>
-						</h4>
+						
 					</div>
 					{userState.listing.length>0 ? (
 						<div style={{ borderTop: '1px lightgrey solid', margin: '20px'}}>

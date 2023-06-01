@@ -17,13 +17,22 @@ const SideBar = ({profile}) => {
   return (
     <div className='InSideBar'>
       <div style={{marginTop:'50px'}}>
-      <Figure>
-          <Figure.Image
-            className='profile-image'
-            alt="171x180"
-            src={image}
-          />
-         </Figure>
+      {image? (
+            <Figure>
+            <Figure.Image
+              className='profile-image'
+              alt="171x180"
+              src={image}
+            />
+           </Figure>
+      ): (     <Figure>
+        <Figure.Image
+          className='profile-image'
+          alt="171x180"
+          src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTexBcYNZI8yGT2ELfzNvqsisnSDI1G4RR1HIVGAcafrg&s'
+        />
+       </Figure>)}
+  
       </div>
     <div className='username'>
         <h1>

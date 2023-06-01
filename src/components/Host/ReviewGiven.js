@@ -3,7 +3,7 @@ import { Card, Row} from 'react-bootstrap';
 
 const ReviewGiven = ({reviews}) => {
     if (!reviews || reviews.length === 0) {
-        return <p>No Property Available</p>;
+        return <p>No Review Given</p>;
       }
     
       //console.log(reviews.description);
@@ -21,7 +21,7 @@ const ReviewGiven = ({reviews}) => {
       </Card>
       ));
         
-      return <Row className='hostreviews' style={{ overflow: 'scroll', maxHeight: '400px','&::-webkit-scrollbar': { /* WebKit (Chrome, Safari, etc.) */
+      return <Row className='hostreviews' style={{ overflowY: 'scroll', maxHeight: '400px','&::-webkit-scrollbar': { /* WebKit (Chrome, Safari, etc.) */
       display: 'none',
     }}}>{property}</Row>;
 }
