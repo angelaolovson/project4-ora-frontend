@@ -31,10 +31,10 @@ function Review({reviews, rating}) {
 			<Card.Body className='review-comments'>
 			  <Card.Title className='title'>
 				<div className='reviewer-pro'>
-				<Card.Img variant="top" src={info.image} style={{ width: '100%' }} />
+				<Card.Img variant="top" src={info.image} style={{marginTop: '-5px', width: '100%' , height:'25px', borderRadius:'50%'}} />
 				</div>
 				<div className='name-date'>
-				<NavLink to = {`/user/${info.reviewer}`} >
+				<NavLink to = {`/user/${info.reviewer}`} style={{color:'grey', textDecoration:'none'}} >
 				{info.username}
 				</NavLink>
 				
