@@ -1,0 +1,25 @@
+.seachBarMain{
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width:95%;
+    height: 70px;
+}
+.d-flex{
+    display: flex;
+    gap: 15px;
+    padding: 3px 10px;
+}
+
+.form-group{
+    flex: 1;
+}
+.nav-btn {
+    flex-shrink: 0;
+    border: none;
+    background-color: transparent;
+    color: black;
+}
+
+.nav-btn:hover {
+    background-color: transparent; /* Remove the background color change on hover */
+}
