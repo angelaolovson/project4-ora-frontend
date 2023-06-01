@@ -1,9 +1,9 @@
 
 .dashboard {
-    height: 90vh;
+    height: 82vh;
     width: 98%;
     margin: 20px;
-    margin-top: 30px;
+    margin-top: -30px;
     text-align: center;
     display: grid;
     grid-gap: 50px;
@@ -51,6 +51,7 @@
   .container-scroll {
     /* max-height: 100vh;  */
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   

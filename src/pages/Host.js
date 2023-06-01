@@ -41,7 +41,7 @@ function Host() {
 	 }
 
     return (
-	    <Container style={{marginTop:"100px"}}>
+	    <Container style={{marginTop:"20px"}}>
 			{userState? (
 				<Row >
 				<Col  sm={4}>
