@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './Booking.css'
 import { AuthContext } from '../../context/auth-context'
-import BookingCalendar from './BookingCalendar';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 

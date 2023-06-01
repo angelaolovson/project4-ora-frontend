@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Row} from 'react-bootstrap';
 
 const ReviewGiven = ({reviews}) => {
     if (!reviews || reviews.length === 0) {

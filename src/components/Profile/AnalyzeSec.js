@@ -1,8 +1,5 @@
 import { useEffect, useState, useContext, useRef } from 'react';
 import { AuthContext } from '../../context/auth-context';
-import { Card, Row, Col, Figure, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { select } from 'd3';
 import * as d3 from 'd3';
 
 
@@ -57,7 +54,7 @@ const AnalyzeSec = () => {
         .append('text')
         .attr('class', 'label')
         .attr('x', d => xScale(d.month) + xScale.bandwidth() / 2)
-        .attr('y', d => yScale(d.income) - 5)
+        .attr('y', d => yScale(d.income) + 15)
         .attr('text-anchor', 'middle')
         .text(d => new Date(d.month).toLocaleString('en-US', { month: 'short' }))
   
@@ -68,7 +65,7 @@ const AnalyzeSec = () => {
         .append('text')
         .attr('class', 'value')
         .attr('x', d => xScale(d.month) + xScale.bandwidth() / 2)
-        .attr('y', d => yScale(d.income) + 15)
+        .attr('y', d => yScale(d.income) -5)
         .attr('text-anchor', 'middle')
         .text(d => '$ '+ d.income);
     }

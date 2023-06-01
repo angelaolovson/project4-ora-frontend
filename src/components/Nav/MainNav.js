@@ -3,7 +3,7 @@ import "./MainNav.css";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {useState, useEffect, useContext} from 'react';
+import {useState, useContext} from 'react';
 import SignUpModal from './SignUpModal.js';
 import LogInModal from './LogInModal.js';
 import SearchBar from "./SearchBar";

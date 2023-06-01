@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import { Link, useParams, NavLink } from "react-router-dom";
+import { Card, Row, Col } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const HostListing = ({listing}) => {
     const solidStar = '\u2605'; 

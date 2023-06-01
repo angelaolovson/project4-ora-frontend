@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
-import { Link, useParams, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import './Profile.css'
 
 

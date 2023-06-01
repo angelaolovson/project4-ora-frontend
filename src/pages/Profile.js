@@ -1,6 +1,5 @@
 import React, {useEffect, useContext, useState} from 'react';
 import { AuthContext } from '../context/auth-context';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import SideBar from '../components/Profile/SideBar';
 import './Profile.css';

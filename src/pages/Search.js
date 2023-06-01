@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react'
+
 import PropertyItem from '../components/Listing/PropertyItem';
 import { Row, Col } from 'react-bootstrap';
 import './Listing.css'

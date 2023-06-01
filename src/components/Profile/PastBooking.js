@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Row, Col, Figure } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Profile.css';
