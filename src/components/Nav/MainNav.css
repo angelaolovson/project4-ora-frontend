@@ -1,3 +1,36 @@
+.mainNavBar{
+  display: flex;
+  flex-direction: column;
+}
+.navMain{
+  background-color: white;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 80px;
+}
+.logo{
+  width: 20%;
+  text-align: left;
+}
+a.logoCasaAmor{
+  font-size: 32px;
+  font-weight: 600;
+  color: #FF9400;
+  text-decoration: none;
+}
+.searchBar{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+.dropDown{
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .label-sm {
     font-size: 12px;
     margin-bottom: 0;
@@ -9,13 +42,15 @@
 }
 
 .searchoutline {
-  border: 2px solid light black;
+  border: 2px solid light rgb(0, 0, 0);
 }
 
-a.logoCasaAmor{
-  font-family: 'La Belle Aurore', cursive;
-  font-size: 40px;
-  font-weight: 600;
-  color: #FF9400;
-  padding: 0;
+.dropdownTitle{
+  font-size: 22px;
+}
+
+.emptyDiv{
+  height: 1px;
+  background-color: rgb(205, 205, 205);
+  margin-top: 100px;
 }

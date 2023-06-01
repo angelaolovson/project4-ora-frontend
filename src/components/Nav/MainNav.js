@@ -34,11 +34,12 @@ const handleCurrentUser = (data) => {
 console.log(currentUser)
 
   return (
-    <Navbar bg="light" expand="lg" fixed="top">
-      <Container >
-        <Navbar.Brand className="logoCasaAmor" href="/">CasaAmor</Navbar.Brand>
-          <SearchBar/>
-          <NavDropdown title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
+    <div className="mainNavBar">
+    <Navbar className="navMain" expand="lg" fixed="top">
+      <div className="logo"><a className="logoCasaAmor" href="/">CasaAmor</a></div>
+      <div className="searchBar"><SearchBar/></div>
+      <div className="dropDown">
+          <NavDropdown className="dropdownTitle" title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (
               <>
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
@@ -66,9 +67,10 @@ console.log(currentUser)
               <NavDropdown.Item href="#action5">
               </NavDropdown.Item>
             </NavDropdown>
-      </Container>
+            </div>
     </Navbar>
-
+    <div className="emptyDiv"></div>
+    </div>
   );
 }
 
