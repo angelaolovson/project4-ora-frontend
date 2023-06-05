@@ -27,7 +27,7 @@ function Review({reviews, rating}) {
 
 	const reviewList = reviews.map((info, index) => {
 		return (
-			<Card className='comments-box '>
+			<Card key={index} className='comments-box '>
 			<Card.Body className='review-comments'>
 			  <Card.Title className='title'>
 				<div className='reviewer-pro'>

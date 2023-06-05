@@ -18,7 +18,7 @@ const GuestBooking = () => {
             let responseData = await fetch(`https://airbnb-main.onrender.com/booking/host/${auth.userId}`)
             
             let allBookings = await responseData.json()
-            console.log(allBookings)
+            //console.log(allBookings)
 
             setBookingState(allBookings)
             setSortedResult(allBookings)
@@ -53,11 +53,6 @@ const GuestBooking = () => {
 
   setSortedResult(sortedList)
 }
-
-//useEffect for sort
-//   useEffect(()=> {
-//     setSortedResult(bookingState);
-//   },[bookingState])
 
   let bookingList;
 

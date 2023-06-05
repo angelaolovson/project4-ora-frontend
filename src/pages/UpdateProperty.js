@@ -32,7 +32,7 @@ const UpdateProperty = () => {
         const responseData = await fetch (`https://airbnb-main.onrender.com/listing/${id}`);
         //const responseData = await fetch (`http://localhost:4000/listing/${id}`);
         const listingData = await responseData.json();
-        console.log("🥲",listingData);
+        //console.log("🥲",listingData);
 
         const {title,price,address,types,images,amenities,share,guestNumber,bedroomNumber,bedNumber,bathroomNumber} = listingData.property
         //console.log("title",title)
@@ -90,7 +90,7 @@ const UpdateProperty = () => {
         bedNumber: bedState,
         bathroomNumber: bathroomState,
       }
-     console.log('new listing',newListing);
+    // console.log('new listing',newListing);
  /////////////////////////////////////////////////////fetch///////////////////////////////////////////////////////// 
     try{   
      const options = {
@@ -101,15 +101,15 @@ const UpdateProperty = () => {
       body: JSON.stringify(newListing),
      };
 
-    //  const responseData = await fetch(
-    //   `https://airbnb-main.onrender.com/listing/${id}`, options
-    //   )
      const responseData = await fetch(
-      `http://localhost:4000/listing/${id}`, options
+      `https://airbnb-jade.onrender.com/listing/${id}`, options
       )
+    //  const responseData = await fetch(
+    //   `http://localhost:4000/listing/${id}`, options
+    //   )
       const newListingObj = await responseData.json();
       navigate(`/listing/${id}`);
-      console.log(newListingObj)
+     // console.log(newListingObj)
 
     } catch (error){
       console.log(error)
@@ -135,14 +135,6 @@ const UpdateProperty = () => {
   return (
     <Container>
       {/* just to move form down */}
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label> Title</Form.Label>

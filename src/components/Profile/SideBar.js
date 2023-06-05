@@ -61,7 +61,7 @@ const SideBar = ({profile}) => {
  
     <NavLink to="/listing/new">
         <Button variant="outline-secondary" size="lg">
-                Airbnb Your Home
+                CasaAmor Your Home
         </Button>
     </NavLink>
     </div>

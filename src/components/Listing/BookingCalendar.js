@@ -9,8 +9,6 @@ const BookingCalendar = ({ bookings}) => {
   const [endDate, setEndDate] = useState(new Date());
 
  
-    
- 
  const BookingDatePicker = () =>{
 
   const bookedDates = bookings?.map((info)=>(

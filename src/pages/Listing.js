@@ -8,8 +8,8 @@ import SecNav from '../components/Nav/SecNav';
 const Listing = () => {
   const [propertiesState, setPropertiesState] = useState(null);
 
-  const URL = "http://localhost:4000/";
-  //const URL = "https://airbnb-main.onrender.com";
+  //const URL = "http://localhost:4000/";
+  const URL = "https://airbnb-main.onrender.com";
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -17,7 +17,7 @@ const Listing = () => {
         let responseData = await fetch(URL);
         
         let allProperties = await responseData.json()
-        console.log(allProperties)
+        //console.log(allProperties)
         //Retrieve the city and country from the response
     
         setPropertiesState(allProperties)

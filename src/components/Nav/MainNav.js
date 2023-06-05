@@ -21,10 +21,7 @@ const handleSignUpModalClose = () => setShowSignUpModal(false);
 const handleLogInModalOpen = () => setShowLogInModal(true);
 const handleLogInModalClose = () => setShowLogInModal(false);
 const auth = useContext(AuthContext)
-//console.log("context state🥲😍🥲",auth)
-// const handleLoginStatus = (isLoggedIn) => {
-//   setIsLoggedIn(isLoggedIn);
-// };
+
 
 const handleCurrentUser = (data) => {
   setCurrentUser(data);
@@ -61,7 +58,7 @@ console.log(currentUser)
             )}      
               <NavDropdown.Divider />
               <NavDropdown.Item href="/listing/new">
-                Airbnb Your Home
+                CasaAmor Your Home
               </NavDropdown.Item>
               <NavDropdown.Item href="#action5">
               </NavDropdown.Item>

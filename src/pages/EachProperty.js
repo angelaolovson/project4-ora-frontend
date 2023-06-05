@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './EachProperty.css'
 import { NavLink, useParams } from 'react-router-dom'
 import Map from '../components/Listing/Map'
@@ -6,16 +6,25 @@ import Booking from '../components/Listing/Booking'
 import BookingCalendar from '../components/Listing/BookingCalendar'
 import Review from '../components/Listing/Review';
 import HostInfo from '../components/Listing/HostInfo'
+import { AuthContext } from '../context/auth-context'
+import { Placeholder } from 'react-bootstrap'
 
 
 const EachProperty = (property) => {
+  //authentication
+  const auth = useContext(AuthContext);
+  
+  const [errorMessage, setErrorMessage]=useState('');
   const [eachPropertyState, setEachPropertyState] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
   const likeIcon = '\u2665';
+  const outlineLikeIcon = '\u2661'
   //console.log(eachPropertyState,"each property state")
 
   const { id } = useParams();
   // console.log(id)
   // console.log(useParams())
+  //const url = `http://localhost:4000/listing/${id}`;
   const url = `https://airbnb-main.onrender.com/listing/${id}`;
 
   useEffect(() => {
@@ -29,16 +38,121 @@ const EachProperty = (property) => {
         const eachPropertyData = await responseData.json();
         //console.log(eachPropertyData);
         setEachPropertyState(eachPropertyData);
-      } catch (error) {
-        console.log(error)
-      }
-    };
+
+        const checkListingSaved = async () => {
+          try {
+              if(!auth.userId){
+                return;
+              }
+              const options = {
+                method: 'GET',
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Bearer ${auth.token}`
+                },
+              }
+              const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+              const {isSaved} = await response.json();
+              console.log("Response status:", response.status);
+              console.log("Response body:", isSaved);
+              if(response.ok){
+                setIsSaved(isSaved);
+              }
+            } catch (error) {
+              console.log(error)
+            }
+     }  
+     checkListingSaved()
+     } catch (error) {
+      console.log(error)
+    }
+  }
 
     fetchEachProperty();
+      
+  }, [id, url]);
 
-  }, [id, url])
+  useEffect(() => {
+
+        const checkListingSaved = async () => {
+          try {
+              if(!auth.userId){
+                return;
+              }
+              const options = {
+                method: 'GET',
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Bearer ${auth.token}`
+                },
+              }
+              
+              const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+              console.log(response)
+              const {isSaved} = await response.json();
+              console.log("Response status:", response.status);
+              console.log("Response body:", isSaved);
+              if(response.ok){
+                setIsSaved(isSaved);
+              }
+            } catch (error) {
+              console.log(error)
+            }
+     }  
+     checkListingSaved()
+  
+  }, [auth.token, auth.userId, id]);
 
   const solidStar = '\u2605';
+  const handleSaveListing = async()=>{
+    console.log("📍token",auth.token,"📌id", auth.userId)
+    try{
+      if(!auth.token || !auth.userId){
+        setErrorMessage("Please sign in to save the listing");
+        return;
+      }
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${auth.token}`
+        },
+       };
+      // const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+      const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+      console.log("Response status:", response.status);
+      console.log("Response body:", await response.json());
+      if(response.ok){
+        setIsSaved(true);
+      }
+    } catch (error){
+      console.log(error)
+    }
+  }
+
+  const deleteSaveListing = async()=>{
+    console.log("📍",auth.token,"📌id", auth.userId)
+    try{
+      if(!auth.token || !auth.userId){
+        setErrorMessage("Please sign in to save the listing");
+        return;
+      }
+      const options = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${auth.token}`
+        },
+       };
+       const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+       //const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+      if(response.ok){
+        setIsSaved(false);
+      }
+    } catch (error){
+      console.log(error)
+    }
+  }
 
   return (
     <main className='propertyMain'>
@@ -52,7 +166,14 @@ const EachProperty = (property) => {
                 <span className='RatingAndLocation'>{solidStar}Rating: {eachPropertyState.property.rating.toFixed(2)}</span>
                 <span className='RatingAndLocation'>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
-              <div className='secRowLike'>{likeIcon} Save</div>
+              <div className='secRowLike'>
+                <input 
+                    type='submit'
+                    onClick={isSaved ? deleteSaveListing : handleSaveListing}
+                    value={isSaved ? likeIcon : outlineLikeIcon}
+                    className='saveButton'
+                  />
+              </div>
             </div>
 
             <div className='proertyImgRow'>
@@ -78,7 +199,7 @@ const EachProperty = (property) => {
               <div className='propertyInfo'>
 
                 <div>
-                  <div className='propertyHost'>Entire home hosted by {eachPropertyState.property.username}</div>
+                  <div className='propertyHost'>Entire home hosted by {eachPropertyState.property.host.username}</div>
                   <div className='propertyRooms'>{eachPropertyState.property.guestNumber} guests · {eachPropertyState.property.bedroomNumber} bedrooms · {eachPropertyState.property.bedNumber} beds · {eachPropertyState.property.bathroomNumber} bathrooms
                   </div>
                 </div>

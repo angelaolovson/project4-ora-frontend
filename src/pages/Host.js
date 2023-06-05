@@ -87,7 +87,7 @@ function Host() {
 					<Col style = {{margin: '20px', borderRadius: '2em', border:'1px lightgrey solid'}}  md={{ span: 10, offset: 1 }}>
 						<div style={{display:'flex', flexDirection:'column'}} >
 						<ul style = {{listStyleType: 'none', paddingLeft: 0}}>
-							<li style={{ textAlign: 'left', margin:'15px', fontWeight: 'bold' }}>{userState.username}'s Confirmed Inforamtion</li>
+							<li style={{ textAlign: 'left', margin:'15px', fontWeight: 'bold' }}>{userState.username}'s Confirmed Information</li>
 							<li style={{ textAlign: 'left', margin:'15px'  }}>{tick} Identity</li>
 							<li style={{ textAlign: 'left', margin:'15px' }}>{tick} Email address</li>
 							<li style={{ textAlign: 'left', margin:'15px'  }}>{tick} Phone Number</li>

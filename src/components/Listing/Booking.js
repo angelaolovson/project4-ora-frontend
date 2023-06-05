@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 	  
 const Booking = (props) => {
-    console.log(props)
+    //console.log(props)
     
     const {property} = props.property;
     const [isBooked, setIsBooked] = useState(false);

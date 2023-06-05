@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Project-3
+<p> Our app is to recreate airbnb website for honey moon couple </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Installation Instructions
+<p>No installation needed, click on the link below and you will be able to use this app through your browser.</p>
 
-## Available Scripts
+## Project Choice 
+<h2>Time Planner</h2>
+<p>I am motivated to work on this project because I have a mobile app that I really enjoy using. However, I would like to make some changes and adapt it to be usable on a computer as well. By doing so, I can enhance the app's functionality and convenience, and make it accessible to a wider audience.</p>
 
-In the project directory, you can run:
+## Project Description
+<p></p>
 
-### `npm start`
+## Wire Frames
+<h3> Index View </h3>
+ <img src='https://github.com/jialingye/timeplanner/blob/main/public/images/index.png' alt='initial'/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h3> Detail View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/show.png' alt='detail'/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3> Calendar View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/monthlycal.png' alt='calender'/>
 
-### `npm test`
+<h3> Analysis View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/analysis.png' alt='analysis'/>
+<h3> Focus View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/focus.png' alt='focus'/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3> AI View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/ai.png' alt='focus'/>
 
-### `npm run build`
+<h3> Create View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/create.png' alt='focus'/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3> Edit View </h3>
+<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/edit.png' alt='focus'/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## User Stories
+### MVP Goals
+<ul>
+    <li>As a user, Users can create a to-do list with the ability to edit and delete items on the list.</li>
+    <li>As a user, To-do list items are displayed on a daily, weekly, and monthly calendar view, making it easy to see what tasks need to be done on a specific day.</li>
+    <li>As a user, I want my completed tasks to be kept track of so that I can know how many items I have completed each day/week/month.</li>
+    <li>As a user, Users can log in to their personal account with proper authorization.</li>
+    <li>As a user, The app has a visually appealing design that makes it easy to use and understand</li>
+    
+</ul>
 
-### `npm run eject`
+### Stretch Goals
+<ul>
+    <li>As a user, Add an analysis page that displays how much time was spent on each task and provides insights on productivity and time management.</li>
+    <li>As a user, Integrate with Promotodo API to provide users with personalized recommendations on how to optimize their to-do lists and maximize productivity.</li>
+    <li>As a user, Connect to Google Calendar so that any events added to Google Calendar automatically show up in the user's to-do list app. This allows users to keep track of all their events and tasks in one place, making it easier to stay organized and productive.</li>
+    <li>As a user, Enable users to customize their to-do list and calendar views, including themes, color schemes, and layout options, to suit their personal preferences and needs.</li>
+</ul>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Pseudo Code
+<ol>
+    <li>Define the user stories and requirements for the to-do list application, including the ability to create, read, update, and delete tasks, as well as view tasks in monthly, weekly, and daily views.</li>
+    <li>Design the database schema for the application, including tables for users and tasks, and set up the necessary database connections.</li>
+    <li>Create the necessary routes and controllers for the to-do list application, including the ability to create, read, update, and delete tasks, as well as authenticate users and handle user sessions.</li>
+    <li>Create the necessary views for the to-do list application, including a landing page, a user dashboard, a task index page, a task show page, a task edit page, and a task new page.</li>
+    <li>Set up authentication and authorization for the to-do list application, including the ability to register and login users, and restrict access to certain pages and actions.</li>
+    <li>Add styling and design elements to the to-do list application, including custom CSS and responsive design for mobile and desktop views.</li>
+    <li>Implement analysis and reporting functionality for the to-do list application, including the ability to generate reports on user activity, task completion rates, and other metrics.</li>
+    <li>Integrate the Promotodo API into the to-do list application, allowing users to receive personalized task recommendations and reminders.</li>
+    <li>Integrate other APIs as needed, such as weather APIs to display weather forecasts, or calendar APIs to display upcoming events and appointments.</li>
+    <li>Test the application thoroughly, including functional and usability testing, security testing, and stress testing to ensure the application is robust and reliable.
+</li>
+</ol>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Links
+<p>Email: 123@123.com Password: 1234567890</p>
+[Time Planner](https://time-planner.onrender.com/)

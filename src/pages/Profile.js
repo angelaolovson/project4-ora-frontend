@@ -9,7 +9,7 @@ import ReviewSec from '../components/Profile/ReviewSec';
 import AnalyzeSec from '../components/Profile/AnalyzeSec';
 import PastBooking from '../components/Profile/PastBooking';
 import GuestBooking from '../components/Profile/GuestBooking';
-
+import SaveListing from '../components/Profile/SaveListing';
 
 
 const Profile = () => {
@@ -119,6 +119,7 @@ const Profile = () => {
               {activeState === 'pastbooking' && <PastBooking booking={profile.bookings}/>}
               {activeState === 'review' && <ReviewSec review={profile.reviewsGiven}/>}
               {activeState === 'analyze' && <AnalyzeSec profile={profile}/>}
+              {activeState === 'save' && <SaveListing listing={profile.savedListing}/>}
               </div>
             ):(
               <div className='MainSection'>

@@ -128,3 +128,8 @@
     font-weight: 600;
     margin-bottom: 10px;
 }
+
+.saveButton{
+    border: 1px solid transparent;
+    background-color: white;
+}
