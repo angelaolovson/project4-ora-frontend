@@ -167,6 +167,7 @@ const EachProperty = (property) => {
                 <span className='RatingAndLocation'>{eachPropertyState.property.city}, {eachPropertyState.property.country}</span>
               </div>
               <div className='secRowLike'>
+                {errorMessage && <p>{errorMessage}</p>}
                 <input 
                     type='submit'
                     onClick={isSaved ? deleteSaveListing : handleSaveListing}
