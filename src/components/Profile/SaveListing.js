@@ -1,14 +1,15 @@
-import React from 'react'
-import { Card, Row, Col } from 'react-bootstrap';
+import React, {useContext} from 'react'
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
-
+import { AuthContext } from '../../context/auth-context';
+import DeleteSaved from './DeleteSaved';
 
 const SaveListing = ({listing}) => {
-    const solidStar = '\u2605'; 
+
     if (!listing || listing.length === 0) {
         return <p>No Property Available</p>;
       }
-    
+
       //console.log(listing.description);
     
       const property = listing.map((info, index) => (
@@ -21,7 +22,7 @@ const SaveListing = ({listing}) => {
                   <Card.Body style={{ marginBottom: 0, padding: 5}} className='cardBody'>
                     <Card.Text style={{marginBottom: 5, fontWeight: 'bold' }} className='cardTitle'>{info.city}, {info.country}</Card.Text>
                     <Card.Text  style={{marginBottom: 5}} className='cardText'>{info.types}</Card.Text>
-                    <Card.Text style={{marginBottom: 10}} className='cardText'>{solidStar} {info.rating.toFixed(2)}</Card.Text>
+                    <DeleteSaved id={info._id}/>
                   </Card.Body>
                 </Card>
               </NavLink>	

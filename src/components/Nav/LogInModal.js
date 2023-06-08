@@ -42,12 +42,12 @@ try{
         },
         body: JSON.stringify(logIn),
       };
-      // const responseData = await fetch(
-      //   "http://localhost:4000/user/login", options
-      // );
       const responseData = await fetch(
-        "https://airbnb-main.onrender.com/user/login", options
+        "http://localhost:4000/user/login", options
       );
+      // const responseData = await fetch(
+      //   "https://airbnb-main.onrender.com/user/login", options
+      // );
 
       const LoginObj = await responseData.json();
       console.log(LoginObj)

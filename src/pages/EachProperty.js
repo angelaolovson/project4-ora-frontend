@@ -88,10 +88,10 @@ const EachProperty = (property) => {
               }
               
               const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
-              console.log(response)
+              //console.log(response)
               const {isSaved} = await response.json();
-              console.log("Response status:", response.status);
-              console.log("Response body:", isSaved);
+              //console.log("Response status:", response.status);
+              //console.log("Response body:", isSaved);
               if(response.ok){
                 setIsSaved(isSaved);
               }
@@ -105,7 +105,7 @@ const EachProperty = (property) => {
 
   const solidStar = '\u2605';
   const handleSaveListing = async()=>{
-    console.log("📍token",auth.token,"📌id", auth.userId)
+    //console.log("📍token",auth.token,"📌id", auth.userId)
     try{
       if(!auth.token || !auth.userId){
         setErrorMessage("Please sign in to save the listing");
@@ -120,8 +120,8 @@ const EachProperty = (property) => {
        };
       // const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
       const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
-      console.log("Response status:", response.status);
-      console.log("Response body:", await response.json());
+      // console.log("Response status:", response.status);
+      // console.log("Response body:", await response.json());
       if(response.ok){
         setIsSaved(true);
       }
@@ -131,7 +131,7 @@ const EachProperty = (property) => {
   }
 
   const deleteSaveListing = async()=>{
-    console.log("📍",auth.token,"📌id", auth.userId)
+    
     try{
       if(!auth.token || !auth.userId){
         setErrorMessage("Please sign in to save the listing");
