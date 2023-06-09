@@ -1,5 +1,5 @@
 # CasaAmor
-[CasaAmor](https://airbnb-main.onrender.com) is a re-creation of Airbnb, empowering users to find their ideal honeymoon destination. 
+[CasaAmor](https://casa-amor-airbnb.onrender.com/) is a re-creation of Airbnb, empowering users to find their ideal honeymoon destination. 
 
 ## Wire Frames
 ### Listing Property Page
@@ -37,6 +37,13 @@
 * Guest booking - view reservations as host
 * Income - View income analysis as host
 * Save - save favorite as guest
+
+### Host Page/ Guest Page
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1e5f2824-b699-4400-83be-2698c8bff508)
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1e5f2824-b699-4400-83be-2698c8bff508)
+* View guest comments
+* View host's rating and comments and listings. 
+
 
 ### Create a property for listing
 ![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1da22d45-0215-431d-b7cc-bfc6e8fcb3f7)
