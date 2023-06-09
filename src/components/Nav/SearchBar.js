@@ -8,8 +8,6 @@ import './SearchBar.css'
 
 const SearchBar = () => {
 
-  const magnifier = `\u1F50D`;
-
   const [locationState, setLocation] = useState("");
   const [startDateState, setStartDate] = useState ("");
   const [endDateState, setEndDate] = useState("");

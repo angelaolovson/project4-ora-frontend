@@ -1,13 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import './Review.css'
-import { Col, ProgressBar, Row } from 'react-bootstrap';
+import { Col, ProgressBar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 
 		  
 function Review({reviews, rating}) {
-	const solidStar = '\u2605';
     const outlineStar = '\u2606';
 	//get average rating
 	const totalReviewCount = reviews.length;

@@ -27,7 +27,7 @@ function PropertyItem(props) {
 								{solidStar}{parseFloat((property.rating).toFixed(2)).toFixed(2)}
 								</>
 								):(
-								<h2></h2>
+								<h2>  </h2>
 							)}
 							
 							</Card.Text>

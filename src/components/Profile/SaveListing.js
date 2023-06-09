@@ -1,7 +1,6 @@
-import React, {useContext} from 'react'
-import { Card, Row, Col, Button } from 'react-bootstrap';
+import React from 'react'
+import { Card, Row, Col } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
-import { AuthContext } from '../../context/auth-context';
 import DeleteSaved from './DeleteSaved';
 
 const SaveListing = ({listing}) => {

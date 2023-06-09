@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Filter.css'
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Form, Modal } from 'react-bootstrap';
+
 function Filter({show,handleClose,filterData}) {
     const [price, setPrice] = useState(null);
     const [bedroomNumber, setBedroomNumber] = useState(null);

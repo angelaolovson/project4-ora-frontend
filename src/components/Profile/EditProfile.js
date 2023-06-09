@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -10,7 +9,6 @@ const EditProfile = ({show,handleClose,profile}) => {
     const [occupationState, setOccupation] = useState(`${profile.occupation}`);
     const [descriptionState, setDescription] = useState(`${profile.description}`);
     const [imageState, setImage] = useState(`${profile.image}`);
-    const navigate = useNavigate();
 
     //onchange handler
     const onChangeHandler = (e,setValue) =>{

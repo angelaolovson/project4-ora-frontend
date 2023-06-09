@@ -19,7 +19,7 @@ function SignUpModal({show,handleClose}) {
     event.preventDefault();
 
     // check password
-    if(password != confirmPassword){
+    if(password !== confirmPassword){
       setErrorMessage('Passwords do not match');
       return;
     }

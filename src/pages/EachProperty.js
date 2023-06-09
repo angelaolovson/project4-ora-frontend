@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './EachProperty.css'
-import { NavLink, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Map from '../components/Listing/Map'
 import Booking from '../components/Listing/Booking'
 import BookingCalendar from '../components/Listing/BookingCalendar'
 import Review from '../components/Listing/Review';
 import HostInfo from '../components/Listing/HostInfo'
 import { AuthContext } from '../context/auth-context'
-import { Placeholder } from 'react-bootstrap'
 
 
 const EachProperty = (property) => {
@@ -51,7 +50,8 @@ const EachProperty = (property) => {
                   "Authorization": `Bearer ${auth.token}`
                 },
               }
-              const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+              const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+              //const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
               const {isSaved} = await response.json();
               console.log("Response status:", response.status);
               console.log("Response body:", isSaved);
@@ -86,8 +86,8 @@ const EachProperty = (property) => {
                   "Authorization": `Bearer ${auth.token}`
                 },
               }
-              
-              const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+              const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+              //const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
               //console.log(response)
               const {isSaved} = await response.json();
               //console.log("Response status:", response.status);
@@ -118,8 +118,8 @@ const EachProperty = (property) => {
           "Authorization": `Bearer ${auth.token}`
         },
        };
-      // const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
-      const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+      const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+      //const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
       // console.log("Response status:", response.status);
       // console.log("Response body:", await response.json());
       if(response.ok){
@@ -144,8 +144,8 @@ const EachProperty = (property) => {
           "Authorization": `Bearer ${auth.token}`
         },
        };
-       const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
-       //const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
+       //const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
+       const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
       if(response.ok){
         setIsSaved(false);
       }
