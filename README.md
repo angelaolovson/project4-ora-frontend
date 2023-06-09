@@ -1,75 +1,64 @@
-# Project-3
-<p> Our app is to recreate airbnb website for honey moon couple </p>
-
-### Installation Instructions
-<p>No installation needed, click on the link below and you will be able to use this app through your browser.</p>
-
-## Project Choice 
-<h2>Time Planner</h2>
-<p>I am motivated to work on this project because I have a mobile app that I really enjoy using. However, I would like to make some changes and adapt it to be usable on a computer as well. By doing so, I can enhance the app's functionality and convenience, and make it accessible to a wider audience.</p>
-
-## Project Description
-<p></p>
+# CasaAmor
+[CasaAmor](https://airbnb-main.onrender.com) is a re-creation of Airbnb, empowering users to find their ideal honeymoon destination. 
 
 ## Wire Frames
-<h3> Index View </h3>
- <img src='https://github.com/jialingye/timeplanner/blob/main/public/images/index.png' alt='initial'/>
+### Listing Property Page
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/818c7127-4232-4a96-badf-2e815cf257a7)
+* Listed all properties
+* Search bar and filters
+* Welcome - Sign up / Log In / Log out / Profile / CasaAmor your home
 
-<h3> Detail View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/show.png' alt='detail'/>
+### Each Property Page
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/3026da25-244c-4c85-97d0-7f246deb6739)
+* Title / Images / Rating / Location / Capacity
 
-<h3> Calendar View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/monthlycal.png' alt='calender'/>
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/2f3696fd-e0d7-45bb-8cc5-0f79ff807aed)
+* Amenities / Calendar / Booking
 
-<h3> Analysis View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/analysis.png' alt='analysis'/>
-<h3> Focus View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/focus.png' alt='focus'/>
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/a42064cb-e256-4b4a-9fef-45c47203471a)
+* Review / Google Map / Host
 
-<h3> AI View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/ai.png' alt='focus'/>
 
-<h3> Create View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/create.png' alt='focus'/>
+### Booking
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/0daf4af6-ebd4-49d7-a3cb-057d67a8f598)
+* Check in & out date
+* Show an error message if the selected dates are already booked
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/6452f519-c11d-4583-9c8f-bc83bda5379a)
+* A receipt confirming booking successfully
 
-<h3> Edit View </h3>
-<img src='https://github.com/jialingye/timeplanner/blob/main/public/images/edit.png' alt='focus'/>
+
+### Profile
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1e5f2824-b699-4400-83be-2698c8bff508)
+* Edit profile info
+* Future booking - manage reservations as guest
+* Past booking - leave reviews as guest
+* Review - see reviews as guest
+* Properties - manage properties as host
+* Guest booking - view reservations as host
+* Income - View income analysis as host
+* Save - save favorite as guest
+
+### Create a property for listing
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1da22d45-0215-431d-b7cc-bfc6e8fcb3f7)
+![image](https://github.com/jialingye/project3-FrontEnd/assets/122236820/1a848e70-091e-48d1-b3ed-2157b4929978)
 
 
 ## User Stories
 ### MVP Goals
-<ul>
-    <li>As a user, Users can create a to-do list with the ability to edit and delete items on the list.</li>
-    <li>As a user, To-do list items are displayed on a daily, weekly, and monthly calendar view, making it easy to see what tasks need to be done on a specific day.</li>
-    <li>As a user, I want my completed tasks to be kept track of so that I can know how many items I have completed each day/week/month.</li>
-    <li>As a user, Users can log in to their personal account with proper authorization.</li>
-    <li>As a user, The app has a visually appealing design that makes it easy to use and understand</li>
-    
-</ul>
+* As a user, I want the ability to create an account and log in.
+* As a user, I want the ability to edit my account info.
+* As a user, I want to view all the properties.
+* As a user, I want view each property's details.
+* As a user, I want the ability to book a reservation,edit, and delete it.
+* As a user, I want the ability to view my past and upcoming trips.
+* As a user, I want the ability to leave a review on my past trip.
+* As a user, I want the ability to edit or cancel the reservation for the upcoming trip.
+* As a user, I want the ability to CasaAmor my property to become a host.
+* As a user, I want the ability to manage(edit and delete) my property as a host.
+* As a user, I want the ability to view my all properties as a host.
+* As a user, I want the ability to see my guest's booking as a host.
+* As a user, I want the ability to see the income analysis as a host.
 
 ### Stretch Goals
-<ul>
-    <li>As a user, Add an analysis page that displays how much time was spent on each task and provides insights on productivity and time management.</li>
-    <li>As a user, Integrate with Promotodo API to provide users with personalized recommendations on how to optimize their to-do lists and maximize productivity.</li>
-    <li>As a user, Connect to Google Calendar so that any events added to Google Calendar automatically show up in the user's to-do list app. This allows users to keep track of all their events and tasks in one place, making it easier to stay organized and productive.</li>
-    <li>As a user, Enable users to customize their to-do list and calendar views, including themes, color schemes, and layout options, to suit their personal preferences and needs.</li>
-</ul>
-
-### Pseudo Code
-<ol>
-    <li>Define the user stories and requirements for the to-do list application, including the ability to create, read, update, and delete tasks, as well as view tasks in monthly, weekly, and daily views.</li>
-    <li>Design the database schema for the application, including tables for users and tasks, and set up the necessary database connections.</li>
-    <li>Create the necessary routes and controllers for the to-do list application, including the ability to create, read, update, and delete tasks, as well as authenticate users and handle user sessions.</li>
-    <li>Create the necessary views for the to-do list application, including a landing page, a user dashboard, a task index page, a task show page, a task edit page, and a task new page.</li>
-    <li>Set up authentication and authorization for the to-do list application, including the ability to register and login users, and restrict access to certain pages and actions.</li>
-    <li>Add styling and design elements to the to-do list application, including custom CSS and responsive design for mobile and desktop views.</li>
-    <li>Implement analysis and reporting functionality for the to-do list application, including the ability to generate reports on user activity, task completion rates, and other metrics.</li>
-    <li>Integrate the Promotodo API into the to-do list application, allowing users to receive personalized task recommendations and reminders.</li>
-    <li>Integrate other APIs as needed, such as weather APIs to display weather forecasts, or calendar APIs to display upcoming events and appointments.</li>
-    <li>Test the application thoroughly, including functional and usability testing, security testing, and stress testing to ensure the application is robust and reliable.
-</li>
-</ol>
-
-### Links
-<p>Email: 123@123.com Password: 1234567890</p>
-[Time Planner](https://time-planner.onrender.com/)
+* As a user, I want the ability to use filter after i get result from search bar.
+* As a user, I want the ability to use save favorite to different folder.
