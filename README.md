@@ -32,7 +32,7 @@
 ![guest_profile](https://github.com/jialingye/project3-FrontEnd/assets/70247822/99e3b33c-694f-4f66-88f3-205e500464aa)
 
 * Edit profile info
-![edit_profile](https://github.com/jialingye/project3-FrontEnd/assets/70247822/49d01a55-881c-4c92-a5a8-94e29a6fcda2)
+![edit profile](https://github.com/jialingye/project3-FrontEnd/assets/70247822/7bab3492-a2e6-4ebc-8e9e-b73c1ff4202c)
 
 * Future booking - manage reservations as guest
 ![future_booking](https://github.com/jialingye/project3-FrontEnd/assets/70247822/8a16fa8a-97bd-4e67-b7e1-609df49d7859)
