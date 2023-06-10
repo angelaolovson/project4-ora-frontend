@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import ImageUpload from './ImageUpload';
 
 
 const EditProfile = ({show,handleClose,profile}) => {
@@ -15,19 +16,6 @@ const EditProfile = ({show,handleClose,profile}) => {
         //console.log(e.target.value)
         setValue(e.target.value);
     }
-
-    // const handleImageChange = (e) => {
-    //   const file = e.target.files[0];
-    //   const reader = new FileReader();
-    //   // Do something with the selected image file
-    //   reader.onloadend = () => {
-    //     setImage(reader.result);
-    //   };
-  
-    //   if (file) {
-    //     reader.readAsDataURL(file);
-    //   }
-    // }
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -46,8 +34,8 @@ const EditProfile = ({show,handleClose,profile}) => {
             body: JSON.stringify(updatedProfile),
         };
 
-        //https://airbnb-main.onrender.com
-        //const responseData = await fetch(`http://localhost:4000/user/${profile._id}`, options);
+    
+       // const responseData = await fetch(`http://localhost:4000/user/${profile._id}`, options);
         const responseData = await fetch(`https://airbnb-main.onrender.com/user/${profile._id}`, options);
 
         const updatedProfileData = await responseData.json();
@@ -100,13 +88,17 @@ const EditProfile = ({show,handleClose,profile}) => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Profile Picture</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 type="text"
                 placeholder= "image url"
                 autoFocus
                 value = {imageState}
                 onChange ={(e) => onChangeHandler(e,setImage)}
-              />
+              /> */}
+              <ImageUpload 
+                setImage={setImage}
+                initialState= {profile.image}
+                />
                {/* <Form.Control
                 type="file"
                 accept="image/*"
