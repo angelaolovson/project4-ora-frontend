@@ -7,7 +7,7 @@ import { AuthContext } from '../context/auth-context'
 function EachProduct() {
 	//authentication
 	const auth = useContext(AuthContext);
-
+	console.log(auth, "----line 10-----")
 	const [eachProductState, setEachProductState] = useState(null);
 	const [quantityState, setQuantityState] = useState(null);
 	console.log(eachProductState,"each product state")
@@ -38,12 +38,44 @@ function EachProduct() {
 		setQuantityState(parseInt(event.target.value));
 	  };
 	
-	  // Handle add to cart
-	  const handleAddToCart = () => {
-		// Perform the logic to add the product with the specified quantity to the cart
-		// You can use the 'eachProductState' and 'quantity' values here to add the product to the cart
+	// Handle add to cart
+	const handleAddToCart =async () => {
+		console.log(JSON.parse(localStorage.userData.cart))
+		// console.log(localStorage.userData.cart[0]._id)
+		try {
+			const response = await fetch(`http://localhost:4000/cart/${JSON.parse(localStorage.userData.cart[0]._id)}`, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					user: auth.userId,
+					items: [
+						{
+							product: eachProductState._id,
+							quantity: quantityState
+						}
+					]
+				})
+			});
+
+			const responseData = await response.json();
+			console.log('Cart:', responseData);
+		} catch (error) {
+			console.error('Error:', error);
+		}
 		console.log('Adding to cart:', eachProductState, 'Quantity:', quantityState);
-	  };
+	};
+
+	function decreaseQuantity() {
+		if (quantityState > 1) {
+			setQuantityState(quantityState - 1);
+		}
+	}
+	
+	function increaseQuantity() {
+		setQuantityState(quantityState + 1);
+	}
   
 	return (
 	  <main className='eachProductMain'>
@@ -58,13 +90,15 @@ function EachProduct() {
 				<div className='eachProductInfoContainer'>
 					<div className='eachProductTitle'>{eachProductState.title}</div>
 					<div className='eachProductPrice'>${eachProductState.price}</div>
-					<div className='eachProductDescription'>${eachProductState.description}</div>
+					<div className='eachProductDescription'>{eachProductState.description}</div>
 					<div>
-					<input type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
+						<button onClick={decreaseQuantity}>-</button>
+						<input type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
+						<button onClick={increaseQuantity}>+</button>
 					</div>
-					<div className="addToCart" onClick={handleAddToCart}>
+					<button className="addToCart" onClick={handleAddToCart}>
 						Add To Cart
-					</div>
+					</button>
 					
 				</div>
   

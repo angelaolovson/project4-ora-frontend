@@ -11,6 +11,7 @@ import Selfcare from './pages/Selfcare';
 import Products from './pages/Products';
 import Footer from './components/Footer';
 import EachProduct from './pages/EachProduct';
+import Cart from './pages/Cart';
 
 
 
@@ -33,6 +34,7 @@ function App() {
       userId,
       token,
       userData,
+      // cart
     }))
   }
 
@@ -77,6 +79,7 @@ function App() {
       <Route path="/selfcare" element={<Selfcare />} />
       <Route path="/wedding" element={<Wedding />} />
       <Route path="/about" element={<About />} />
+      <Route path="/cart/:id" element={<Cart />} />
     </Routes>
   );
 

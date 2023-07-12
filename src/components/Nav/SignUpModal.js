@@ -6,7 +6,8 @@ import { AuthContext } from '../../context/auth-context';
 function SignUpModal({show,handleClose}) {
   ////////////////////states and props////////////////////
 
-  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [confirmPassword, setConfirmPassword]= useState('');
@@ -25,7 +26,8 @@ function SignUpModal({show,handleClose}) {
     }
 
     const signUpData = {
-      username: username,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password,
     }
@@ -38,11 +40,8 @@ function SignUpModal({show,handleClose}) {
         },
         body: JSON.stringify(signUpData),
       };
-      // const responseData = await fetch(
-      //   "http://localhost:4000/user/signup", options
-      // );
       const responseData = await fetch(
-        "https://airbnb-main.onrender.com/user/signup", options
+        "http://localhost:4000/user/signup", options
       );
 
       const signUpObj = await responseData.json();
@@ -81,12 +80,12 @@ const logIn = async () => {
       body: JSON.stringify(loginData),
     };
     
-    const responseData = await fetch('https://airbnb-main.onrender.com/user/login', loginOptions);
-    //const responseData = await fetch('http://localhost:4000/user/login', loginOptions);
+    const responseData = await fetch('http://localhost:4000/user/login', loginOptions);
     const loginObj = await responseData.json();
 
     if (responseData.status === 200) {
       auth.login(loginObj.currentUser.id, loginObj.token, loginObj.currentUser);
+      console.log(loginObj)
       console.log('Login successful');
       handleClose();
     } else {
@@ -107,15 +106,27 @@ const logIn = async () => {
         <Modal.Body>
           <Form onSubmit = {handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>User Name</Form.Label>
+              <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="name"
                 autoFocus
-                value = {username}
-                onChange={(e) => setUsername(e.target.value)}
+                value = {firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="name"
+                autoFocus
+                value = {lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
+
+
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
               <Form.Control

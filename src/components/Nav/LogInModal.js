@@ -16,14 +16,14 @@ function LogInModal(props) {
   console.log(auth)
 
 //////////////////////handle submit function///////////////
-  const handleHostLogin = (event) => {
-    setEmail('host1@example.com')
-    setPassword('password123')
+  const handleOwnerLogin = (event) => {
+    setEmail('ownerora@example.com')
+    setPassword('123456')
   }
 
-  const handleGuestLogin = (event) => {
-    setEmail('guest1@example.com')
-    setPassword('password123')
+  const handleCustomerLogin = (event) => {
+    setEmail('customer2@example.com')
+    setPassword('123456')
   }  
 
   const handleSubmit = async (event) => {
@@ -42,12 +42,10 @@ try{
         },
         body: JSON.stringify(logIn),
       };
-      // const responseData = await fetch(
-      //   "http://localhost:4000/user/login", options
-      // );
       const responseData = await fetch(
-        "https://airbnb-main.onrender.com/user/login", options
+        "http://localhost:4000/user/login", options
       );
+
 
       const LoginObj = await responseData.json();
       console.log(LoginObj)
@@ -98,11 +96,11 @@ try{
               />
             </Form.Group>
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleGuestLogin()}>
-            Demo Guest
+            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleCustomerLogin()}>
+            Demo Customer
           </Button> 
-            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleHostLogin()}>
-            Demo Host
+            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleOwnerLogin()}>
+            Demo Owner
           </Button> 
             <Button variant="warning" size="lg" style = {{margin:"10px"}} type='submit'>
             Log In

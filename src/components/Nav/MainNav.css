@@ -1,9 +1,9 @@
 .mainNavBar{
   display: flex;
   flex-direction: column;
+  background-color: #F2ECE2;
 }
 .navMain{
-  background-color: white;
   height: 100px;
   display: flex;
   justify-content: space-between;

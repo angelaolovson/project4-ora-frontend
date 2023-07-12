@@ -66,13 +66,14 @@ console.log(currentUser)
               </>
             )}      
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/listing/new">
-                CasaAmor Your Home
+              <NavDropdown.Item href="/order">
+                Order
               </NavDropdown.Item>
               <NavDropdown.Item href="#action5">
               </NavDropdown.Item>
             </NavDropdown>
             </div>
+            <div><Link to='/cart/'>Cart</Link></div>
     </Navbar>
     <div className="emptyDiv"></div>
     </div>
