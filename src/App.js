@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react';
 import {Routes, Navigate, Route, useNavigate} from 'react-router-dom';
 import MainNav from './components/Nav/MainNav';
 import './App.css';
-import Listing from './pages/Listing';
-import NewProperty from './pages/NewProperty';
-import UpdateProperty from './pages/UpdateProperty';
-import Host from './pages/Host';
-import Profile from './pages/Profile';
-import EachProperty from './pages/EachProperty';
 import {AuthContext} from './context/auth-context';
-import Search from './pages/Search';
+import Home from './pages/Home';
+import About from './pages/About';
+import Wedding from './pages/Wedding';
+import Bouquet from './pages/Bouquet';
+import Selfcare from './pages/Selfcare';
+import Products from './pages/Products';
+import Footer from './components/Footer';
+import EachProduct from './pages/EachProduct';
 
 
 
@@ -68,15 +69,14 @@ function App() {
   
   let routes = (
     <Routes>
-        <Route exact={true} path="/" element={<Listing />} />
-        <Route path="/listing/:id" element={<EachProperty />} />
-        <Route path="/user/profile" element={<Profile />} />
-        <Route path="/listing/new" element={<NewProperty/>} />
-        <Route path="/listing/:id/edit" element={<UpdateProperty/>} />
-        <Route path="/user/:id" element = {<Host />} />
-        <Route path="/listing/search" element = {<Search />} />
-        {/* and more, not sure, will see */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+      <Route exact={true} path="/" element={<Home />} />
+      <Route path="/bouquet/:subCategory" element={<Products />} />
+      <Route path="/selfcare/:subCategory" element={<Products />} />
+      <Route path="/product/:id" element={<EachProduct />} />
+      <Route path="/bouquet" element={<Bouquet />} />
+      <Route path="/selfcare" element={<Selfcare />} />
+      <Route path="/wedding" element={<Wedding />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 
@@ -84,13 +84,15 @@ function App() {
   return (
     <AuthContext.Provider value={authcontextValue}>
       <div className="App">
-          <header>
-            <MainNav/>
-          </header>
-          
-          <main>{routes}</main>
-          <hr />
-          <footer>My Application copyright 2023 Jade Ye, Angela Olovson, Chris Ferrell</footer>
+        <header>
+          <MainNav />
+        </header>
+            
+        <main>
+          {routes}
+        </main>
+
+        <Footer />       
       </div>
     </AuthContext.Provider>
 

@@ -5,8 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useState, useContext} from 'react';
 import SignUpModal from './SignUpModal.js';
 import LogInModal from './LogInModal.js';
-import SearchBar from "./SearchBar";
 import { AuthContext } from "../../context/auth-context";
+import { Link } from "react-router-dom";
 
 
 function MainNav() {
@@ -32,8 +32,17 @@ console.log(currentUser)
   return (
     <div className="mainNavBar">
     <Navbar className="navMain" expand="lg" fixed="top">
-      <div className="logo"><a className="logoCasaAmor" href="/">CasaAmor</a></div>
-      <div className="searchBar"><SearchBar/></div>
+      <div className="logo">
+					<a className="logoOra" href="/">
+						<img className='logoImg' src="https://orabytangni.com/cdn/shop/files/Ora_Logo_Export_2x_ea2e924f-9fd4-4936-ad0e-b151974dcf6b_180x.png?v=1614324752" alt="Ora Logo"/>
+					</a>
+				</div>
+        <div className="navLinks">
+					<div><Link className='navLink' to='/selfcare'>Selfcare</Link></div>
+					<div><Link className='navLink' to='/bouquet'>Bouquet</Link></div>
+					<div><Link className='navLink' to='/wedding'>Wedding</Link></div>
+					<div><Link className='navLink' to='/about'>About</Link></div>
+				</div>
       <div className="dropDown">
           <NavDropdown className="dropdownTitle" title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
             {auth.isLoggedIn? (

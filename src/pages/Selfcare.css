@@ -1,0 +1,27 @@
+.selfcare{
+    display: flex;
+    flex-direction: column;
+}
+.pagesMain1{
+    display: flex;
+    flex-direction: row;
+}
+.pagesMain2{
+    display: flex;
+    flex-direction: row;
+    
+}
+.imgContainer{
+    
+    width: 70%;
+    
+}
+.contextContainer{
+    
+    width: 30%;
+
+}
+
+ .pagesImg{
+    width: 70%;
+ }

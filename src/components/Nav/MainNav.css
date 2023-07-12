@@ -10,22 +10,15 @@
   align-items: center;
   margin: 0 80px;
 }
-.logo{
-  width: 20%;
-  text-align: left;
-}
-a.logoCasaAmor{
-  font-size: 32px;
-  font-weight: 600;
-  color: #FF9400;
-  text-decoration: none;
-}
 
-.searchBar{
-  width: 60%;
-  display: flex;
-  justify-content: center;
+.navLinks{
+  display: flex
 }
+.logoImg{
+  height: 70px;
+  margin: 15px 30px;
+} */
+
 .dropDown{
   width: 20%;
   display: flex;
