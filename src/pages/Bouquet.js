@@ -18,7 +18,7 @@ function Bouquet() {
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>
-				<Link className="shopSign" to="/bouquet/freshflowers">
+				<Link className="shopSign" to="/bouquet/freshFlowers">
 				  Shop Fresh Flowers
 				</Link>
 			  </div>
@@ -29,7 +29,7 @@ function Bouquet() {
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>
-			  	<Link className="shopSign" to="/bouquet/driedflowers">
+			  	<Link className="shopSign" to="/bouquet/driedFlowers">
 				  Shop Dried Flowers
 				</Link>
 			  </div>

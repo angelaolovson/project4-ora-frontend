@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import EachProduct from './pages/EachProduct';
 import Cart from './pages/Cart';
 import NewProduct from './pages/NewProduct';
+import UpdateProduct from './pages/UpdateProduct';
 
 
 
@@ -22,6 +23,7 @@ function App() {
   const [tokenState, setTokenState]= useState(null)
   const [isLoggedInState, setIsLoggedInState]= useState(null)
   const [userIdState, setUserIdState]= useState(null)
+  const [userRoleState, setUserRoleState]= useState(null)
   const [userDataState, setUserDataState]= useState(null)
   const navigate = useNavigate();
 
@@ -77,6 +79,7 @@ function App() {
       <Route path="/selfcare/:subCategory" element={<Products />} />
       <Route path="/product/:id" element={<EachProduct />} />
       <Route path="/product/new" element={<NewProduct />} />
+      <Route path="/product/:id/edit" element={<UpdateProduct />} />
       <Route path="/bouquet" element={<Bouquet />} />
       <Route path="/selfcare" element={<Selfcare />} />
       <Route path="/wedding" element={<Wedding />} />

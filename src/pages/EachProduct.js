@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './EachProduct.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
 
 
@@ -109,6 +109,7 @@ function EachProduct() {
 					<button className="addToCart" onClick={handleAddToCartSubmit}>
 						Add To Cart
 					</button>
+					<div><Link to={`/product/${eachProductState._id}/edit`}>Update or Delete</Link></div>
 					
 				</div>
   
