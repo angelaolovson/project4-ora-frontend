@@ -12,6 +12,7 @@ import Products from './pages/Products';
 import Footer from './components/Footer';
 import EachProduct from './pages/EachProduct';
 import Cart from './pages/Cart';
+import NewProduct from './pages/NewProduct';
 
 
 
@@ -75,6 +76,7 @@ function App() {
       <Route path="/bouquet/:subCategory" element={<Products />} />
       <Route path="/selfcare/:subCategory" element={<Products />} />
       <Route path="/product/:id" element={<EachProduct />} />
+      <Route path="/product/new" element={<NewProduct />} />
       <Route path="/bouquet" element={<Bouquet />} />
       <Route path="/selfcare" element={<Selfcare />} />
       <Route path="/wedding" element={<Wedding />} />

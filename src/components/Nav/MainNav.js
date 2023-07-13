@@ -69,7 +69,8 @@ console.log(currentUser)
               <NavDropdown.Item href="/order">
                 Order
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item href="/product/new">
+                NewProduct
               </NavDropdown.Item>
             </NavDropdown>
             </div>
