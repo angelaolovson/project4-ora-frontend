@@ -9,7 +9,7 @@ function EachProduct() {
 	const auth = useContext(AuthContext);
 	console.log(auth, "----line 10-----")
 	const [eachProductState, setEachProductState] = useState(null);
-	const [quantityState, setQuantityState] = useState(null);
+	const [quantityState, setQuantityState] = useState(1);
 	console.log(eachProductState,"each product state")
   
 	const { id } = useParams();
@@ -33,34 +33,44 @@ function EachProduct() {
 		
 	}, [id, url]);
 
+	//states handler
+	const onChangeHandler = (e,setValue) => {
+		setValue(e.target.value);
+	}
+
 	// Handle quantity change
 	const handleQuantityChange = (event) => {
 		setQuantityState(parseInt(event.target.value));
-	  };
+	};
 	
 	// Handle add to cart
-	const handleAddToCart =async () => {
-		console.log(JSON.parse(localStorage.userData.cart))
-		// console.log(localStorage.userData.cart[0]._id)
+	const handleAddToCartSubmit =async (event) => {
+		const getUserData = JSON.parse(localStorage.getItem("userData"))
+		const cartId = getUserData.userData.cart[0]._id
+		console.log(cartId)
+
+		event.preventDefault();
+		const updateCart = {
+			user: auth.userId,
+			items: [
+				{
+					product: eachProductState._id,
+					quantity: quantityState
+				}
+			]
+		}
+
 		try {
-			const response = await fetch(`http://localhost:4000/cart/${JSON.parse(localStorage.userData.cart[0]._id)}`, {
+			const cartresponseData = await fetch(`http://localhost:4000/cart/${cartId}`, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({
-					user: auth.userId,
-					items: [
-						{
-							product: eachProductState._id,
-							quantity: quantityState
-						}
-					]
-				})
+				body: JSON.stringify(updateCart)
 			});
 
-			const responseData = await response.json();
-			console.log('Cart:', responseData);
+			const updatedCart = await cartresponseData.json();
+			console.log('Cart:', updatedCart);
 		} catch (error) {
 			console.error('Error:', error);
 		}
@@ -96,7 +106,7 @@ function EachProduct() {
 						<input type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
 						<button onClick={increaseQuantity}>+</button>
 					</div>
-					<button className="addToCart" onClick={handleAddToCart}>
+					<button className="addToCart" onClick={handleAddToCartSubmit}>
 						Add To Cart
 					</button>
 					
