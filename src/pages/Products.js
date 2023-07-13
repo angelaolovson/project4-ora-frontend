@@ -17,7 +17,7 @@ function Products() {
 		try {
 		  let responseData = await fetch(url);
 		  let allProducts = await responseData.json();
-		  console.log(allProducts);
+		//   console.log(allProducts);
 		  setProductsState(allProducts);
 		} catch (error) {
 		  console.log(error);
@@ -26,8 +26,7 @@ function Products() {
   
 	  fetchProducts();
 	}, [subCategory]);
-  
-	console.log(subCategory);
+	// console.log(subCategory);
   
 	let filteredProductList = [];
 
@@ -36,20 +35,31 @@ function Products() {
 		(product) => product.subCategory === subCategory
 	  );
 	}
-	console.log(filteredProductList);
+	// console.log(filteredProductList);
 
 	let filteredProducts = filteredProductList.map((product, index) => (
 		<Col key={index}>
           <ProductItem  product={product} />
         </Col>
 	))
+
+	let titleText;
+	if (subCategory === "freshFlowers") {
+		titleText = "Fresh Flowers";
+	} else if (subCategory === "driedFlowers") {
+		titleText = "Dried Flowers";
+	} else if (subCategory === "candles") {
+		titleText = "Candles";
+	} else{
+		titleText = "Incense";
+	}
   
 	return (
 	  <div>
-		<h2>Product Page</h2>
+		<h2>{titleText}</h2>
 		{/* Check if products are available */}
 		{filteredProductList.length > 0 ? (
-			<Row xs={1} md={6} className="g-4">
+			<Row xs={1} md={3} className="g-4">
             	{filteredProducts}
           	</Row>
 		) : (

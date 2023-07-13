@@ -7,10 +7,10 @@ import { AuthContext } from '../context/auth-context'
 function EachProduct() {
 	//authentication
 	const auth = useContext(AuthContext);
-	console.log(auth, "----line 10-----")
+	// console.log(auth, "----line 10-----")
 	const [eachProductState, setEachProductState] = useState(null);
 	const [quantityState, setQuantityState] = useState(1);
-	console.log(eachProductState,"each product state")
+	// console.log(eachProductState,"each product state")
   
 	const { id } = useParams();
 	// console.log(id)

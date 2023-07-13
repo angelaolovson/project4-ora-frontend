@@ -12,8 +12,14 @@
 }
 
 .navLinks{
-  display: flex
+  display: flex;
 }
+.navLink{
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+}
+
 .logoImg{
   height: 70px;
   margin: 15px 30px;
