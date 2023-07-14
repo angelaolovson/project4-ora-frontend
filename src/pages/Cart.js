@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Cart.css'
 import { useParams } from 'react-router-dom';
+import MyBag from '../components/Cart/MyBag';
+import OrderSummary from '../components/Cart/OrderSummary';
 
 
 function Cart() {
@@ -39,32 +41,8 @@ function Cart() {
 
     return (
 		<div className="cart">
-			
-			<div className='myBag'>
-				<h2>My Bag</h2>
-				<div className='cartItems'>
-					<div>img</div>
-					<div>title</div>
-					<div className='info'>
-						<div className='priceAndQty'>
-							<div>item price</div>
-							<div>qty</div>
-							<div>ttl item price</div>
-						</div>
-						<div>remove</div>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div>Order Summary</div>
-				<div>Subtotal</div>
-				<div>Shipping</div>
-				<div>Tax</div>
-				<div>Estimated Total</div>
-				<div>CHECKOUT</div>
-			</div>
-			
-					  
+			<MyBag cartState={cartState} />
+			<OrderSummary cartState={cartState} />	  
 		</div>
 	)
 }

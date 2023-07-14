@@ -1,1 +1,11 @@
- 
+ .cart{
+    display: flex;
+    margin: 50px;
+ }
+
+ .mybag{
+    width: 70%;
+ }
+ .ordersummary{
+    width: 30%;
+ }

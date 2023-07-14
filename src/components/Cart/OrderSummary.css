@@ -1,0 +1,18 @@
+.ordersummary{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contextContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.h2ordersummary{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
