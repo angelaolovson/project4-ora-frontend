@@ -50,15 +50,21 @@ function EachProduct() {
 		console.log(cartId)
 
 		event.preventDefault();
+		// const updateCart = {
+		// 	// user: auth.userId,
+		// 	items: [
+		// 		{
+		// 			product: eachProductState._id,
+		// 			quantity: quantityState
+		// 		}
+		// 	]
+		// }
 		const updateCart = {
-			user: auth.userId,
-			items: [
-				{
-					product: eachProductState._id,
-					quantity: quantityState
-				}
-			]
+				product: eachProductState._id,
+				quantity: quantityState
+			
 		}
+		console.log(updateCart)
 
 		try {
 			const cartresponseData = await fetch(`http://localhost:4000/cart/${cartId}`, {
