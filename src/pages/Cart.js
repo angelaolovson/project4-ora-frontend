@@ -18,7 +18,7 @@ function Cart() {
 		try {
 		  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
 		  const data = await response.json();
-		//   console.log(cartIdNumber.id)
+		  console.log(data)
   
 		  // Once the data is fetched, update the state
 		  setCartState(data);
@@ -30,7 +30,24 @@ function Cart() {
 	  // Call the fetch function
 	  fetchCartData();
 	}, [cartIdNumber.id]);
-  
+
+
+	// Function to delete an item from the cart
+    const deleteItemFromCart = async (itemId) => {
+        try {
+            const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
+                method: 'PATCH',
+            });
+            if (!response.ok) throw new Error('Error deleting item');
+            const updatedCart = await response.json();
+            setCartState(updatedCart);
+			window.location.reload();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+	  
 	// If the cart data is not fetched yet, show a loading message
 	if (!cartState) {
 	  return <p>Empty Shopping Cart</p>;
@@ -41,10 +58,17 @@ function Cart() {
 
     return (
 		<div className="cart">
-			<MyBag cartState={cartState} />
-			<OrderSummary cartState={cartState} />	  
+			{cartState.items.length === 0 ? (
+				<h1>Your cart is empty</h1>
+			) : (
+				<>
+					<MyBag cartState={cartState} deleteItem={deleteItemFromCart} />
+					<OrderSummary className="cartOrderSummary" cartState={cartState} />
+				</>
+			)}
 		</div>
 	)
+	
 }
 		  
 export default Cart

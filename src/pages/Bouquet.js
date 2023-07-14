@@ -14,7 +14,7 @@ function Bouquet() {
 				alt="Fresh Flowers"
 			  />
 			</div>
-			<div className="contextContainer">
+			<div className="pageContextContainer">
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>
@@ -25,7 +25,7 @@ function Bouquet() {
 			</div>
 		  </div>
 		  <div className="pagesMain2">
-			<div className="contextContainer">
+			<div className="pageContextContainer">
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>

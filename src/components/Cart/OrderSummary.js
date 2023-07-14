@@ -9,9 +9,6 @@ function OrderSummary({cartState}) {
 	.reduce((prev, curr) => prev + curr, 0);
 	console.log(subtotal)
 
-
-
-
     return (
 		<div className="ordersummary">
 			<div className='h2ordersummary'>Order Summary</div>

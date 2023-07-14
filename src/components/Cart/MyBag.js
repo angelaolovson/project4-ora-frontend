@@ -1,7 +1,7 @@
 import React from 'react'
 import './MyBag.css'
 		  
-function MyBag({cartState}) {
+function MyBag({cartState, deleteItem}) {
 	console.log(cartState);
 	console.log(cartState.items[0].product.title);
     return (
@@ -30,7 +30,7 @@ function MyBag({cartState}) {
 								<div>${item.product.price * item.quantity}</div>
 							</div>
 						</div>
-						<div><button>Remove</button></div>
+						<div><button onClick={() => deleteItem(item.product._id)}>Remove</button></div>
 					</div>
 				</div>
 			))}  
