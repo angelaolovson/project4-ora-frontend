@@ -1,0 +1,33 @@
+.productitem {
+    background-color: #F5F1EA;
+}
+
+.productItemImgContainer{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 130%; /* This sets the height to be 1.3 times the width */
+}
+
+.productItemItemImg {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.productItemCardBody{
+    /* padding: 0; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.productitemTitle{
+    font-weight: bold;
+}

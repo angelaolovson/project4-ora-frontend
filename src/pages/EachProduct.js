@@ -94,9 +94,8 @@ function EachProduct() {
 	}
   
 	return (
-	  <main className='eachProductMain'>
+		<>
 		{eachProductState ? (
-		  <>
 			<div className='eachProduct'>
 
 				<div className='eachProductImgContainer'>
@@ -121,11 +120,11 @@ function EachProduct() {
   
   
 			</div>
-		  </>
 		) : (
-		  "...loading"
-		)}
-	  </main>
+			"...loading"
+			)}
+		</>
+	  
 	)
 }
 		  

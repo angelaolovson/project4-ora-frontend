@@ -1,6 +1,7 @@
 .selfcare{
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 .pagesMain1{
     display: flex;
@@ -16,7 +17,7 @@
     width: 70%;
     
 }
-.contextContainer{
+.pageContextContainer{
     
     width: 30%;
 

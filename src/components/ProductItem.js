@@ -11,16 +11,12 @@ function ProductItem({product}) {
 		<NavLink to={`/product/${product._id}`} className="noUnderLine">
 
 			<Card className="productitem" style={{ border: 'none' }}>
-				<div className='imgContainer'>
-					<Card.Img className='itemImg' variant="top" src={product.images[0]} />
+				<div className='productItemImgContainer'>
+					<Card.Img className='productItemItemImg' variant="top" src={product.images[0]} />
 				</div>
-				<Card.Body className='productitemCardBody'>				
+				<Card.Body className='productItemCardBody'>				
 					<Card.Text className='productitemTitle'>{product.title}</Card.Text>
-
-					<div className='inlinePrice'>
-						<Card.Text className='productitemPriceNumber'>${product.price}</Card.Text>
-					</div>
-
+					<Card.Text className='productitemPriceNumber'>${product.price}</Card.Text>
 				</Card.Body>
 			</Card>
 		</NavLink>	

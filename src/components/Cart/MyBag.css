@@ -8,9 +8,7 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
-.cartImg{
-    height: 170px;
-}
+
 .cartItems{
     display: flex;
     margin-bottom: 50px;
@@ -28,7 +26,8 @@
   
 .cartImg {
     height: 100%;
-    object-fit: contain; /* The image should scale while maintaining its aspect ratio, adding space (either top and bottom or left and right) as needed */
+    width: 100%;
+    object-fit: cover;
 }
 .cartTitleContainer{
     margin-left: 30px;

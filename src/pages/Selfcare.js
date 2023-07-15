@@ -14,7 +14,7 @@ function Selfcare() {
 				alt="Candles"
 			  />
 			</div>
-			<div className="contextContainer">
+			<div className="pageContextContainer">
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>
@@ -25,7 +25,7 @@ function Selfcare() {
 			</div>
 		  </div>
 		  <div className="pagesMain2">
-			<div className="contextContainer">
+			<div className="pageContextContainer">
 			  <div>Title</div>
 			  <div>Description</div>
 			  <div>

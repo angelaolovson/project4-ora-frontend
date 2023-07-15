@@ -92,10 +92,10 @@ function App() {
   return (
     <AuthContext.Provider value={authcontextValue}>
       <div className="App">
-        <header>
+        <header className="header-fixed">
           <MainNav />
         </header>
-            
+
         <main>
           {routes}
         </main>

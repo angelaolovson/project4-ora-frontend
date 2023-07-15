@@ -55,8 +55,8 @@ function Products() {
 	}
   
 	return (
-	  <div>
-		<h2>{titleText}</h2>
+	  <div className='productPage'>
+		<div className='productPageTitle'>{titleText}</div>
 		{/* Check if products are available */}
 		{filteredProductList.length > 0 ? (
 			<Row xs={1} md={3} className="g-4">

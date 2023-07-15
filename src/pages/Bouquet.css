@@ -1,6 +1,7 @@
 .bouquet{
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 .pagesMain1{
     display: flex;
@@ -12,7 +13,6 @@
     
 }
 .imgContainer{
-    
     width: 70%;
     
 }
