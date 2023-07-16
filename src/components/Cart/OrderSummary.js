@@ -1,5 +1,7 @@
 import React from 'react'
 import './OrderSummary.css'
+import { Link, useNavigate } from 'react-router-dom';
+
 		  
 function OrderSummary({cartState}) {
 	// console.log(cartState);
@@ -27,12 +29,7 @@ function OrderSummary({cartState}) {
 			<div className='contextContainer'>
 				<div>Estimated Total</div>
 				<div>USD ${subtotal}</div>
-			</div>
-			
-			<div>
-				<button>CHECKOUT</button>
-			</div>
-			
+			</div>		
 					  
 		</div>
 	)

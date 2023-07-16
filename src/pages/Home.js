@@ -1,10 +1,11 @@
 import React from 'react'
 import './Home.css'
+import MainSlideshow from '../components/Home/MainSlideshow'
 		  
 function Home() {
     return (
 		<div className="home">
-			<div>Ora</div>
+			<MainSlideshow/>
 					  
 		</div>
 	)

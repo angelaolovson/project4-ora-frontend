@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CheckOut.css'
-import CheckOutInfo from '../components/CheckOut/CheckOutInfo'
-		  
+import CustomerInfo from '../components/CheckOut/CustomerInfo'
+import TotalSummary from '../components/CheckOut/TotalSummary'
+
 function CheckOut() {
+	
     return (
 		<div className="checkout">
-			<CheckOutInfo />
-			<OrderSummary className="cartOrderSummary"/>  
+			<CustomerInfo />
+			<TotalSummary />
+			
+			 
 		</div>
 	)
 }

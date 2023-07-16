@@ -1,15 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cart.css'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import MyBag from '../components/Cart/MyBag';
 import OrderSummary from '../components/Cart/OrderSummary';
+
 
 
 function Cart() {
 	
 	const cartIdNumber = useParams();
-	console.log(cartIdNumber)
+	// console.log(cartIdNumber)
 	const [cartState, setCartState] = useState(null);
+	
   
 	// This effect will run when the component mounts and whenever cartId changes
 	useEffect(() => {
@@ -63,7 +65,13 @@ function Cart() {
 			) : (
 				<>
 					<MyBag cartState={cartState} deleteItem={deleteItemFromCart} />
-					<OrderSummary className="cartOrderSummary" cartState={cartState} />
+					<div className="cartOrderSummaryContainer" >
+						<OrderSummary className="cartOrderSummary" cartState={cartState} />
+						<Link className="checkoutButton" to="/checkout">
+						CHECK OUT
+						</Link>
+					</div>
+					
 				</>
 			)}
 		</div>

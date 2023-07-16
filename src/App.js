@@ -14,7 +14,8 @@ import EachProduct from './pages/EachProduct';
 import Cart from './pages/Cart';
 import NewProduct from './pages/NewProduct';
 import UpdateProduct from './pages/UpdateProduct';
-
+import CheckOut from './pages/CheckOut';
+import {CartProvider} from './context/CartContext';
 
 
 function App() {
@@ -85,23 +86,26 @@ function App() {
       <Route path="/wedding" element={<Wedding />} />
       <Route path="/about" element={<About />} />
       <Route path="/cart/:id" element={<Cart />} />
+      <Route path="/checkout" element={<CheckOut />} />
     </Routes>
   );
 
 
   return (
     <AuthContext.Provider value={authcontextValue}>
-      <div className="App">
-        <header className="header-fixed">
-          <MainNav />
-        </header>
+      <CartProvider>
+        <div className="App">
+          <header>
+            <MainNav />
+          </header>
+              
+          <main>
+            {routes}
+          </main>
 
-        <main>
-          {routes}
-        </main>
-
-        <Footer />       
-      </div>
+          <Footer />       
+        </div>
+      </CartProvider>
     </AuthContext.Provider>
 
   );

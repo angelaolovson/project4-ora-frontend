@@ -1,11 +1,11 @@
- .cart{
+.cart{
     display: flex;
     width: 90%;
- }
+}
 
- .mybag{
+.mybag{
     width: 70%;
- }
- .ordersummary{
+}
+.cartOrderSummaryContainer{
     width: 30%;
- }
+}

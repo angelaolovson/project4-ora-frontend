@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './EachProduct.css'
 import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
+import { CartContext } from '../context/CartContext'
 
 
 function EachProduct() {
@@ -10,6 +11,7 @@ function EachProduct() {
 	// console.log(auth, "----line 10-----")
 	const [eachProductState, setEachProductState] = useState(null);
 	const [quantityState, setQuantityState] = useState(1);
+	const [cartState, setCartState] = useContext(CartContext);
 	// console.log(eachProductState,"each product state")
   
 	const { id } = useParams();
@@ -81,6 +83,9 @@ function EachProduct() {
 			console.error('Error:', error);
 		}
 		console.log('Adding to cart:', eachProductState, 'Quantity:', quantityState);
+		// Import cartState and on this line call the setCartState
+		
+		setCartState();
 	};
 
 	function decreaseQuantity() {
