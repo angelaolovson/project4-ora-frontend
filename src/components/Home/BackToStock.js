@@ -4,7 +4,7 @@ import './BackToStock.css'
 function BackToStock() {
     return (
 		<div className="backtostock">
-			<div className='btsTitle'>Back To Stock</div>
+			<div className='btsTitle'>Back In Stock</div>
 			<div className='btsContainer'>
 				
 				<div className='btsEachItem'>

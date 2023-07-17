@@ -6,78 +6,63 @@ import { Link } from 'react-router-dom';
 function Selfcare() {
     return (
 		<div className="selfcare">
-		  <div className="pagesMain1">
-			<div className="imgContainer">
-			  <img
-				className="pagesImg"
-				src="https://orabytangni.com/cdn/shop/products/Woodwick-candle-set-pink-toulle_360x.jpg?v=1642011679"
-				alt="Candles"
-			  />
-			</div>
-			<div className="pageContextContainer">
-			  <div>Title</div>
-			  <div>Description</div>
-			  <div>
-				<Link className="shopSign" to="/selfcare/candles">
-				  Shop Candles
-				</Link>
-			  </div>
-			</div>
-		  </div>
-		  <div className="pagesMain2">
-			<div className="pageContextContainer">
-			  <div>Title</div>
-			  <div>Description</div>
-			  <div>
-				<Link className="shopSign" to="/selfcare/incense">
-				  Shop Incense
-				</Link>
-			  </div>
-			</div>
-			<div className="imgContainer">
-			  <img
-				className="pagesImg"
-				src="https://i.imgur.com/SYDD1ii.png"
-				alt="Incense"
-			  />
-			</div>
-		  </div>
-		  <div className="pagesMain3">
-			<div className="pageContextContainer">
-			  <div>Hydrate</div>
-			  <div>Description</div>
-			  <div>
-				<Link className="shopSign" to="/selfcare/hydrate">
-				  Shop Hydrate
-				</Link>
-			  </div>
-			</div>
-			<div className="imgContainer">
-			  <img
-				className="pagesImg"
-				src="https://i.imgur.com/SYDD1ii.png"
-				alt="Hydrate"
-			  />
-			</div>
-		  </div>
-		  <div className="pagesMain4">
-			<div className="pageContextContainer">
-			  <div>Cleanse</div>
-			  <div>Description</div>
-			  <div>
-				<Link className="shopSign" to="/selfcare/cleanse">
-				  Shop Cleanse
-				</Link>
-			  </div>
-			</div>
-			<div className="imgContainer">
-			  <img
-				className="pagesImg"
-				src="https://i.imgur.com/SYDD1ii.png"
-				alt="Cleanse"
-			  />
-			</div>
-		  </div>
+			<div className='selfcareh2'>SelfCare</div>
+			<div className="selfcareContainers">
+				<div className="selfcareContainer">
+					<img
+					className="selfcareImg"
+					src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689548931/Ora/Product/Ora_Flores_112021-247_kdtoci.jpg"
+					alt="Candles"
+					/>		
+					<div className='selfcareTitle'>Candles</div>
+					<div className='selfcareLink'>
+						<Link className="selfcareShopSign" to="/selfcare/candles">
+							Shop Now
+						</Link>
+					</div>
+				</div>
+				<div className="selfcareContainer">
+					<img
+					className="selfcareImg"
+					src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689549010/Ora/Product/Ora_Flores_112021-336_q0lmun.jpg"
+					alt="Candles"
+					/>		
+					<div className='selfcareTitle'>Hydrate</div>
+					<div className='selfcareLink'>
+						<Link className="selfcareShopSign" to="/selfcare/hydrate">
+							Shop Now
+						</Link>
+					</div>
+				</div>
+				<div className="selfcareContainer">
+					<img
+					className="selfcareImg"
+					src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689549014/Ora/SkinCare/Ora_Flores_112021-232_rdvpco.jpg"
+					alt="Candles"
+					/>		
+					<div className='selfcareTitle'>Cleanse</div>
+					<div className='selfcareLink'>
+						<Link className="selfcareShopSign" to="/selfcare/cleanse">
+							Shop Now
+						</Link>
+					</div>
+				</div>
+				<div className="selfcareContainer">
+					<img
+					className="selfcareImg"
+					src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689626831/Ora/Product/My_project_anjfcm.jpg"
+					alt="Candles"
+					/>		
+					<div className='selfcareTitle'>Incense</div>
+					<div className='selfcareLink'>
+						<Link className="selfcareShopSign" to="/selfcare/incense">
+							Shop Now
+						</Link>
+					</div>
+				</div>	
+		  
+		  
+			</div>  
 		</div>
 	  );
 }

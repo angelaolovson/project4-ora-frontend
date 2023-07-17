@@ -2,10 +2,9 @@
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin-top: 20px;
  }
  .productPageTitle{
     font-size: 30px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin: 30px 0 20px 0;
  }

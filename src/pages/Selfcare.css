@@ -1,26 +1,60 @@
-.selfcare{
+.selfcareh2{
+    margin: 30px 0 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.selfcareContainers{
     display: flex;
-    flex-direction: column;
-    width: 90%;
-}
-.pagesMain1,
-.pagesMain2,
-.pagesMain3,
-.pagesMain4 {
-    display: flex;
-    flex-direction: row;
-}
-.imgContainer{
+    height: 80vh;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     
-    width: 70%;
-    
-}
-.pageContextContainer{
-    
-    width: 30%;
-
 }
 
- .pagesImg{
-    width: 70%;
- }
+.selfcareContainer {
+    height: 50%;
+    width: 49%;
+    display: flex;
+    margin: 5px;
+    position: relative;
+}
+
+.selfcareImg{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.selfcareTitle{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff; 
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.selfcareLink {
+    position: absolute;
+    width: 20%; 
+    height: 10%; 
+    top: 57%;
+    left: 40%; /* 50% - half of width to horizontally center the link */
+    background-color: #83884E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.selfcareShopSign{
+    text-decoration: none;
+    color: #fff;
+}
