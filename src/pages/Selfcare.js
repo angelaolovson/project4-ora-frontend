@@ -42,6 +42,42 @@ function Selfcare() {
 			  />
 			</div>
 		  </div>
+		  <div className="pagesMain3">
+			<div className="pageContextContainer">
+			  <div>Hydrate</div>
+			  <div>Description</div>
+			  <div>
+				<Link className="shopSign" to="/selfcare/hydrate">
+				  Shop Hydrate
+				</Link>
+			  </div>
+			</div>
+			<div className="imgContainer">
+			  <img
+				className="pagesImg"
+				src="https://i.imgur.com/SYDD1ii.png"
+				alt="Hydrate"
+			  />
+			</div>
+		  </div>
+		  <div className="pagesMain4">
+			<div className="pageContextContainer">
+			  <div>Cleanse</div>
+			  <div>Description</div>
+			  <div>
+				<Link className="shopSign" to="/selfcare/cleanse">
+				  Shop Cleanse
+				</Link>
+			  </div>
+			</div>
+			<div className="imgContainer">
+			  <img
+				className="pagesImg"
+				src="https://i.imgur.com/SYDD1ii.png"
+				alt="Cleanse"
+			  />
+			</div>
+		  </div>
 		</div>
 	  );
 }

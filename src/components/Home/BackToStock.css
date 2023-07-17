@@ -1,0 +1,46 @@
+.backtostock{
+    margin: 50px 15px 0 15px;
+}
+.btsTitle{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.btsContainer{
+    display: flex;
+    height: 100%;
+}
+.btsEachItem{
+    display: flex;
+    height: 100%;
+}
+
+.btsLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.btsEachItemImgContainer{
+    display: flex;
+    width: 80%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.btsEachItemImg{
+    width: 100%;
+    object-fit: cover;
+}
+
+.btsEachItemTitle{
+    font-weight: bold;
+    font-size: 16px;
+}
+.btsEachItemType{
+    font-size: 16px;
+}

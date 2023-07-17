@@ -1,0 +1,38 @@
+.secondslidecontext{
+    height: 50vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0  35px;
+}
+
+.secondslidecontext1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.secondslidecontext2{
+    font-weight: lighter;
+    font-size: 14px;
+}
+.secondslidecontext3{
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.secondslidecontextLinkContainer{
+    background-color: #83884E;
+    height: 35px;
+    width:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.secondslidecontextLink{
+    text-decoration: none;
+    color: white;
+}

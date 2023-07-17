@@ -50,8 +50,12 @@ function Products() {
 		titleText = "Dried Flowers";
 	} else if (subCategory === "candles") {
 		titleText = "Candles";
-	} else{
+	} else if(subCategory === "incense"){
 		titleText = "Incense";
+	} else if(subCategory === "hydrate"){
+		titleText = "Hydrate";
+	} else if(subCategory === "cleanse"){
+		titleText = "Cleanse";
 	}
   
 	return (

@@ -3,14 +3,12 @@
     flex-direction: column;
     width: 90%;
 }
-.pagesMain1{
+.pagesMain1,
+.pagesMain2,
+.pagesMain3,
+.pagesMain4 {
     display: flex;
     flex-direction: row;
-}
-.pagesMain2{
-    display: flex;
-    flex-direction: row;
-    
 }
 .imgContainer{
     

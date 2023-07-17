@@ -36,19 +36,12 @@
   }
 } */
 
-.header-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100; /* This ensures the header stays on top of other content */
-}
-
 
 main{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
 }
 
 footer{

@@ -40,7 +40,7 @@ function MainNav() {
 
     return (
       <div className="mainNavBar">
-      <Navbar className="navMain" expand="lg" fixed="top">
+      <Navbar className="navMain" expand="lg" >
         <div className="logo">
             <a className="logoOra" href="/">
               <img className='logoImg' src="https://orabytangni.com/cdn/shop/files/Ora_Logo_Export_2x_ea2e924f-9fd4-4936-ad0e-b151974dcf6b_180x.png?v=1614324752" alt="Ora Logo"/>
@@ -93,7 +93,6 @@ function MainNav() {
                 </Link>
               </div>
       </Navbar>
-      <div className="emptyDiv"></div>
       </div>
     );
 }

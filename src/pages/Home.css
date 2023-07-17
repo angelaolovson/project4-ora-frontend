@@ -1,3 +1,10 @@
 .home{
     display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.homeSecondSlideShow{
+    display: flex;
+    width: 100%;
 }

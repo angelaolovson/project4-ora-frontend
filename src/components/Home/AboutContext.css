@@ -1,0 +1,45 @@
+.aboutcontext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.aboutcontextLeft{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-align: left;
+    padding: 0 50px;
+}
+.aboutcontextRight{
+    display: flex;
+    width: 40%;
+    height: 60vh;
+    overflow: hidden;
+}
+.aboutcontextLeft1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.aboutcontextContainer{
+    background-color: #83884E;
+    height: 35px;
+    width:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.aboutcontextLink{
+    text-decoration: none;
+    color: white;
+}
+
+.aboutcontextImg{
+    width: 100%;
+    object-fit: cover;
+}
