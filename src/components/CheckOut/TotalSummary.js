@@ -7,15 +7,6 @@ function TotalSummary() {
     const { cartState, isLoading } = useContext(CartContext);
     console.log(cartState)
 
-	useEffect(() => {
-		if (typeof window !== "undefined") { // checks that window is defined (this code runs client-side)
-		  if (!localStorage.getItem("hasReloaded")) { // checks that we haven't already refreshed
-			localStorage.setItem("hasReloaded", "true"); // sets a flag to prevent infinite reloading
-			window.location.reload(); // reloads the page
-		  }
-		}
-	  }, []);
-
     if (isLoading || !cartState || !cartState.items) {
         return <div>Loading...</div>;
     }
@@ -58,6 +49,8 @@ function TotalSummary() {
 }
 
 export default TotalSummary;
+
+
 
 
 

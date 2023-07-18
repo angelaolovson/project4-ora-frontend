@@ -9,8 +9,10 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
-    if (userData && userData.cart && userData.cart.length > 0) {
-      setCartId(userData.cart[0]._id);
+    
+    // If userData and userData.userData and userData.userData.cart exist and userData.userData.cart array has items
+    if (userData && userData.userData && userData.userData.cart && userData.userData.cart.length > 0) {
+      setCartId(userData.userData.cart[0]._id); // Use the correct path to get the cartId
     }
   }, []);
 
