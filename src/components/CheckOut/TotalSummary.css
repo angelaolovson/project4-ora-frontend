@@ -1,1 +1,46 @@
- 
+.totalsummary{
+    display: flex;
+    flex-direction: column;
+    border: 2px yellow solid;
+}
+
+.totalsummaryTitle{
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.totalsummaryItemSub{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+
+.totalsummaryContainer{
+    display: flex;
+    padding: 10px;
+}
+.totalsummaryItemInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.totalsummaryItemName{
+    font-weight: bold;
+}
+.totalsummaryImgContainer{
+    display: flex;
+    width: 40%;
+    height: 15vh;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.totalsummaryImg{
+    width: 100%;
+    object-fit: cover;
+}
