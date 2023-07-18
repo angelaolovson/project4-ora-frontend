@@ -1,56 +1,65 @@
-import React, { useContext } from 'react'
-import './TotalSummary.css'
+import React, { useContext, useEffect } from 'react';
+import './TotalSummary.css';
 import { CartContext } from '../../context/CartContext';
 
-  
 function TotalSummary() {
-    const [cartState, setCartState] = useContext(CartContext);
-    // setCartState();
+
+    const { cartState, isLoading } = useContext(CartContext);
     console.log(cartState)
 
-	// Number of items
+	useEffect(() => {
+		if (typeof window !== "undefined") { // checks that window is defined (this code runs client-side)
+		  if (!localStorage.getItem("hasReloaded")) { // checks that we haven't already refreshed
+			localStorage.setItem("hasReloaded", "true"); // sets a flag to prevent infinite reloading
+			window.location.reload(); // reloads the page
+		  }
+		}
+	  }, []);
+
+    if (isLoading || !cartState || !cartState.items) {
+        return <div>Loading...</div>;
+    }
+
+    // Number of items
     const numItems = cartState ? cartState.items.length : 0;
 
-	// Subtotal
+    // Subtotal
     const subtotal = cartState 
         ? cartState.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
         : 0;
 
-	// Total
-	const finalPrice = subtotal*1.088
+    // Total
+    const finalPrice = subtotal * 1.088
 
     return (
         <div className="totalsummary">
-			<div className="totalsummaryTitle">Order Summary</div>
-			<div className="totalsummaryItemSub">
-				<div className="totalsummaryItems">{numItems} items</div>
+            <div className="totalsummaryTitle">Total Summary</div>
+            <div className="totalsummaryItemSub">
+                <div className="totalsummaryItems">{numItems} items</div>
                 <div className="totalsummarySub">Subtotal: ${subtotal.toFixed(2)}</div>
-			</div>
-            {cartState ? (
-                <>
-                    {cartState.items.map((item, index) => (
-						<div className='totalsummaryContainer' key={index}>
-							<div className='totalsummaryImgContainer'>
-								<img className='totalsummaryImg' src={item.product.images[0]} alt={item.product.title} />
-							</div>
-							<div className='totalsummaryItemInfo'>
-								<div className='totalsummaryItemName'>{item.product.title}</div>
-								<div className='totalsummaryItemqty'>QTY:{item.quantity}</div>
-								<div className='totalsummaryItemprice'>${(item.product.price*item.quantity).toFixed(2)}</div>
-							</div>
-						</div>
-					))}
-                </>
-				
-            )
-			 : 
-            <div>Loading...</div>
-            }	
-			<div>total: ${finalPrice.toFixed(2)}</div>		  
+            </div>
+            <>
+                {cartState.items.map((item, index) => (
+                    <div className='totalsummaryContainer' key={index}>
+                        <div className='totalsummaryImgContainer'>
+                            {item.product && item.product.images && item.product.images[0] && <img className='totalsummaryImg' src={item.product.images[0]} alt={item.product.title} />}
+                        </div>
+                        <div className='totalsummaryItemInfo'>
+                            <div className='totalsummaryItemName'>{item.product.title}</div>
+                            <div className='totalsummaryItemqty'>QTY:{item.quantity}</div>
+                            <div className='totalsummaryItemprice'>${(item.product.price*item.quantity).toFixed(2)}</div>
+                        </div>
+                    </div>
+                ))}
+            </>
+            <div>total: ${finalPrice.toFixed(2)}</div>       
         </div>
     )
 }
 
-export default TotalSummary
+export default TotalSummary;
+
+
+
 
 		  

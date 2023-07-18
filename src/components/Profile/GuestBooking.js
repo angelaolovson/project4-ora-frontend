@@ -14,7 +14,7 @@ const GuestBooking = () => {
   useEffect(()=>{
     const fetchBooking = async () => {
         try {
-            //let responseData = await fetch(`http://localhost:4000/booking/host/${auth.userId}`)
+            //let responseData = await fetch(`https://capstone-ora-backend.onrender.com/booking/host/${auth.userId}`)
             let responseData = await fetch(`https://airbnb-main.onrender.com/booking/host/${auth.userId}`)
             
             let allBookings = await responseData.json()

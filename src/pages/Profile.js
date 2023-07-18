@@ -42,7 +42,7 @@ const Profile = () => {
               );
               
               // const responseData = await fetch(
-              //   `http://localhost:4000/user/${auth.userId}`, options
+              //   `https://capstone-ora-backend.onrender.com/user/${auth.userId}`, options
               // );
             
               const profileData = await responseData.json();

@@ -62,7 +62,7 @@ function NewProduct() {
 			};
 
 			const responseData = await fetch(
-				"http://localhost:4000/product", options
+				"https://capstone-ora-backend.onrender.com/product", options
 			)
 			// const responseData = await fetch(
 			// 	"https://capstone-ora-backend.onrender.com/product", options
