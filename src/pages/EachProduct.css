@@ -6,7 +6,7 @@
 .eachProductImgContainer{
     width: 480px;
     height: 500px;
-    overflow: hidden; /* Hide anything that exceeds the box */
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;    

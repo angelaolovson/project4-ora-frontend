@@ -46,7 +46,7 @@
     width: 20%; 
     height: 10%; 
     top: 57%;
-    left: 40%; /* 50% - half of width to horizontally center the link */
+    left: 40%;
     background-color: #83884E;
     display: flex;
     align-items: center;

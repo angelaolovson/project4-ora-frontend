@@ -12,12 +12,6 @@
     overflow: hidden;
     display: flex;
 }
-/* .slideshowItem {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    object-fit: cover;
-} */
 
 .slideshowImage {
     height: 100%;

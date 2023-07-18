@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 130%; /* This sets the height to be 1.3 times the width */
+    padding-top: 130%; 
 }
 
 .productItemItemImg {
@@ -23,7 +23,6 @@
 
 
 .productItemCardBody{
-    /* padding: 0; */
     display: flex;
     justify-content: space-between;
 }
