@@ -1,8 +1,7 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { AuthContext } from '../context/auth-context';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateProduct = () => {
@@ -20,16 +19,14 @@ const UpdateProduct = () => {
 
     const {id} = useParams();
     const navigate = useNavigate();
-
-    //authentication
-    const auth = useContext(AuthContext);
     
     //useEffect
 
     useEffect(()=>{
         const fetchProduct = async() => {
         try {
-            const responseData = await fetch (`http://localhost:4000/product/${id}`);
+            // const responseData = await fetch (`http://localhost:4000/product/${id}`);
+            const responseData = await fetch (`https://capstone-ora-backend.onrender.com/product/${id}`);
             const productData = await responseData.json();
             console.log("***** each product data *****",productData);
 

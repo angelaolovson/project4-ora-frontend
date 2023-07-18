@@ -11,7 +11,9 @@ const CartProvider = ({ children }) => {
     // Define an async function that fetches cart data
     const fetchCartData = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/cart/${cartId}`);
+        // const response = await fetch(`http://localhost:4000/cart/${cartId}`);
+        const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartId}`);
+        
         const data = await response.json();
         console.log(data)
 

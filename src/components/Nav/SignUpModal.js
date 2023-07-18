@@ -40,8 +40,11 @@ function SignUpModal({show,handleClose}) {
         },
         body: JSON.stringify(signUpData),
       };
+      // const responseData = await fetch(
+      //   "http://localhost:4000/user/signup", options
+      // );
       const responseData = await fetch(
-        "http://localhost:4000/user/signup", options
+        "https://capstone-ora-backend.onrender.com/user/signup", options
       );
 
       const signUpObj = await responseData.json();

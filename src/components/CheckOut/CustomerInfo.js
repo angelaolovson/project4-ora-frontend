@@ -31,8 +31,11 @@ function CustomerInfo() {
 			body: JSON.stringify(newOrder),
 			};
 
+			// const responseData = await fetch(
+			// 	"http://localhost:4000/order", options
+			// )
 			const responseData = await fetch(
-				"http://localhost:4000/order", options
+				"https://capstone-ora-backend.onrender.com/order", options
 			)
 			const newOrderObj = await responseData.json();
 			console.log(newOrderObj)
