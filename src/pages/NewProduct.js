@@ -61,12 +61,12 @@ function NewProduct() {
 			body: JSON.stringify(newListing),
 			};
 
-			// const responseData = await fetch(
-			// 	"http://localhost:4000/product", options
-			// )
 			const responseData = await fetch(
-				"https://capstone-ora-backend.onrender.com/product", options
+				"http://localhost:4000/product", options
 			)
+			// const responseData = await fetch(
+			// 	"https://capstone-ora-backend.onrender.com/product", options
+			// )
 			const newProductObj = await responseData.json();
 			console.log(newProductObj)
 			

@@ -40,12 +40,12 @@ function SignUpModal({show,handleClose}) {
         },
         body: JSON.stringify(signUpData),
       };
-      // const responseData = await fetch(
-      //   "http://localhost:4000/user/signup", options
-      // );
       const responseData = await fetch(
-        "https://capstone-ora-backend.onrender.com/user/signup", options
+        "http://localhost:4000/user/signup", options
       );
+      // const responseData = await fetch(
+      //   "https://capstone-ora-backend.onrender.com/user/signup", options
+      // );
 
       const signUpObj = await responseData.json();
       console.log(signUpObj)
@@ -84,6 +84,7 @@ const logIn = async () => {
     };
     
     const responseData = await fetch('http://localhost:4000/user/login', loginOptions);
+    // const responseData = await fetch('https://capstone-ora-backend.onrender.com/user/login', loginOptions);
     const loginObj = await responseData.json();
 
     if (responseData.status === 200) {

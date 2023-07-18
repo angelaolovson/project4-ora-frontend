@@ -25,8 +25,8 @@ const UpdateProduct = () => {
     useEffect(()=>{
         const fetchProduct = async() => {
         try {
-            // const responseData = await fetch (`http://localhost:4000/product/${id}`);
-            const responseData = await fetch (`https://capstone-ora-backend.onrender.com/product/${id}`);
+            const responseData = await fetch (`http://localhost:4000/product/${id}`);
+            // const responseData = await fetch (`https://capstone-ora-backend.onrender.com/product/${id}`);
             const productData = await responseData.json();
             console.log("***** each product data *****",productData);
 

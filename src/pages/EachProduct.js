@@ -17,8 +17,8 @@ function EachProduct() {
 	const { id } = useParams();
 	// console.log(id)
 	// console.log(useParams())
-	// const url = `http://localhost:4000/product/${id}`;
-	const url = `https://capstone-ora-backend.onrender.com/product/${id}`;
+	const url = `http://localhost:4000/product/${id}`;
+	// const url = `https://capstone-ora-backend.onrender.com/product/${id}`;
   
 	useEffect(() => {
 		const fetchEachProduct = async () => {

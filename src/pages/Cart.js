@@ -18,8 +18,8 @@ function Cart() {
 	  // Define an async function that fetches cart data
 	  const fetchCartData = async () => {
 		try {
-		//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
-		  const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}`);
+		  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
+		//   const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}`);
 
 		  const data = await response.json();
 		  console.log(data)
@@ -39,12 +39,12 @@ function Cart() {
 	// Function to delete an item from the cart
     const deleteItemFromCart = async (itemId) => {
         try {
-            // const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
-            //     method: 'PATCH',
-            // });
-            const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}/items/${itemId}`, {
+            const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
                 method: 'PATCH',
             });
+            // const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}/items/${itemId}`, {
+            //     method: 'PATCH',
+            // });
 
             if (!response.ok) throw new Error('Error deleting item');
             const updatedCart = await response.json();
