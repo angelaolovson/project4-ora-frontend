@@ -80,9 +80,12 @@ function Cart() {
 					<MyBag cartState={cartState} deleteItem={deleteItemFromCart} />
 					<div className="cartOrderSummaryContainer" >
 						<OrderSummary className="cartOrderSummary" cartState={cartState} />
-						<Link className="cartButton" to="/checkout">
-						CHECK OUT
-						</Link>
+						<div className='cartCheckOutButtonDiv' >
+							<Link className="cartCheckOutButton" to="/checkout">
+							CHECK OUT
+							</Link>
+						</div>
+						
 					</div>
 					
 				</>

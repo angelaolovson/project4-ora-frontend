@@ -89,9 +89,9 @@ function MainNav() {
                   </>
                 )}      
                   <NavDropdown.Divider />
-                  {/* <NavDropdown.Item href="/order">
+                  <NavDropdown.Item href="/order">
                     Order
-                  </NavDropdown.Item> */}
+                  </NavDropdown.Item>
                   {auth.userId === "64b7561ce20f8019002809ad" && (
                   <NavDropdown.Item href="/product/new">
                     NewProduct

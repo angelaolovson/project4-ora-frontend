@@ -59,7 +59,7 @@ function CustomerInfo() {
 		event.preventDefault();
 		const newOrder = {
 		  user: auth.userId,
-		  cart: cartState.cartId,
+		  cart: cartState._id,
 		  receiver: {
 			firstName: receiverFirstNameState,
 			lastName: receiverLastNameState,

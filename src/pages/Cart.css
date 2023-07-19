@@ -31,8 +31,16 @@
     width: 100px;
     background-color: #83884E;
 }
-.cartButton{
+.cartCheckOutButtonDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #83884E;
+    height: 35px;
+}
+
+.cartCheckOutButton{
     text-decoration: none;
     color: white;
-    
+    font-weight: bold;
 }
