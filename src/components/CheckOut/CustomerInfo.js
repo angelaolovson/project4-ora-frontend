@@ -1,14 +1,54 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './CustomerInfo.css'
 import { AuthContext } from '../../context/auth-context';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 
 function CustomerInfo() {
 	const auth = useContext(AuthContext)
-  	console.log(auth.userId)
+	const {cartState} = useContext(CartContext);
 	const navigate = useNavigate();
+  	console.log(auth.userId)
+	console.log(cartState)
+
+	//userData
+	const[firstNameState, setFirstNameState] = useState('')
+	const[lastNameState, setLastNameState] = useState('')
+	const[phoneNumberState, setPhoneNumberState] = useState('')
+	const[emailState, setEmailState] = useState('')
+	//receiverInfo
+	const[receiverFirstNameState, setreceiverFirstNameState] = useState('')
+	const[receiverLastNameState, setreceiverLastNameState] = useState('')
+	const[receiverPhoneNumberState, setreceiverPhoneNumberState] = useState('')
+	const[receiverEmailState, setreceiverEmailState] = useState('')
+
+	
+
+	useEffect(()=>{
+        const fetchUser = async() => {
+        try {
+            const responseData = await fetch (`http://localhost:4000/user/${auth.userId}`);
+            const userData = await responseData.json();
+            console.log("***** each user data *****",userData);
+
+            const {firstName,lastName, phoneNumber, email} = userData
+
+            setFirstNameState(firstName);
+            setLastNameState(lastName);
+			setPhoneNumberState(phoneNumber);
+			setEmailState(email);
+
+        } catch(error) {
+            console.log(error)
+        }
+        }
+        fetchUser();
+    }, [auth.userId]);
+
+	console.log(firstNameState)
+
 
 	//states handler
 	const onChangeHandler = (e,setValue) => {
@@ -18,53 +58,86 @@ function CustomerInfo() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const newOrder = {
-			
-		}
-		//console.log('new listing',newOrder);
-		
-		try{   
-			const options = {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
+		  user: auth.userId,
+		  cart: cartState.cartId,
+		  receiver: {
+			firstName: receiverFirstNameState,
+			lastName: receiverLastNameState,
+			phoneNumber: receiverPhoneNumberState,
+			email: receiverEmailState,
+		  },
+		};
+	  
+		try {
+		  const options = {
+			method: "POST",
+			headers: {
+			  "Content-Type": "application/json",
 			},
 			body: JSON.stringify(newOrder),
-			};
-
-			const responseData = await fetch(
-				"https://capstone-ora-backend.onrender.com/order", options
-			)
-			// const responseData = await fetch(
-			// 	"https://capstone-ora-backend.onrender.com/order", options
-			// )
-			const newOrderObj = await responseData.json();
-			console.log(newOrderObj)
-			
-			navigate('/')
-		} catch (error){
-			console.log(error)
+		  };
+	  
+		  const responseData = await fetch(
+			"http://localhost:4000/order",
+			options
+		  );
+	  
+		  const newOrderObj = await responseData.json();
+		  console.log(newOrderObj);
+	  
+		  navigate('/');
+		} catch (error) {
+		  console.log(error);
 		}
-	};
+	  };
+	  
 
     return (
 		<div className="customerinfo">
-			<div>CheckOut Info name, address, blablabla</div>
+			<div></div>
 			<Container >
-			{/* <Form onSubmit={handleSubmit}>
+			<Form onSubmit={handleSubmit}>
 				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label style ={{marginTop:'70px'}}>Title</Form.Label>
+					<Form.Label style ={{marginTop:'70px'}}>First Name</Form.Label>
 					<Form.Control 
 						type="text" 
-						value ={titleState} 
-						placeholder="Product Name" 
-						onChange={(e) => onChangeHandler(e, setTitleState)}
+						value ={receiverFirstNameState} 
+						placeholder={firstNameState} 
+						onChange={(e) => onChangeHandler(e, setreceiverFirstNameState)}
+						required/>
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="formBasicEmail">
+					<Form.Label style ={{marginTop:'70px'}}>Last Name</Form.Label>
+					<Form.Control 
+						type="text" 
+						value ={receiverLastNameState} 
+						placeholder={lastNameState} 
+						onChange={(e) => onChangeHandler(e, setreceiverLastNameState)}
+						required/>
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="formBasicEmail">
+					<Form.Label style ={{marginTop:'70px'}}>Email</Form.Label>
+					<Form.Control 
+						type="text" 
+						value ={receiverEmailState} 
+						placeholder={emailState} 
+						onChange={(e) => onChangeHandler(e, setreceiverEmailState)}
+						required/>
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="formBasicEmail">
+					<Form.Label style ={{marginTop:'70px'}}>Phone Number</Form.Label>
+					<Form.Control 
+						type="tel" 
+						value ={receiverPhoneNumberState} 
+						placeholder={phoneNumberState} 
+						onChange={(e) => onChangeHandler(e, setreceiverPhoneNumberState)}
 						required/>
 				</Form.Group>
 
 				<Button variant="primary" type="submit">
 					Place Order
 				</Button>
-			</Form> */}
+			</Form>
 		</Container>
 					  
 		</div>

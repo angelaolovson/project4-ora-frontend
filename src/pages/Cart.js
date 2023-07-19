@@ -18,8 +18,8 @@ function Cart() {
 	  // Define an async function that fetches cart data
 	  const fetchCartData = async () => {
 		try {
-		  const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}`);
-		//   const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}`);
+		  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
+		//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
 
 		  const data = await response.json();
 		  console.log(data)
@@ -39,10 +39,10 @@ function Cart() {
 	// Function to delete an item from the cart
     const deleteItemFromCart = async (itemId) => {
         try {
-            const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}/items/${itemId}`, {
+            const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
                 method: 'PATCH',
             });
-            // const response = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartIdNumber.id}/items/${itemId}`, {
+            // const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
             //     method: 'PATCH',
             // });
 
@@ -67,13 +67,20 @@ function Cart() {
     return (
 		<div className="cart">
 			{cartState.items.length === 0 ? (
-				<h1>Your cart is empty</h1>
+				<div className='emptyCart'>
+					<div className='emptyCartTitle'>Your cart is empty</div>
+					<div className='cartButtonContainer'>
+						<Link className="cartButton" to="/">
+						Shop Now
+						</Link>
+					</div>
+				</div>
 			) : (
 				<>
 					<MyBag cartState={cartState} deleteItem={deleteItemFromCart} />
 					<div className="cartOrderSummaryContainer" >
 						<OrderSummary className="cartOrderSummary" cartState={cartState} />
-						<Link className="checkoutButton" to="/checkout">
+						<Link className="cartButton" to="/checkout">
 						CHECK OUT
 						</Link>
 					</div>

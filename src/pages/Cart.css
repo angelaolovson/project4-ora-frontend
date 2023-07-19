@@ -1,6 +1,7 @@
 .cart{
     display: flex;
     width: 90%;
+
 }
 
 .mybag{
@@ -8,4 +9,30 @@
 }
 .cartOrderSummaryContainer{
     width: 30%;
+}
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 350px);
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.emptyCartTitle{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.cartButtonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    background-color: #83884E;
+}
+.cartButton{
+    text-decoration: none;
+    color: white;
+    
 }

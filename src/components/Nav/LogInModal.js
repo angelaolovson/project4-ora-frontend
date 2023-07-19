@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { AuthContext } from '../../context/auth-context';
+import "./LogInModal.css";
 
 
 function LogInModal(props) {
@@ -17,12 +18,12 @@ function LogInModal(props) {
 
 //////////////////////handle submit function///////////////
   const handleOwnerLogin = (event) => {
-    setEmail('ownerora@example.com')
+    setEmail('oraflower@ora.com')
     setPassword('123456')
   }
 
   const handleCustomerLogin = (event) => {
-    setEmail('customer2@example.com')
+    setEmail('customer20@example.com')
     setPassword('123456')
   }  
 
@@ -43,10 +44,10 @@ try{
         body: JSON.stringify(logIn),
       };
       const responseData = await fetch(
-        "https://capstone-ora-backend.onrender.com/user/login", options
+        "http://localhost:4000/user/login", options
       );
       // const responseData = await fetch(
-      //   "https://capstone-ora-backend.onrender.com/user/login", options
+      //   "http://localhost:4000/user/login", options
       // );
 
 
@@ -99,15 +100,15 @@ try{
               />
             </Form.Group>
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleCustomerLogin()}>
+            <Button className="loginButton" onClick={() => handleCustomerLogin()}>
             Demo Customer
           </Button> 
-            <Button variant="warning" size="lg" style = {{margin:"10px"}} onClick={() => handleOwnerLogin()}>
+            <Button className="loginButton" onClick={() => handleOwnerLogin()}>
             Demo Owner
           </Button> 
-            <Button variant="warning" size="lg" style = {{margin:"10px"}} type='submit'>
+            <Button className="loginButton" type='submit'>
             Log In
-          </Button> 
+            </Button> 
             </div>
             </Form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}

@@ -12,7 +12,7 @@ function EachProduct() {
   const {cartState, setCartState} = useContext(CartContext);
   
   const { id } = useParams();
-  const url = `https://capstone-ora-backend.onrender.com/product/${id}`;
+  const url = `http://localhost:4000/product/${id}`;
   
   useEffect(() => {
     const fetchEachProduct = async () => {
@@ -51,7 +51,7 @@ function EachProduct() {
     }
 
     try {
-      const cartresponseData = await fetch(`https://capstone-ora-backend.onrender.com/cart/${cartId}`, {
+      const cartresponseData = await fetch(`http://localhost:4000/cart/${cartId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -95,10 +95,16 @@ function EachProduct() {
             <input type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
             <button onClick={increaseQuantity}>+</button>
           </div>
-          <button className="addToCart" onClick={handleAddToCartSubmit}>
-            Add To Cart
-          </button>
-          <div><Link to={`/product/${eachProductState._id}/edit`}>Update or Delete</Link></div>
+            <button className="addToCart" onClick={handleAddToCartSubmit}>
+              Add To Cart
+            </button>
+          <div>
+            {auth.userId === "64b7561ce20f8019002809ad" && (
+              <Link to={`/product/${eachProductState._id}/edit`}>
+                Update or Delete
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     ) : (
