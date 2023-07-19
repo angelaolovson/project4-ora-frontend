@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './MyBag.css'
-		  
-function MyBag({cartState, deleteItem}) {
-	console.log(cartState);
-	console.log(cartState.items[0].product.title);
+import { CartContext } from '../../context/CartContext';
+
+function MyBag({deleteItem}) {
+	const { cartState} = useContext(CartContext);
+	
     return (
 		<div className="mybag">
 			<div className='h2mybag'>My Bag</div>

@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext} from 'react';
 import './TotalSummary.css';
 import { CartContext } from '../../context/CartContext';
 
 function TotalSummary() {
 
     const { cartState, isLoading } = useContext(CartContext);
-    console.log(cartState)
+    // console.log(cartState)
 
     if (isLoading || !cartState || !cartState.items) {
         return <div>Loading...</div>;

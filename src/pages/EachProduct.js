@@ -61,6 +61,7 @@ function EachProduct() {
 
       const updatedCart = await cartresponseData.json();
       console.log('Cart:', updatedCart);
+      // update version
       setCartState(updatedCart);
     } catch (error) {
       console.error('Error:', error);

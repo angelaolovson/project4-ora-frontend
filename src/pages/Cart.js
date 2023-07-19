@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Cart.css'
 import { Link, useParams } from 'react-router-dom';
 import MyBag from '../components/Cart/MyBag';
 import OrderSummary from '../components/Cart/OrderSummary';
+import { CartContext } from '../context/CartContext';
 
 
 
@@ -10,30 +11,32 @@ function Cart() {
 	
 	const cartIdNumber = useParams();
 	// console.log(cartIdNumber)
-	const [cartState, setCartState] = useState(null);
+	const { cartState, setCartState } = useContext(CartContext);
+
+	// const [cartState, setCartState] = useState(null);
 	
   
-	// This effect will run when the component mounts and whenever cartId changes
-	useEffect(() => {
-	  // Define an async function that fetches cart data
-	  const fetchCartData = async () => {
-		try {
-		  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
-		//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
+	// // This effect will run when the component mounts and whenever cartId changes
+	// useEffect(() => {
+	//   // Define an async function that fetches cart data
+	//   const fetchCartData = async () => {
+	// 	try {
+	// 	  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
+	// 	//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
 
-		  const data = await response.json();
-		  console.log(data)
+	// 	  const data = await response.json();
+	// 	  console.log(data)
   
-		  // Once the data is fetched, update the state
-		  setCartState(data);
-		} catch (error) {
-		  console.error("Error fetching cart data:", error);
-		}
-	  };
+	// 	  // Once the data is fetched, update the state
+	// 	  setCartState(data);
+	// 	} catch (error) {
+	// 	  console.error("Error fetching cart data:", error);
+	// 	}
+	//   };
   
-	  // Call the fetch function
-	  fetchCartData();
-	}, [cartIdNumber.id]);
+	//   // Call the fetch function
+	//   fetchCartData();
+	// }, [cartIdNumber.id]);
 
 
 	// Function to delete an item from the cart

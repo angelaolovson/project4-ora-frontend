@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './OrderSummary.css'
 import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 		  
-function OrderSummary({cartState}) {
-	// console.log(cartState);
-	// console.log(cartState.items[0].product.title);
-
+function OrderSummary() {
+	const { cartState} = useContext(CartContext);
+    
 	const subtotal = cartState.items.map((item) => item.product.price*item.quantity)
 	.reduce((prev, curr) => prev + curr, 0);
 	console.log(subtotal)
