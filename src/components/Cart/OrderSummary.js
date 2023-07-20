@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext';
 function OrderSummary() {
 	const { cartState} = useContext(CartContext);
     
-	const subtotal = cartState.items.map((item) => item.product.price*item.quantity)
+	const subtotal = cartState?.items?.map((item) => item.product.price*item.quantity)
 	.reduce((prev, curr) => prev + curr, 0);
 	console.log(subtotal)
 

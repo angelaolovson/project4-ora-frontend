@@ -10,34 +10,7 @@ import { CartContext } from '../context/CartContext';
 function Cart() {
 	
 	const cartIdNumber = useParams();
-	// console.log(cartIdNumber)
 	const { cartState, setCartState } = useContext(CartContext);
-
-	// const [cartState, setCartState] = useState(null);
-	
-  
-	// // This effect will run when the component mounts and whenever cartId changes
-	// useEffect(() => {
-	//   // Define an async function that fetches cart data
-	//   const fetchCartData = async () => {
-	// 	try {
-	// 	  const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
-	// 	//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
-
-	// 	  const data = await response.json();
-	// 	  console.log(data)
-  
-	// 	  // Once the data is fetched, update the state
-	// 	  setCartState(data);
-	// 	} catch (error) {
-	// 	  console.error("Error fetching cart data:", error);
-	// 	}
-	//   };
-  
-	//   // Call the fetch function
-	//   fetchCartData();
-	// }, [cartIdNumber.id]);
-
 
 	// Function to delete an item from the cart
     const deleteItemFromCart = async (itemId) => {
@@ -45,9 +18,6 @@ function Cart() {
             const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
                 method: 'PATCH',
             });
-            // const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
-            //     method: 'PATCH',
-            // });
 
             if (!response.ok) throw new Error('Error deleting item');
             const updatedCart = await response.json();
@@ -57,19 +27,16 @@ function Cart() {
             console.error('Error:', error);
         }
     };
-
 	  
 	// If the cart data is not fetched yet, show a loading message
 	if (!cartState) {
 	  return <p>Empty Shopping Cart</p>;
 	}
-
 	console.log(cartState)
-
 
     return (
 		<div className="cart">
-			{cartState.items.length === 0 ? (
+			{cartState?.items?.length === 0 ? (
 				<div className='emptyCart'>
 					<div className='emptyCartTitle'>Your cart is empty</div>
 					<div className='cartButtonContainer'>

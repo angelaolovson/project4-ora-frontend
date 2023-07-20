@@ -4,11 +4,12 @@ import { CartContext } from '../../context/CartContext';
 
 function MyBag({deleteItem}) {
 	const { cartState} = useContext(CartContext);
+	console.log(cartState)
 	
     return (
 		<div className="mybag">
 			<div className='h2mybag'>My Bag</div>
-			{cartState.items.map((item, index) => (
+			{cartState?.items?.map((item, index) => (
 				<div className='cartItems' key={index}>
 					<div className='cartImgContainer'>
 						<img className='cartImg' src={item.product.images} alt={item.product.title} />

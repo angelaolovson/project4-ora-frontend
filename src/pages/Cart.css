@@ -1,7 +1,8 @@
 .cart{
     display: flex;
     width: 90%;
-
+    height: calc(100vh - 350px);
+    margin-top: 50px;
 }
 
 .mybag{
