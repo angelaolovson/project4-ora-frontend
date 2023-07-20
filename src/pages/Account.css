@@ -1,0 +1,20 @@
+.account{
+    display: flex;
+    width: 90%;
+    height: calc(100vh - 350px);
+}
+.accountLeftDiv{
+    display: flex;
+    width: 20%;
+    align-items: center;
+    text-align: left;
+}
+.accountRightDiv{
+    display: flex;
+    width: 80%;
+}
+
+.emptyBar{
+    background-color: black;
+    width: 2px;
+}

@@ -19,8 +19,8 @@ function OrderSummary() {
 				<div>${subtotal}</div>
 			</div>
 			<div className='contextContainer'>
-				<div>Shipping</div>
-				<div>Free</div>
+				<div>Store Pick Up Only</div>
+				<div></div>
 			</div>
 			<div className='contextContainer'>
 				<div>Tax</div>

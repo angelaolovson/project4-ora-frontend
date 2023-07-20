@@ -73,6 +73,7 @@ function MainNav() {
                 {auth.isLoggedIn? (
                   <>
                     {/* <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item> */}
+                    <NavDropdown.Item href="/user/account">Account</NavDropdown.Item>
                     <NavDropdown.Item onClick={()=>auth.logout()}>Log Off</NavDropdown.Item>
                   </>
                   ):(
@@ -89,9 +90,7 @@ function MainNav() {
                   </>
                 )}      
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/order">
-                    Order
-                  </NavDropdown.Item>
+                  
                   {auth.userId === "64b7561ce20f8019002809ad" && (
                   <NavDropdown.Item href="/product/new">
                     NewProduct

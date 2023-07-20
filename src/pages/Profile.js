@@ -40,11 +40,7 @@ const Profile = () => {
               const responseData = await fetch(
                 `https://airbnb-main.onrender.com/user/${auth.userId}`, options
               );
-              
-              // const responseData = await fetch(
-              //   `http://localhost:4000/user/${auth.userId}`, options
-              // );
-            
+                          
               const profileData = await responseData.json();
               setProfile(profileData);
               console.log(profileData);
@@ -63,7 +59,7 @@ const Profile = () => {
   return (
     <div className='dashboard'>
   
-        <>{profile? (
+        {/* <>{profile? (
                <div className='SideBar'>
                <SideBar profile = {profile}/>
              </div>
@@ -129,7 +125,7 @@ const Profile = () => {
      
        
         </>
-   
+    */}
     </div>
   );
 }

@@ -16,6 +16,7 @@ import NewProduct from './pages/NewProduct';
 import UpdateProduct from './pages/UpdateProduct';
 import CheckOut from './pages/CheckOut';
 import {CartProvider} from './context/CartContext';
+import Account from './pages/Account';
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/cart/:id" element={<Cart />} />
       <Route path="/checkout" element={<CheckOut />} />
+      <Route path="/user/account" element={<Account />} />
     </Routes>
   );
 
