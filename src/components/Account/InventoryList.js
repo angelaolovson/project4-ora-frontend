@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './InventoryList.css'
- 
+import { Link } from 'react-router-dom';
+
 function InventoryList() {
-	const [productState, setProductState] = useState()
+	const [productState, setProductState] = useState([])
 
 	useEffect(() => {
         const fetchProducts = async () => {
@@ -17,12 +18,56 @@ function InventoryList() {
         fetchProducts();
     }, []);
 
+	// Group products by category
+    const groupedProducts = productState.reduce((grouped, product) => {
+        const category = product.category;
+
+        if (!grouped[category]) {
+            grouped[category] = [];
+        }
+
+        grouped[category].push(product);
+        return grouped;
+    }, {});
+
     return (
-		<div className="inventorylist">
-			<div>Products</div>
-					  
-		</div>
-	)
+        <div className="inventorylist">
+            <div className="inventorylistTitleContainer">
+                <div className="inventorylistTitleContainer1">Image</div>
+                <div className="inventorylistTitleContainer2">Caetegory</div>
+                <div className="inventorylistTitleContainer3">SubCategory</div>
+                <div className="inventorylistTitleContainer4">Name</div>
+                <div className="inventorylistTitleContainer5">Price</div>
+                <div className="inventorylistTitleContainer6">Qty OH</div>
+                <div className="inventorylistTitleContainer7">Link</div>
+            </div>
+            {Object.entries(groupedProducts).map(([category, products]) => (
+                <div key={category}>
+                    {/* <h2>{category}</h2> */}
+                    {products.map(product => (
+                        <div className="OHList" key={product._id}>
+                            <div className="OHListImgContainer">
+                                <img className="OHListImg" src={product.images[0]} alt={product.title} />
+                            </div>
+                            
+							<div className="OHListCat">{product.category}</div>
+							<div className="OHListSubCat">{product.subCategory}</div>
+							<div className="OHListName">{product.title}</div>
+							<div className="OHListPrice">${product.price}</div>
+							<div className="OHListqtyCount">{product.inventoryCount}</div>
+							<div className="OHListLinks">
+								<Link to={`/product/${product._id}/edit`}>
+									Edit
+								</Link>
+							</div>
+                           
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
+    )
+	
 }
 		  
 export default InventoryList

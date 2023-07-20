@@ -1,1 +1,65 @@
- 
+.inventorylist{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.inventorylistTitleContainer{
+    display: flex;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+.OHList{
+    display: flex;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.inventorylistTitleContainer1{
+    width: 10%;
+    margin-bottom: 10px;
+}
+.OHListImgContainer{
+    display: flex;
+    width: 10%;
+    height: 10vh;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.OHListImg{
+    width: 100%;
+    object-fit: cover;
+}
+
+.inventorylistTitleContainer2,
+.OHListCat{
+    width: 15%;
+    margin-left: 10px;
+}
+.inventorylistTitleContainer3,
+.OHListSubCat{
+    width: 15%;
+}
+.inventorylistTitleContainer4,
+.OHListName{
+    width: 20%;
+    padding-left:30px;
+}
+.inventorylistTitleContainer5,
+.OHListPrice{
+    width: 10%;
+}
+.inventorylistTitleContainer6,
+.OHListqtyCount{
+    width: 12%;
+}
+.inventorylistTitleContainer7,
+.OHListLinks{
+    width: 10%;
+}
+
+
+
+

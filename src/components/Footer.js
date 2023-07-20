@@ -17,7 +17,7 @@ function Footer() {
 				<div>
 					<div className="footerTitle">Follow us on Instagram!</div>
 					<div>
-						<a href="https://www.flaticon.com/free-icons/contact">@ora_lacasadelasflores</a>
+						<a href="https://www.instagram.com/ora_lacasadelasflores/" target="_blank" rel="noopener noreferrer">@ora_lacasadelasflores</a>
 					</div>
 				</div>
 

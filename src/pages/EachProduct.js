@@ -99,13 +99,13 @@ function EachProduct() {
             <button className="addToCart" onClick={handleAddToCartSubmit}>
               Add To Cart
             </button>
-          <div>
+          {/* <div>
             {auth.userId === "64b7561ce20f8019002809ad" && (
               <Link to={`/product/${eachProductState._id}/edit`}>
                 Update or Delete
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     ) : (

@@ -94,7 +94,7 @@ const UpdateProduct = () => {
         `http://localhost:4000/product/${id}`, options
         )
         const updatedProductObj = await responseData.json();
-        navigate(`/product/${id}`);
+        navigate(`/user/account`);
         console.log(updatedProductObj)
 
         } catch (error){
@@ -114,7 +114,7 @@ const UpdateProduct = () => {
         const responseData = await fetch(`http://localhost:4000/listing/${id}`, options);
         const response = await responseData.json();
         console.log(response)
-        navigate('/')
+        navigate('/user/account')
     }
 
     return (

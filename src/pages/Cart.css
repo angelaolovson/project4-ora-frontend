@@ -3,10 +3,14 @@
     width: 90%;
     height: calc(100vh - 350px);
     margin-top: 50px;
+    
 }
 
 .mybag{
     width: 70%;
+    overflow-y: auto;
+    height: 100%; 
+    
 }
 .cartOrderSummaryContainer{
     width: 30%;
