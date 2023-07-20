@@ -16,11 +16,18 @@ function CustomerOrders({userData}) {
 	
     return (
         <div className="customerorders">
-            <div>Customer orders:</div>
+            <div className="customerordersTitle">Customer Orders</div>
+            <div className="customerordersSubTitle">
+                <div className="subTitlePo">#Order</div>
+                <div className="subTitleTime">Purchase Time</div>
+                <div className="subTitleDetails">Purchase Details</div>
+            </div>
+            <div className='emptyDiv'></div>
             {userData.orders.map((order, index) => (
-                <div key={index}>
-                    <div>{order._id}</div>
-                    <Button variant="outline-secondary" onClick={() => handleOpenModal(order._id)}>
+                <div className='customerordersContainer' key={index}>
+                    <div className='customerordersId'>{order._id}</div>
+                    <div className='customerordersDate'>{order.createdAt}</div>
+                    <Button className='detailsButton' variant="outline-secondary" onClick={() => handleOpenModal(order._id)}>
                         Purchase Details
                     </Button>
                     {activeOrder === order._id && 

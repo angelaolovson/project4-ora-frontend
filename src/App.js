@@ -12,7 +12,6 @@ import Products from './pages/Products';
 import Footer from './components/Footer';
 import EachProduct from './pages/EachProduct';
 import Cart from './pages/Cart';
-import NewProduct from './pages/NewProduct';
 import UpdateProduct from './pages/UpdateProduct';
 import CheckOut from './pages/CheckOut';
 import {CartProvider} from './context/CartContext';
@@ -80,7 +79,6 @@ function App() {
       <Route path="/bouquet/:subCategory" element={<Products />} />
       <Route path="/selfcare/:subCategory" element={<Products />} />
       <Route path="/product/:id" element={<EachProduct />} />
-      <Route path="/product/new" element={<NewProduct />} />
       <Route path="/product/:id/edit" element={<UpdateProduct />} />
       <Route path="/bouquet" element={<Bouquet />} />
       <Route path="/selfcare" element={<Selfcare />} />

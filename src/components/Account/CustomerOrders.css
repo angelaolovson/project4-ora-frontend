@@ -1,1 +1,49 @@
- 
+ .customerorders{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: left;
+}
+
+.customerordersTitle{
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+.customerordersSubTitle{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+}
+.subTitlePo{
+    width: 40%;
+}
+.subTitleTime{
+    width: 40%;
+}
+.subTitleDetails{
+    width: 20%;
+    text-align: center;
+}
+.emptyDiv{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.customerordersContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.customerordersId{
+    width: 40%;
+}
+.customerordersDate{
+    width: 40%;
+}
+.detailsButton{
+    width: 20%;
+}

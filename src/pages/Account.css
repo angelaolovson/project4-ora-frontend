@@ -1,7 +1,7 @@
 .account{
     display: flex;
     width: 90%;
-    height: calc(100vh - 350px);
+    height: calc(100vh - 300px);
 }
 .accountLeftDiv{
     display: flex;
@@ -12,9 +12,12 @@
 .accountRightDiv{
     display: flex;
     width: 80%;
+    justify-content: center;
+    overflow-y: auto;
+    height: 100%; 
 }
 
 .emptyBar{
-    background-color: black;
-    width: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 1px;
 }

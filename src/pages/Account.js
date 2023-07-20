@@ -4,6 +4,8 @@ import AccountInfo from '../components/Account/AccountInfo';
 import CustomerOrders from '../components/Account/CustomerOrders';
 import SideMenu from '../components/Account/SideMenu';
 import { AuthContext } from '../context/auth-context';
+import NewProduct from '../components/Account/NewProduct';
+import InventoryList from '../components/Account/InventoryList';
 
 
 function Account() {
@@ -37,10 +39,11 @@ function Account() {
 			<div className="accountRightDiv">
 				{activeComponent === 'AccountInfo' && <AccountInfo />}
 				{activeComponent === 'CustomerOrders' && <CustomerOrders userData={userState} />}
+				{activeComponent === 'NewProduct' && <NewProduct />}
+				{activeComponent === 'InventoryList' && <InventoryList />}
 			</div>
 		</div>
 	);
 }
 		  
 export default Account
-		  
