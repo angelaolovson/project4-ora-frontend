@@ -13,6 +13,7 @@ function Footer() {
 				<div>
 					<div className="footerTitle">Store Address</div>
 					<div>42-08 43rd Ave, Sunnyside, NY 11104</div>
+					<div>Everyday 11 am - 7 pm</div>
 				</div>
 				<div>
 					<div className="footerTitle">Follow us on Instagram!</div>
