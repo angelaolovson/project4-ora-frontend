@@ -1,6 +1,5 @@
 import React, {useEffect, useState } from 'react'
 import './EditAccountInfo.css'
-import { useNavigate } from 'react-router-dom'
 import { Button, Form, Modal } from 'react-bootstrap'
 
 function EditAccountInfo({show,handleClose,userData}) {
@@ -80,14 +79,14 @@ function EditAccountInfo({show,handleClose,userData}) {
                         <Form.Control type="text" value={addressState} onChange={e => setAddressState(e.target.value)} />
                     </Form.Group>
 
-                    <Button variant="primary" type='submit'>
+                    <Button variant="outline-secondary" type='submit'>
                         Update Account Info
                     </Button>
                 </Form>
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>Close</Button>
+                <Button variant="outline-secondary" onClick={handleClose}>Close</Button>
             </Modal.Footer>
         </Modal>
     );

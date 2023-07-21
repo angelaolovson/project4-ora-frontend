@@ -1,18 +1,9 @@
-import { useState } from 'react';
 import './CustomerOrders.css'
 import { Button } from 'react-bootstrap';
-import PurchaseDetails from './PurchaseDetails';
+import { Link } from 'react-router-dom';
 
 function CustomerOrders({userData}) {
-	const [activeOrder, setActiveOrder] = useState(null);
-    
-    const handleOpenModal = (orderId) => {
-        setActiveOrder(orderId);
-    };
-
-    const handleCloseModal = () => {
-        setActiveOrder(null);
-    };
+    console.log(userData)
 	
     return (
         <div className="customerorders">
@@ -27,15 +18,15 @@ function CustomerOrders({userData}) {
                 <div className='customerordersContainer' key={index}>
                     <div className='customerordersId'>{order._id}</div>
                     <div className='customerordersDate'>{order.createdAt}</div>
-                    <Button className='detailsButton' variant="outline-secondary" onClick={() => handleOpenModal(order._id)}>
-                        Purchase Details
+                    <Button className='detailsButton' variant="outline-secondary">
+                        <Link 
+                            to={{
+                                pathname: `/order/${order._id}`
+                            }}
+                        >
+                            Receipt
+                        </Link>
                     </Button>
-                    {activeOrder === order._id && 
-                    <PurchaseDetails
-                        show={true}
-                        handleClose={handleCloseModal}
-                        order={order}
-                    />}
                 </div>
             ))}
         </div>

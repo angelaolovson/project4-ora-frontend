@@ -33,13 +33,12 @@ function AccountInfo() {
     return (
         <div className="accountinfo">
             <div className="accountinfoTitle">Account info</div>
-            <div className="accountinfoNameContainer">
-                <div>First Name: {userState?.firstName}</div>
-                <div>Last Name: {userState?.lastName}</div>
-            </div>
-            <div className="accountinfoEmail">Email: {userState?.email}</div>
-            <div className="accountinfoPhone">Phone Number: {userState?.phoneNumber}</div>
-            <Button variant="outline-secondary" onClick={handleOpenModal}>
+            <div className="accountinfoUser">First Name: {userState?.firstName}</div>
+            <div className="accountinfoUser">Last Name: {userState?.lastName}</div>
+            
+            <div className="accountinfoUser">Email: {userState?.email}</div>
+            <div className="accountinfoUser">Phone Number: {userState?.phoneNumber}</div>
+            <Button className="accountinfoButton" variant="outline-secondary" onClick={handleOpenModal}>
                 Edit Account Info
             </Button>
             {showModal && 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './InventoryList.css'
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function InventoryList() {
 	const [productState, setProductState] = useState([])
@@ -34,7 +35,7 @@ function InventoryList() {
         <div className="inventorylist">
             <div className="inventorylistTitleContainer">
                 <div className="inventorylistTitleContainer1">Image</div>
-                <div className="inventorylistTitleContainer2">Caetegory</div>
+                <div className="inventorylistTitleContainer2">Cateegory</div>
                 <div className="inventorylistTitleContainer3">SubCategory</div>
                 <div className="inventorylistTitleContainer4">Name</div>
                 <div className="inventorylistTitleContainer5">Price</div>
@@ -56,9 +57,12 @@ function InventoryList() {
 							<div className="OHListPrice">${product.price}</div>
 							<div className="OHListqtyCount">{product.inventoryCount}</div>
 							<div className="OHListLinks">
-								<Link to={`/product/${product._id}/edit`}>
-									Edit
-								</Link>
+                            <Button variant="outline-secondary">
+                                <Link to={`/product/${product._id}/edit`}>
+                                    Edit
+                                </Link>
+                            </Button>
+
 							</div>
                            
                         </div>

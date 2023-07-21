@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Routes, Navigate, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import MainNav from './components/Nav/MainNav';
 import './App.css';
 import {AuthContext} from './context/auth-context';
@@ -12,10 +12,11 @@ import Products from './pages/Products';
 import Footer from './components/Footer';
 import EachProduct from './pages/EachProduct';
 import Cart from './pages/Cart';
-import UpdateProduct from './pages/UpdateProduct';
 import CheckOut from './pages/CheckOut';
 import {CartProvider} from './context/CartContext';
 import Account from './pages/Account';
+import UpdateProduct from './components/Account/UpdateProduct';
+import OrderReceipt from './pages/OrderReceipt ';
 
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
       <Route path="/wedding" element={<Wedding />} />
       <Route path="/about" element={<About />} />
       <Route path="/cart/:id" element={<Cart />} />
+      <Route path="/order/:id" element={<OrderReceipt />} />
       <Route path="/checkout" element={<CheckOut />} />
       <Route path="/user/account" element={<Account />} />
     </Routes>

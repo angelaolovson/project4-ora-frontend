@@ -89,13 +89,13 @@ function MainNav() {
                         handleClose = {handleSignUpModalClose}/>
                   </>
                 )}      
-                  <NavDropdown.Divider />
+                  {/* <NavDropdown.Divider />
                   
                   {auth.userId === "64b7561ce20f8019002809ad" && (
                   <NavDropdown.Item href="/product/new">
                     NewProduct
                   </NavDropdown.Item>
-                  )}
+                  )} */}
               </NavDropdown>
             </div>         
           </Navbar>

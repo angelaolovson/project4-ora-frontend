@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext} from 'react'
 import './Cart.css'
 import { Link, useParams } from 'react-router-dom';
 import MyBag from '../components/Cart/MyBag';
@@ -39,8 +39,8 @@ function Cart() {
 			{cartState?.items?.length === 0 ? (
 				<div className='emptyCart'>
 					<div className='emptyCartTitle'>Your cart is empty</div>
-					<div className='cartButtonContainer'>
-						<Link className="cartButton" to="/">
+					<div className='cartCheckOutButtonDiv'>
+						<Link className="cartCheckOutButton" to="/">
 						Shop Now
 						</Link>
 					</div>

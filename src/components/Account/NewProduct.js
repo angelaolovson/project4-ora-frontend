@@ -186,8 +186,8 @@ function NewProduct() {
 				<Form.Control type="text" placeholder="url" value ={imgState[0]} onChange={(e) => handleImgChange(e, 0)} />
 			</Form.Group>
 
-			<Button variant="primary" type="submit">
-				Create A Product
+			<Button variant="outline-secondary" type="submit" style={{ marginBottom: '20px' }} >
+				Create New Product
 			</Button>
 		</Form>
 		</Container>
