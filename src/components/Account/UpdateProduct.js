@@ -111,7 +111,7 @@ const UpdateProduct = () => {
             method: "DELETE",
         };
 
-        const responseData = await fetch(`https://capstone-ora-frontend.onrender.com/listing/${id}`, options);
+        const responseData = await fetch(`https://capstone-ora-frontend.onrender.com/product/${id}`, options);
         const response = await responseData.json();
         console.log(response)
         navigate('/user/account')
