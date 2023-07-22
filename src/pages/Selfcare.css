@@ -1,25 +1,30 @@
+.selfcare{
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    margin: 30px 0;
+}
 .selfcareh2{
-    margin: 30px 0 20px 0;
     font-size: 30px;
     font-weight: bold;
     letter-spacing: 3px;
 }
 .selfcareContainers{
     display: flex;
-    height: 80vh;
+    height: 100%;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    
 }
 
 .selfcareContainer {
-    height: 50%;
+    height: 47%;
     width: 49%;
     display: flex;
-    margin: 5px;
+    padding: 5px;
     position: relative;
+    overflow: hidden;
 }
 
 .selfcareImg{

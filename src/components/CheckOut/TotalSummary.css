@@ -1,7 +1,7 @@
 .totalsummary{
     display: flex;
     flex-direction: column;
-    border: 2px yellow solid;
+    margin:30px 0;
 }
 
 .totalsummaryTitle{
@@ -43,4 +43,13 @@
 .totalsummaryImg{
     width: 100%;
     object-fit: cover;
+}
+
+.finalPriceDiv{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 10px;
 }

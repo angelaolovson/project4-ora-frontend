@@ -26,7 +26,7 @@ function OrderSummary() {
 				<div>Tax</div>
 				<div>Calculated at checkout</div>
 			</div>
-			<div className='contextContainer'>
+			<div className='contextContainerEST'>
 				<div>Estimated Total</div>
 				<div>USD ${subtotal}</div>
 			</div>		

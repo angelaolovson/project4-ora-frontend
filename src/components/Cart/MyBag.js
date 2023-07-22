@@ -32,7 +32,7 @@ function MyBag({deleteItem}) {
 								<div>${item.product.price * item.quantity}</div>
 							</div>
 						</div>
-						<div><button onClick={() => deleteItem(item.product._id)}>Remove</button></div>
+						<div className='removeButtonDiv'><button className='removeButton' onClick={() => deleteItem(item.product._id)}>Remove</button></div>
 					</div>
 				</div>
 			))}  

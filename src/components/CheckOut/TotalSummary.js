@@ -43,7 +43,10 @@ function TotalSummary() {
                     </div>
                 ))}
             </>
-            <div>total: ${finalPrice.toFixed(2)}</div>       
+            <div className='finalPriceDiv'>
+                <div>Total:</div>
+                <div>${finalPrice.toFixed(2)}</div>
+            </div>       
         </div>
     )
 }

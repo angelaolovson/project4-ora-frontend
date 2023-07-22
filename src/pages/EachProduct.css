@@ -35,3 +35,22 @@
 .eachProductDescription{
     margin-bottom: 50px;
 }
+
+.inputQty{
+    width: 100px;
+    margin: 0 2px;
+}
+
+.signButtons{
+    background-color: #83884E;
+    color: white;
+    width: 25px;
+
+}
+.addToCart{
+    background-color: #83884E;
+    color: white;
+    height: 40px;
+    width: 170px;
+    margin-top: 50px;
+}

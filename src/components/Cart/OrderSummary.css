@@ -8,11 +8,19 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 .h2ordersummary{
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.contextContainerEST{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 25px;
+    font-weight: bold;
 }

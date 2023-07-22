@@ -68,7 +68,7 @@ function Products() {
             	{filteredProducts}
           	</Row>
 		) : (
-		  <p>Coming soon!</p>
+		  <p style={{ height: 'calc(100vh - 411px)' }} >Coming soon!</p>
 		)}
 	  </div>
 	);

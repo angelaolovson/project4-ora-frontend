@@ -92,20 +92,13 @@ function EachProduct() {
           <div className='eachProductPrice'>${eachProductState.price}</div>
           <div className='eachProductDescription'>{eachProductState.description}</div>
           <div>
-            <button onClick={decreaseQuantity}>-</button>
-            <input type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
-            <button onClick={increaseQuantity}>+</button>
+            <button className='signButtons' onClick={decreaseQuantity}>-</button>
+            <input className='inputQty' type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
+            <button className='signButtons' onClick={increaseQuantity}>+</button>
           </div>
             <button className="addToCart" onClick={handleAddToCartSubmit}>
               Add To Cart
             </button>
-          {/* <div>
-            {auth.userId === "64b7561ce20f8019002809ad" && (
-              <Link to={`/product/${eachProductState._id}/edit`}>
-                Update or Delete
-              </Link>
-            )}
-          </div> */}
         </div>
       </div>
     ) : (

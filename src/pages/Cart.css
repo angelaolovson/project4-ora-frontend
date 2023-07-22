@@ -1,22 +1,20 @@
 .cart{
     display: flex;
-    width: 90%;
+    width: 95%;
     height: calc(100vh - 350px);
     margin-top: 50px;
     justify-content: center;
-    
 }
-
 .mybag{
     width: 70%;
     overflow-y: auto;
     height: 100%; 
-    
+    padding-right: 10px;
 }
 .cartOrderSummaryContainer{
     width: 30%;
+    padding-left: 10px;
 }
-
 .emptyCart {
     display: flex;
     flex-direction: column;
@@ -25,18 +23,9 @@
     align-content: center;
     justify-content: center;
 }
-
 .emptyCartTitle{
     font-size: 20px;
     margin-bottom: 10px;
-}
-.cartButtonContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    width: 100px;
-    background-color: #83884E;
 }
 .cartCheckOutButtonDiv{
     display: flex;
@@ -44,8 +33,8 @@
     justify-content: center;
     background-color: #83884E;
     height: 35px;
+    margin-top: 50px;
 }
-
 .cartCheckOutButton{
     text-decoration: none;
     color: white;

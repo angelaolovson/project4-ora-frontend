@@ -4,8 +4,9 @@
 }
 
 .customerinfo{
-    width: 70%;
+    width: 65%;
+    padding-right: 100px;
 }
 .totalsummary{
-    width: 30%;
+    width: 35%;
 }

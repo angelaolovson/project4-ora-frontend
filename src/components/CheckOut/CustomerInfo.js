@@ -134,7 +134,7 @@ function CustomerInfo() {
 						required/>
 				</Form.Group>
 
-				<Button variant="primary" type="submit">
+				<Button variant="outline-secondary" type="submit">
 					Place Order
 				</Button>
 			</Form>
