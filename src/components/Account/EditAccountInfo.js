@@ -38,7 +38,7 @@ function EditAccountInfo({show,handleClose,userData}) {
 			};
 
 			const responseData = await fetch(
-			`http://localhost:4000/user/${userData._id}`, options
+			`https://capstone-ora-frontend.onrender.com/user/${userData._id}`, options
 			)
 			const updatedUserObj = await responseData.json();
 			console.log(updatedUserObj)

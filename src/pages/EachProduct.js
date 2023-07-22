@@ -12,7 +12,7 @@ function EachProduct() {
   const {cartState, setCartState} = useContext(CartContext);
   
   const { id } = useParams();
-  const url = `http://localhost:4000/product/${id}`;
+  const url = `https://capstone-ora-frontend.onrender.com/product/${id}`;
   
   useEffect(() => {
     const fetchEachProduct = async () => {
@@ -51,7 +51,7 @@ function EachProduct() {
     }
 
     try {
-      const cartresponseData = await fetch(`http://localhost:4000/cart/${cartId}`, {
+      const cartresponseData = await fetch(`https://capstone-ora-frontend.onrender.com/cart/${cartId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

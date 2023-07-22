@@ -15,7 +15,7 @@ function Cart() {
 	// Function to delete an item from the cart
     const deleteItemFromCart = async (itemId) => {
         try {
-            const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}/items/${itemId}`, {
+            const response = await fetch(`https://capstone-ora-frontend.onrender.com/cart/${cartIdNumber.id}/items/${itemId}`, {
                 method: 'PATCH',
             });
 
