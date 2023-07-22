@@ -153,6 +153,7 @@ const UpdateProduct = () => {
                         <option value="">Choose an option</option>
                         <option value="selfcare">Selfcare</option>
                         <option value="bouquet">Bouquet</option>
+                        <option value="wedding">Wedding</option>
                     </Form.Control>
                 </Form.Group>
 
@@ -169,6 +170,8 @@ const UpdateProduct = () => {
                             <option value="incense">Incense</option>
                             <option value="freshFlowers">Fresh Flowers</option>
                             <option value="driedFlowers">Dried Flowers</option>
+                            <option value="bridalBouquet">Bridal Bouquet</option>
+						    <option value="weddingGallery">Wedding Gallery</option>
                     </Form.Control>
                 </Form.Group>
 
@@ -232,7 +235,27 @@ const UpdateProduct = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Label>Image</Form.Label>
                     <Form.Control type="text" placeholder="url" value ={imgState[0]} onChange={(e) => handleImgChange(e, 0)} />
-                </Form.Group>
+                    <Form.Control type="text" placeholder="url" value ={imgState[1]} onChange={(e) => handleImgChange(e, 1)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[2]} onChange={(e) => handleImgChange(e, 2)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[3]} onChange={(e) => handleImgChange(e, 3)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[4]} onChange={(e) => handleImgChange(e, 4)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[5]} onChange={(e) => handleImgChange(e, 5)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[6]} onChange={(e) => handleImgChange(e, 6)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[7]} onChange={(e) => handleImgChange(e, 7)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[8]} onChange={(e) => handleImgChange(e, 8)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[9]} onChange={(e) => handleImgChange(e, 9)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[10]} onChange={(e) => handleImgChange(e, 10)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[11]} onChange={(e) => handleImgChange(e, 11)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[12]} onChange={(e) => handleImgChange(e, 12)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[13]} onChange={(e) => handleImgChange(e, 13)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[14]} onChange={(e) => handleImgChange(e, 14)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[15]} onChange={(e) => handleImgChange(e, 15)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[16]} onChange={(e) => handleImgChange(e, 16)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[17]} onChange={(e) => handleImgChange(e, 17)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[18]} onChange={(e) => handleImgChange(e, 18)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[19]} onChange={(e) => handleImgChange(e, 19)} />
+                    <Form.Control type="text" placeholder="url" value ={imgState[20]} onChange={(e) => handleImgChange(e, 20)} />
+                    </Form.Group>
 
                 <Button variant="primary" type="submit">
                     Update

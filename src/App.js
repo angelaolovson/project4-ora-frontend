@@ -20,6 +20,7 @@ import OrderReceipt from './pages/OrderReceipt ';
 import WeddingGallery from './components/Wedding/WeddingGallery';
 import WeddingMenu from './components/Wedding/WeddingMenu';
 import ServiceGuideline from './components/Wedding/ServiceGuideline';
+import EachCouple from './components/Wedding/EachCouple';
 
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
       <Route path="/user/account" element={<Account />} />
       <Route path="/wedding" element={<Wedding />} /> 
       <Route path="/weddinggallery" element={<WeddingGallery />} />
+      <Route path="/weddinggallery/:id" element={<EachCouple />} />
       <Route path="/serviceguideline" element={<ServiceGuideline />} />
     </Routes>
   );

@@ -1,4 +1,3 @@
-//import { NavLink } from "react-router-dom";
 import "./MainNav.css";
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -13,7 +12,7 @@ function MainNav() {
 
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showLogInModal, setShowLogInModal] = useState(false);
-  const [currentUser, setCurrentUser] = useState(" ");
+  // const [currentUser, setCurrentUser] = useState(" ");
   //const [isLoggedIn, setIsLoggedIn] = useState(" ");
   const [cartIdState,setCartIdState] = useState(null)
 
@@ -24,6 +23,12 @@ function MainNav() {
   const auth = useContext(AuthContext)
   console.log(auth)
 
+  // dropdown menu for Links
+  const [showDropdown, setShowDropdown] = useState(false);
+  // Event handlers for showing/hiding the dropdown
+  const handleMouseEnter = () => setShowDropdown(true);
+  const handleMouseLeave = () => setShowDropdown(false);
+
   useEffect(()=> {
     const getUserData = JSON.parse(localStorage.getItem("userData"))
     if(getUserData && getUserData.userData.cart.length > 0){
@@ -31,12 +36,9 @@ function MainNav() {
     }
   }, []);
 
-
-  const handleCurrentUser = (data) => {
-    setCurrentUser(data);
-  }
-
-  // console.log(currentUser)
+  // const handleCurrentUser = (data) => {
+  //   setCurrentUser(data);
+  // }
 
     return (
       <div className="mainNavBar">
@@ -46,14 +48,12 @@ function MainNav() {
           </a>
         </div>
 
-        <div className="navLinks">
+        <div className="navLinks" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div><Link className='navLink' to='/selfcare'>Selfcare</Link></div>
           <div><Link className='navLink' to='/bouquet'>Bouquet</Link></div>
           <div><Link className='navLink' to='/wedding'>Wedding</Link></div>
           <div><Link className='navLink' to='/about'>About</Link></div>
         </div>
-
-        
 
         <div className="navRight">
           <div className="cartPath">
@@ -65,7 +65,6 @@ function MainNav() {
               Cart
             </Link>
           </div>
-
 
           <Navbar className="navMain" expand="lg" >
             <div className="dropDown">
@@ -89,13 +88,6 @@ function MainNav() {
                         handleClose = {handleSignUpModalClose}/>
                   </>
                 )}      
-                  {/* <NavDropdown.Divider />
-                  
-                  {auth.userId === "64b7561ce20f8019002809ad" && (
-                  <NavDropdown.Item href="/product/new">
-                    NewProduct
-                  </NavDropdown.Item>
-                  )} */}
               </NavDropdown>
             </div>         
           </Navbar>
