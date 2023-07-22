@@ -27,14 +27,7 @@ function About() {
 				<div className='aboutP1ImgDiv'>
 					<img className="aboutP1Img" src='https://res.cloudinary.com/dlxrcak5o/image/upload/v1689955293/Ora/Store/d86a4076_nh3syf.jpg' alt="pic"/>
 				</div>
-
 			</div>
-
-
-			
-			<div></div>
-			<div></div>
-			<div></div>
 					  
 		</div>
 	)

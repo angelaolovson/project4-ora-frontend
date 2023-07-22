@@ -121,6 +121,7 @@ function NewProduct() {
 						<option value="cleanse">Cleanse</option>
 						<option value="freshFlowers">Fresh Flowers</option>
 						<option value="driedFlowers">Dried Flowers</option>
+						<option value="bridalBouquet">Bridal Bouquet</option>
 				</Form.Control>
 			</Form.Group>
 

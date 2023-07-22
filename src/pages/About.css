@@ -45,6 +45,7 @@
     justify-content: center;
 }
 .aboutP1P{
+    margin: 5px 0;
 
 }
 
@@ -66,3 +67,6 @@
     transform: scale(1.1); /* Increase the scale value to zoom in further */
   }
   
+.aboutP1Dot{
+    font-size: 20px;
+}

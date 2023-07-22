@@ -1,0 +1,46 @@
+.serviceguideline{
+    display: flex;
+    flex-direction: column;
+}
+.serviceguidelineTitle{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+.guidelineDiv{
+    display: flex;
+    margin: 20px 0;
+}
+.guidelineDivp{
+    display: flex;
+    width: 65%;
+    flex-direction: column;
+    padding: 0 50px;
+    justify-content: center;
+}
+.guidelineP{
+    margin:6px 0;
+}
+.guidelineImgDiv {
+    width: 35%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}  
+ .guidelineImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease;
+}
+.guidelineImgDiv:hover .guidelineImg {
+    transform: scale(1.1); 
+}  
+.dot{
+    font-size: 20px;
+}
+.guidelineTangni{
+    margin-top: 30px;
+    font-style: italic;
+}

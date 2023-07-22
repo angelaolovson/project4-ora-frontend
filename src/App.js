@@ -17,6 +17,9 @@ import {CartProvider} from './context/CartContext';
 import Account from './pages/Account';
 import UpdateProduct from './components/Account/UpdateProduct';
 import OrderReceipt from './pages/OrderReceipt ';
+import WeddingGallery from './components/Wedding/WeddingGallery';
+import WeddingMenu from './components/Wedding/WeddingMenu';
+import ServiceGuideline from './components/Wedding/ServiceGuideline';
 
 
 function App() {
@@ -83,12 +86,14 @@ function App() {
       <Route path="/product/:id/edit" element={<UpdateProduct />} />
       <Route path="/bouquet" element={<Bouquet />} />
       <Route path="/selfcare" element={<Selfcare />} />
-      <Route path="/wedding" element={<Wedding />} />
       <Route path="/about" element={<About />} />
       <Route path="/cart/:id" element={<Cart />} />
       <Route path="/order/:id" element={<OrderReceipt />} />
       <Route path="/checkout" element={<CheckOut />} />
       <Route path="/user/account" element={<Account />} />
+      <Route path="/wedding" element={<Wedding />} /> 
+      <Route path="/weddinggallery" element={<WeddingGallery />} />
+      <Route path="/serviceguideline" element={<ServiceGuideline />} />
     </Routes>
   );
 
