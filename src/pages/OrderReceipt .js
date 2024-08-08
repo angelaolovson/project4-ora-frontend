@@ -8,7 +8,7 @@ function OrderReceipt () {
 	const [isLoading, setIsLoading] = useState(true);
 	const {id} = useParams()
 	
-	const url = `http://localhost:4000/order/${id}`;
+	const url = `https://capstone-ora-backend.onrender.com/order/${id}`;
 
 	useEffect(() => {
 		const fetchOrder = async () => {

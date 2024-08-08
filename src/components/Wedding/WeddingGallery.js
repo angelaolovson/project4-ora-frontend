@@ -6,7 +6,7 @@ import EachCouple from './EachCouple';
 
 function WeddingGallery() {
 	const [weddingCouplesState, setWeddingCouplesState] = useState()
-	const url = "http://localhost:4000/product?subCategory=weddingGallery";
+	const url = "https://capstone-ora-backend.onrender.com/product?subCategory=weddingGallery";
 
 	useEffect(() => {
 		const fetchCouples = async () => {

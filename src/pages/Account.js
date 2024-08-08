@@ -16,7 +16,7 @@ function Account() {
 	useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/user/${auth.userId}`);
+                const response = await fetch(`https://capstone-ora-backend.onrender.com/user/${auth.userId}`);
                 const userData = await response.json();
                 setUserState(userData);
             } catch (error) {
