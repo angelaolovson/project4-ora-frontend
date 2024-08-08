@@ -1,5 +1,4 @@
 import React from 'react'
-import './Home.css'
 import MainSlideshow from '../components/Home/MainSlideshow'
 import SecondSlideshow from '../components/Home/SecondSlideshow'
 import SecondSlideContext from '../components/Home/SecondSlideContext'
@@ -8,10 +7,10 @@ import AboutContext from '../components/Home/AboutContext'
 		  
 function Home() {
     return (
-		<div className="home">
+		<div className="flex flex-col w-full">
 			<MainSlideshow />
 			<BackToStock />
-			<div className='homeSecondSlideShow'>
+			<div className='flex w-full'>
 				<SecondSlideshow />
 				<SecondSlideContext />
 			</div>
