@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './Products.css'
 import { useParams } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import ProductItem from '../components/ProductItem';
@@ -59,8 +58,8 @@ function Products() {
 	}
   
 	return (
-	  <div className='productPage'>
-		<div className='productPageTitle'>{titleText}</div>
+	  <div className='flex flex-col px-8'>
+		<div className='text-3xl font-semibold text-center py-8'>{titleText}</div>
 		{/* Check if products are available */}
 		{filteredProductList.length > 0 ? (
 			<Row xs={1} md={3} className="g-4">
