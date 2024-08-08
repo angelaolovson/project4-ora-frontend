@@ -1,4 +1,3 @@
-import "./MainNav.css";
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useState, useContext, useEffect} from 'react';
@@ -41,34 +40,32 @@ function MainNav() {
   // }
 
     return (
-      <div className="mainNavBar">
-        <div className="logo">
-          <a className="logoOra" href="/">
-            <img className='logoImg' src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689738648/Ora/logo_hygqgk.png" alt="Ora Logo"/>
+      <div className="flex bg-[#F2ECE2] fixed top-0 right-0 left-0 z-[1000] items-center h-[100px]">
+        <div className="flex w-[15%]">
+          <a href="/">
+            <img className='h-16 mx-4' src="https://res.cloudinary.com/dlxrcak5o/image/upload/v1689738648/Ora/logo_hygqgk.png" alt="Ora Logo"/>
           </a>
         </div>
 
-        <div className="navLinks" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <div><Link className='navLink' to='/selfcare'>Selfcare</Link></div>
-          <div><Link className='navLink' to='/bouquet'>Bouquet</Link></div>
-          <div><Link className='navLink' to='/wedding'>Wedding</Link></div>
-          <div><Link className='navLink' to='/about'>About</Link></div>
+        <div className="flex w-[70%]" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <div><Link className='m-4' to='/selfcare'>Selfcare</Link></div>
+          <div><Link className='m-4' to='/bouquet'>Bouquet</Link></div>
+          <div><Link className='m-4' to='/wedding'>Wedding</Link></div>
+          <div><Link className='m-4' to='/about'>About</Link></div>
         </div>
 
-        <div className="navRight">
-          <div className="cartPath">
-            <Link className="cartPathLink" 
-              to={{ 
-                pathname: cartIdState ?`/cart/${cartIdState}`: '/', 
-                state: {cartId:cartIdState}
-                }}>
-              Cart
-            </Link>
-          </div>
+        <div className="flex items-center w-[15%] justify-around">
+          <Link 
+            to={{ 
+              pathname: cartIdState ?`/cart/${cartIdState}`: '/', 
+              state: {cartId:cartIdState}
+              }}>
+            Cart
+          </Link>
 
-          <Navbar className="navMain" expand="lg" >
-            <div className="dropDown">
-              <NavDropdown className="dropdownTitle" title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
+          <Navbar className="flex" expand="lg" >
+            <div className="flex">
+              <NavDropdown title={auth.isLoggedIn ? `Welcome` : "User"} id="navbarScrollingDropdown" >
                 {auth.isLoggedIn? (
                   <>
                     {/* <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item> */}

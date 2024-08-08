@@ -13,8 +13,8 @@ function CheckOut() {
 	  // Define an async function that fetches cart data
 	  const fetchCartData = async () => {
 		try {
-		  const response = await fetch(`https://capstone-ora-frontend.onrender.com/cart/${localData.userData.cart[0]._id}`);
-		//   const response = await fetch(`https://capstone-ora-frontend.onrender.com/cart/${cartIdNumber.id}`);
+		  const response = await fetch(`http://localhost:4000/cart/${localData.userData.cart[0]._id}`);
+		//   const response = await fetch(`http://localhost:4000/cart/${cartIdNumber.id}`);
 
 		  const data = await response.json();
 		  console.log(data)

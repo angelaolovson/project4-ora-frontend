@@ -9,7 +9,7 @@ function InventoryList() {
 	useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://capstone-ora-frontend.onrender.com/product');
+                const response = await fetch('http://localhost:4000/product');
                 const productsData = await response.json();
                 setProductState(productsData);
             } catch (error) {

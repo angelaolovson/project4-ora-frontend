@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 function EachCouple() {
 	const {id} = useParams()
 	const [eachCouplesState, setEachCouplesState] = useState()
-	const url = `https://capstone-ora-frontend.onrender.com/product/${id}`;
+	const url = `http://localhost:4000/product/${id}`;
 
 	useEffect(() => {
 		const fetchEachCouple = async () => {

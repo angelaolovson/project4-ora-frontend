@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import MainNav from './components/Nav/MainNav';
-import './App.css';
 import {AuthContext} from './context/auth-context';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -18,7 +17,7 @@ import Account from './pages/Account';
 import UpdateProduct from './components/Account/UpdateProduct';
 import OrderReceipt from './pages/OrderReceipt ';
 import WeddingGallery from './components/Wedding/WeddingGallery';
-import WeddingMenu from './components/Wedding/WeddingMenu';
+// import WeddingMenu from './components/Wedding/WeddingMenu';
 import ServiceGuideline from './components/Wedding/ServiceGuideline';
 import EachCouple from './components/Wedding/EachCouple';
 
@@ -103,12 +102,12 @@ function App() {
   return (
     <AuthContext.Provider value={authcontextValue}>
       <CartProvider>
-        <div className="App">
+        <div className="bg-[#f5f1ea] font-montserrat">
           <header>
             <MainNav />
           </header>
               
-          <main>
+          <main className='flex flex-col mt-[100px]'>
             {routes}
           </main>
 

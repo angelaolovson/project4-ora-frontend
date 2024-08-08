@@ -18,7 +18,7 @@ const DeleteSaved = ({id}) => {
               "Authorization": `Bearer ${auth.token}`
             },
            };
-           //const response = await fetch(`https://capstone-ora-frontend.onrender.com/listing/${id}/save`, options)
+           //const response = await fetch(`http://localhost:4000/listing/${id}/save`, options)
            const response = await fetch(`https://airbnb-main.onrender.com/listing/${id}/save`, options)
           if(response.ok){
              window.location.reload();

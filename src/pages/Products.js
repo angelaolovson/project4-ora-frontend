@@ -10,8 +10,7 @@ function Products() {
 	const { subCategory } = useParams();
 	
 	const [productsState, setProductsState] = useState([]);
-	const url = "https://capstone-ora-frontend.onrender.com/product";
-	// const url = "https://capstone-ora-frontend.onrender.com/product";
+	const url = "http://localhost:4000/product";
   
 	useEffect(() => {
 	  const fetchProducts = async () => {

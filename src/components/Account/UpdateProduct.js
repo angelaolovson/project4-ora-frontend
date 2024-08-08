@@ -25,7 +25,7 @@ const UpdateProduct = () => {
     useEffect(()=>{
         const fetchProduct = async() => {
         try {
-            const responseData = await fetch (`https://capstone-ora-frontend.onrender.com/product/${id}`);
+            const responseData = await fetch (`http://localhost:4000/product/${id}`);
 
             const productData = await responseData.json();
             console.log("***** each product data *****",productData);
@@ -91,7 +91,7 @@ const UpdateProduct = () => {
         };
 
         const responseData = await fetch(
-        `https://capstone-ora-frontend.onrender.com/product/${id}`, options
+        `http://localhost:4000/product/${id}`, options
         )
         const updatedProductObj = await responseData.json();
         navigate(`/user/account`);
@@ -111,7 +111,7 @@ const UpdateProduct = () => {
             method: "DELETE",
         };
 
-        const responseData = await fetch(`https://capstone-ora-frontend.onrender.com/product/${id}`, options);
+        const responseData = await fetch(`http://localhost:4000/product/${id}`, options);
         const response = await responseData.json();
         console.log(response)
         navigate('/user/account')

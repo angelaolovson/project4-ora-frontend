@@ -14,6 +14,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "d3": "^7.8.4",
+    "nth-check": "^2.1.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-datepicker": "^4.12.0",
@@ -21,7 +22,7 @@
     "react-google-autocomplete": "^2.7.3",
     "react-google-places-autocomplete": "^4.0.1",
     "react-router-dom": "^6.11.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-simple-star-rating": "^5.1.7",
     "serve": "^14.2.0",
     "web-vitals": "^2.1.4"
@@ -50,5 +51,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.8"
+  },
+  "resolutions": {
+    "nth-check": "^2.1.1",
+    "postcss": "^8.4.31"
   }
 }

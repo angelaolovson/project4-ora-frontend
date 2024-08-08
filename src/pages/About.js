@@ -11,6 +11,7 @@ function About() {
 
 			<div className="aboutTitle1">Our Story, Our Purpose </div>
 			<div className="aboutTitle1">We are two of one!</div>
+			<div className="text-3xl">Tailwind test</div>
 
 			<div className='aboutP1'>
 				<div className='aboutP1Ps'>

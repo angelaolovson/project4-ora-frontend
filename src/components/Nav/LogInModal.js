@@ -44,13 +44,9 @@ try{
         body: JSON.stringify(logIn),
       };
       const responseData = await fetch(
-        "https://capstone-ora-frontend.onrender.com/user/login", options
+        "http://localhost:4000/user/login", options
       );
-      // const responseData = await fetch(
-      //   "https://capstone-ora-frontend.onrender.com/user/login", options
-      // );
-
-
+     
       const LoginObj = await responseData.json();
       console.log(LoginObj)
       

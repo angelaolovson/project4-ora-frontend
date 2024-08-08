@@ -29,7 +29,7 @@ function CustomerInfo() {
 	useEffect(()=>{
         const fetchUser = async() => {
         try {
-            const responseData = await fetch (`https://capstone-ora-frontend.onrender.com/user/${auth.userId}`);
+            const responseData = await fetch (`http://localhost:4000/user/${auth.userId}`);
             const userData = await responseData.json();
             console.log("***** each user data *****",userData);
 
@@ -78,7 +78,7 @@ function CustomerInfo() {
 		  };
 	  
 		  const responseData = await fetch(
-			"https://capstone-ora-frontend.onrender.com/order",
+			"http://localhost:4000/order",
 			options
 		  );
 	  
