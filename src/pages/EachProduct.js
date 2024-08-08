@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import './EachProduct.css'
 import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
 import { CartContext } from '../context/CartContext'
@@ -82,21 +81,21 @@ function EachProduct() {
   return (
     <>
     {eachProductState ? (
-      <div className='eachProduct'>
-        <div className='eachProductImgContainer'>
-          <img className="eachProductImg" src={eachProductState.images[0]} alt="product pic"/>
+      <div className='flex px-24 py-16 overflow-hidden'>
+        <div className='w-[40%] h-[calc(100vh-26rem)]'>
+          <img className="w-full h-full object-cover" src={eachProductState.images[0]} alt="product pic"/>
         </div>
 
-        <div className='eachProductInfoContainer'>
-          <div className='eachProductTitle'>{eachProductState.title}</div>
-          <div className='eachProductPrice'>${eachProductState.price}</div>
-          <div className='eachProductDescription'>{eachProductState.description}</div>
+        <div className='w-[60%] px-10'>
+          <div className='text-3xl font-bold mb-2'>{eachProductState.title}</div>
+          <div className='text-xl mb-7'>${eachProductState.price}</div>
+          <div className='mb-10'>{eachProductState.description}</div>
           <div>
-            <button className='signButtons' onClick={decreaseQuantity}>-</button>
-            <input className='inputQty' type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
-            <button className='signButtons' onClick={increaseQuantity}>+</button>
+            <button className='bg-[#83884E] text-white w-8 h-8' onClick={decreaseQuantity}>-</button>
+            <input className='w-24 text-center' type="number" value={quantityState} onChange={handleQuantityChange} min="1" />
+            <button className='bg-[#83884E] text-white w-8 h-8' onClick={increaseQuantity}>+</button>
           </div>
-            <button className="addToCart" onClick={handleAddToCartSubmit}>
+            <button className="bg-[#83884E] text-white w-40 h-8 mt-8" onClick={handleAddToCartSubmit}>
               Add To Cart
             </button>
         </div>
