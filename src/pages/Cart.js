@@ -1,11 +1,8 @@
 import React, { useContext} from 'react'
-import './Cart.css'
 import { Link, useParams } from 'react-router-dom';
 import MyBag from '../components/Cart/MyBag';
 import OrderSummary from '../components/Cart/OrderSummary';
 import { CartContext } from '../context/CartContext';
-
-
 
 function Cart() {
 	
@@ -35,35 +32,30 @@ function Cart() {
 	console.log(cartState)
 
     return (
-		<div className="cart">
+		<div className="flex py-12 px-24 gap-10 overflow-y-auto">
 			{cartState?.items?.length === 0 ? (
-				<div className='emptyCart'>
-					<div className='emptyCartTitle'>Your cart is empty</div>
-					<div className='cartCheckOutButtonDiv'>
-						<Link className="cartCheckOutButton" to="/">
+				<div className='flex flex-col justify-center items-center m-auto h-[calc(100vh-296px)]'>
+					<div className='text-2xl mb-4'>Your cart is empty</div>
+					<Link className='bg-[#83884E] text-white font-bold text-center px-4 py-2' to="/">
 						Shop Now
-						</Link>
-					</div>
+					</Link>
+					
 				</div>
 			) : (
 				<>
-					<MyBag cartState={cartState} deleteItem={deleteItemFromCart} />
-					<div className="cartOrderSummaryContainer" >
-						<OrderSummary className="cartOrderSummary" cartState={cartState} />
-						<div className='cartCheckOutButtonDiv' >
-							<Link className="cartCheckOutButton" to="/checkout">
-							CHECK OUT
-							</Link>
-						</div>
+					<MyBag className="flex" cartState={cartState} deleteItem={deleteItemFromCart} />
+					<div className="flex flex-col w-[30%]" >
+						<OrderSummary cartState={cartState} />
 						
+						<Link className="w-full bg-[#83884E] text-white font-bold text-center px-4 py-2" to="/checkout">
+							CHECK OUT
+						</Link>
 					</div>
-					
 				</>
 			)}
 		</div>
 	)
-	
 }
-		  
+
 export default Cart
 		  

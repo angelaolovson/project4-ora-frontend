@@ -1,9 +1,6 @@
 import React, { useContext } from 'react'
-import './OrderSummary.css'
-import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
-		  
 function OrderSummary() {
 	const { cartState} = useContext(CartContext);
     
@@ -12,21 +9,21 @@ function OrderSummary() {
 	console.log(subtotal)
 
     return (
-		<div className="ordersummary">
-			<div className='h2ordersummary'>Order Summary</div>
-			<div className='contextContainer'>
+		<div className="flex flex-col mb-24">
+			<div className='text-2xl font-bold mb-4'>Order Summary</div>
+			<div className='flex justify-between mb-12'>
 				<div>Subtotal</div>
 				<div>${subtotal}</div>
 			</div>
-			<div className='contextContainer'>
+			<div className='flex justify-between mb-12'>
 				<div>Store Pick Up Only</div>
 				<div></div>
 			</div>
-			<div className='contextContainer'>
+			<div className='flex justify-between mb-12'>
 				<div>Tax</div>
 				<div>Calculated at checkout</div>
 			</div>
-			<div className='contextContainerEST'>
+			<div className='flex justify-between mb-12EST'>
 				<div>Estimated Total</div>
 				<div>USD ${subtotal}</div>
 			</div>		

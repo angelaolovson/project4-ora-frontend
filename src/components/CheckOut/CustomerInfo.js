@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import './CustomerInfo.css'
 import { AuthContext } from '../../context/auth-context';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-
 
 function CustomerInfo() {
 	const auth = useContext(AuthContext)
@@ -22,9 +20,7 @@ function CustomerInfo() {
 	const[receiverFirstNameState, setreceiverFirstNameState] = useState('')
 	const[receiverLastNameState, setreceiverLastNameState] = useState('')
 	const[receiverPhoneNumberState, setreceiverPhoneNumberState] = useState('')
-	const[receiverEmailState, setreceiverEmailState] = useState('')
-
-	
+	const[receiverEmailState, setreceiverEmailState] = useState('')	
 
 	useEffect(()=>{
         const fetchUser = async() => {
@@ -48,7 +44,6 @@ function CustomerInfo() {
     }, [auth.userId]);
 
 	console.log(firstNameState)
-
 
 	//states handler
 	const onChangeHandler = (e,setValue) => {
@@ -90,56 +85,54 @@ function CustomerInfo() {
 		  console.log(error);
 		}
 	  };
-	  
 
     return (
-		<div className="customerinfo">
-			<div></div>
-			<Container >
-			<Form onSubmit={handleSubmit}>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label style ={{marginTop:'70px'}}>First Name</Form.Label>
-					<Form.Control 
-						type="text" 
-						value ={receiverFirstNameState} 
-						placeholder={firstNameState} 
-						onChange={(e) => onChangeHandler(e, setreceiverFirstNameState)}
-						required/>
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label style ={{marginTop:'70px'}}>Last Name</Form.Label>
-					<Form.Control 
-						type="text" 
-						value ={receiverLastNameState} 
-						placeholder={lastNameState} 
-						onChange={(e) => onChangeHandler(e, setreceiverLastNameState)}
-						required/>
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label style ={{marginTop:'70px'}}>Email</Form.Label>
-					<Form.Control 
-						type="text" 
-						value ={receiverEmailState} 
-						placeholder={emailState} 
-						onChange={(e) => onChangeHandler(e, setreceiverEmailState)}
-						required/>
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label style ={{marginTop:'70px'}}>Phone Number</Form.Label>
-					<Form.Control 
-						type="tel" 
-						value ={receiverPhoneNumberState} 
-						placeholder={phoneNumberState} 
-						onChange={(e) => onChangeHandler(e, setreceiverPhoneNumberState)}
-						required/>
-				</Form.Group>
+		<div className="w-[50%]">
+			<div className='text-2xl font-bold mb-4'>Customer Infomation</div>
+			<Container>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group className="mb-3" controlId="formBasicEmail">
+						<Form.Label style ={{marginTop:'70px'}}>First Name</Form.Label>
+						<Form.Control 
+							type="text" 
+							value ={receiverFirstNameState} 
+							placeholder={firstNameState} 
+							onChange={(e) => onChangeHandler(e, setreceiverFirstNameState)}
+							required/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formBasicEmail">
+						<Form.Label style ={{marginTop:'70px'}}>Last Name</Form.Label>
+						<Form.Control 
+							type="text" 
+							value ={receiverLastNameState} 
+							placeholder={lastNameState} 
+							onChange={(e) => onChangeHandler(e, setreceiverLastNameState)}
+							required/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formBasicEmail">
+						<Form.Label style ={{marginTop:'70px'}}>Email</Form.Label>
+						<Form.Control 
+							type="text" 
+							value ={receiverEmailState} 
+							placeholder={emailState} 
+							onChange={(e) => onChangeHandler(e, setreceiverEmailState)}
+							required/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formBasicEmail">
+						<Form.Label style ={{marginTop:'70px'}}>Phone Number</Form.Label>
+						<Form.Control 
+							type="tel" 
+							value ={receiverPhoneNumberState} 
+							placeholder={phoneNumberState} 
+							onChange={(e) => onChangeHandler(e, setreceiverPhoneNumberState)}
+							required/>
+					</Form.Group>
 
-				<Button variant="outline-secondary" type="submit">
-					Place Order
-				</Button>
-			</Form>
-		</Container>
-					  
+					<Button variant="outline-secondary" type="submit">
+						Place Order
+					</Button>
+				</Form>
+			</Container>	  
 		</div>
 	)
 }

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './CheckOut.css'
+import React, { useEffect, useState } from 'react'
 import CustomerInfo from '../components/CheckOut/CustomerInfo'
 import TotalSummary from '../components/CheckOut/TotalSummary'
 
@@ -31,11 +30,9 @@ function CheckOut() {
 	}, [localData.userData.cart[0]._id]);
 	
     return (
-		<div className="checkout">
+		<div className="flex w-full py-12 px-24 gap-10">
 			<CustomerInfo cartState={cartState} />
 			<TotalSummary cartState={cartState} />
-			
-			 
 		</div>
 	)
 }
