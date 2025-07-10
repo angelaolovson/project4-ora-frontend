@@ -8,7 +8,7 @@ function ProductItem({product}) {
 		<NavLink to={`/product/${product._id}`} className="noUnderLine">
 
 			<Card className="flex">
-				<div>
+				<div className=''>
 					<Card.Img variant="top" src={product.images[0]} />
 				</div>
 				<Card.Body>				

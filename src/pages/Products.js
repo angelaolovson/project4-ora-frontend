@@ -58,7 +58,7 @@ function Products() {
 	}
   
 	return (
-	  <div className='flex flex-col px-8'>
+	  <div className='flex flex-col px-12'>
 		<div className='text-3xl font-semibold text-center py-8'>{titleText}</div>
 		{/* Check if products are available */}
 		{filteredProductList.length > 0 ? (
